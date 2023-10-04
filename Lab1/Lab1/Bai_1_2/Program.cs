@@ -179,7 +179,6 @@ namespace Bai_1_2
             Console.ReadKey();
 
 
-
         }
     }
 }
