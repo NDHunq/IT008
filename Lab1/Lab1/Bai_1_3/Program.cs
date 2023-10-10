@@ -22,6 +22,7 @@ namespace BT_LTTQ
             string s = Console.ReadLine();
             Ham h = new Ham();
             h.lonnhat(s);
+            h.nhonhat(s);
 
 
         }
@@ -67,6 +68,46 @@ namespace BT_LTTQ
             }
             for (int i = 0; i < chuoi.Length; i++)
                 if (chuoi[i].Length == max3)
+                    Console.WriteLine(chuoi[i]);
+            return;
+        }
+        public void nhonhat(string ch)
+        {
+            string[] chuoi = ch.Split(' ');
+            int[] s = new int[chuoi.Length];
+            for (int i = 0; i < chuoi.Length; i++)
+                if (int.TryParse(chuoi[i], out s[i]) == false)
+                    goto nextc;
+
+            int min = s[0];
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (s[i] <min) min  = s[i];
+            }
+            Console.WriteLine(min);
+            return;
+
+        nextc:
+            double[] d = new double[chuoi.Length];
+            for (int i = 0; i < chuoi.Length; i++)
+                if (double.TryParse(chuoi[i], out d[i]) == false)
+                    goto nextc2;
+            double min2 = d[0];
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (d[i] <min2) min2 = d[i];
+            }
+            Console.WriteLine(min2);
+            return;
+
+        nextc2:
+            int min3 = chuoi[0].Length;
+            for (int i = 1; i < s.Length; i++)
+            {
+                if (chuoi[i].Length <min3) min3 = chuoi[i].Length;
+            }
+            for (int i = 0; i < chuoi.Length; i++)
+                if (chuoi[i].Length == min3)
                     Console.WriteLine(chuoi[i]);
             return;
         }
