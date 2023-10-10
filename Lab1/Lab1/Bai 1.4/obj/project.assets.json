@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\nhdhi\\.nuget\\packages\\": {},
+    "C:\\Users\\hoang\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UIT\\C#\\IT008\\Lab1\\Lab1\\Bai 1.4\\Bai 1.4.csproj",
+      "projectUniqueName": "C:\\Users\\hoang\\Desktop\\IT008\\Lab1\\Lab1\\Bai 1.4\\Bai 1.4.csproj",
       "projectName": "Bai 1.4",
-      "projectPath": "D:\\UIT\\C#\\IT008\\Lab1\\Lab1\\Bai 1.4\\Bai 1.4.csproj",
-      "packagesPath": "C:\\Users\\nhdhi\\.nuget\\packages\\",
-      "outputPath": "D:\\UIT\\C#\\IT008\\Lab1\\Lab1\\Bai 1.4\\obj\\",
+      "projectPath": "C:\\Users\\hoang\\Desktop\\IT008\\Lab1\\Lab1\\Bai 1.4\\Bai 1.4.csproj",
+      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hoang\\Desktop\\IT008\\Lab1\\Lab1\\Bai 1.4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nhdhi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
