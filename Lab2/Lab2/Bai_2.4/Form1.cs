@@ -16,7 +16,8 @@ namespace Bai_2._4
         public Form1()
         {
             InitializeComponent();
-         
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,17 +31,16 @@ namespace Bai_2._4
             int formWidth = this.ClientSize.Width;
             int formHeight = this.ClientSize.Height;
 
-            // Tạo một đối tượng Graphics từ PaintEventArgs
+      
             Graphics g = e.Graphics;
-            // Chọn một màu ngẫu nhiên
+     
             Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             Brush brush = new SolidBrush(randomColor);
 
-            // Tính toán vị trí x, y ngẫu nhiên
+         
             int x = random.Next(formWidth);
             int y = random.Next(formHeight);
 
-            // Vẽ chuỗi "Paint Event" tại vị trí x, y
             g.DrawString("Paint Event", this.Font, brush, x, y);
         }
     }
