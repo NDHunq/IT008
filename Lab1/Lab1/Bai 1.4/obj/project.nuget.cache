@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "81VxKZfULjsqYelCOdGAmUCxUoZHWEG/vMRxB1YBsfm6J/F1JAyDtLJZbSds+myHL6BqYluYYm+anyHoVM7IUg==",
+  "dgSpecHash": "I/7XXCzC+1CaFPeSx3DQX4W/4jLDrOQ6aARfPV4vDRVD+ix/TL/jIQHMelKXlNUB4jedxbqMawBSgZMkJSSoiw==",
   "success": true,
   "projectFilePath": "D:\\Ca nhan\\52\\LTTQ\\Lab1_LTTQ\\IT008\\Lab1\\Lab1\\Bai 1.4\\Bai 1.4.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Ca nhan\\52\\LTTQ\\Lab1_LTTQ\\IT008\\Lab1\\Lab1\\Bai 1.4\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
