@@ -39,9 +39,11 @@ namespace bai2._7
         {
             if (label1.Text != "Vui lòng thêm yêu cầu mới!")
             {
+                
                 button2.Enabled = true;
                 button1.Text = "Sửa";
             }
+           
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -56,9 +58,20 @@ namespace bai2._7
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (comboBox1.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập yêu cầu!");
+            }
+            else if (numericUpDown2.Value > 60)
+            {
+                MessageBox.Show("Vui lòng nhập phút <60");
+
+            }
+           else if (numericUpDown3.Value > 60)
+            {
+                MessageBox.Show("Vui lòng nhập giay <60");
+
             }
             else
             {
