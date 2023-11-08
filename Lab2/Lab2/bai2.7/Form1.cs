@@ -32,15 +32,18 @@ namespace bai2._7
 
             label1.Text = "Vui lòng thêm yêu cầu mới!";
             timer1.Stop();
+            button1.Text = "Thêm";
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
         {
             if (label1.Text != "Vui lòng thêm yêu cầu mới!")
             {
+                
                 button2.Enabled = true;
                 button1.Text = "Sửa";
             }
+           
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -55,9 +58,20 @@ namespace bai2._7
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (comboBox1.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập yêu cầu!");
+            }
+            else if (numericUpDown2.Value > 60)
+            {
+                MessageBox.Show("Vui lòng nhập phút <60");
+
+            }
+           else if (numericUpDown3.Value > 60)
+            {
+                MessageBox.Show("Vui lòng nhập giay <60");
+
             }
             else
             {
@@ -106,7 +120,7 @@ namespace bai2._7
         {
             time--;
             timeh = time / 3600;
-            timem = time / 60;
+            timem = (time- timeh*3600)/ 60;
             times = time - timeh * 3600 - timem * 60;
 
             label1.Text = "Máy tính sẽ " + Yc + " trong \n                 " + timeh + "h" +timem+"m"+times+"s";
