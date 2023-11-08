@@ -32,6 +32,7 @@ namespace bai2._7
 
             label1.Text = "Vui lòng thêm yêu cầu mới!";
             timer1.Stop();
+            button1.Text = "Thêm";
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
@@ -106,7 +107,7 @@ namespace bai2._7
         {
             time--;
             timeh = time / 3600;
-            timem = time / 60;
+            timem = (time- timeh*3600)/ 60;
             times = time - timeh * 3600 - timem * 60;
 
             label1.Text = "Máy tính sẽ " + Yc + " trong \n                 " + timeh + "h" +timem+"m"+times+"s";
