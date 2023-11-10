@@ -43,5 +43,6 @@ namespace Bai_2._4
 
             g.DrawString("Paint Event", this.Font, brush, x, y);
         }
+
     }
 }
