@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bai2.7", "bai2.7\bai2.7.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bai_2.6", "Bai_2.6\Bai_2.6.csproj", "{4D466F36-66F4-4D5A-A0BA-2BF98D1B0D12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bai_2_9", "..\..\..\..\University\CODE\Visual Studio\C#\TH_LTTQ\textEdit\Bai_2_9.csproj", "{28EBD861-65DE-497E-AC1D-0B25038AD851}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bai_2_9", "Bai_2.9\Bai_2_9.csproj", "{28EBD861-65DE-497E-AC1D-0B25038AD851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
