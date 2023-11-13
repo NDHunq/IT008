@@ -34,7 +34,7 @@ namespace textEdit
                 this.Close();
             }
             else
-                MessageBox.Show("Không tìm thấy user!");
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu");
         }
         private bool Authentic(string username, string password)
         {

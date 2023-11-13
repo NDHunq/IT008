@@ -34,7 +34,7 @@ namespace textEdit
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    StreamReader sr = new StreamReader(ofd.FileName);
+                    StreamReader sr = new StreamReader(ofd.FileName,Encoding.Unicode);
                     box.Text = sr.ReadToEnd();
                     sr.Close();
                     _edit.Enabled = true;
@@ -43,7 +43,7 @@ namespace textEdit
                     isSaved = true;
              
                     path = ofd.FileName;
-                    MessageBox.Show(path);
+                  
                  
                 }
             }
@@ -72,7 +72,7 @@ namespace textEdit
                 {
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        box.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.TextTextOleObjs);
+                        box.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.UnicodePlainText);
                         MessageBox.Show("Lưu thành công");
                         isSaved = true;
                         _save.Enabled = false;
@@ -83,9 +83,10 @@ namespace textEdit
             }
             else
             {
-                box.SaveFile(path,RichTextBoxStreamType.TextTextOleObjs);
+                box.SaveFile(path,RichTextBoxStreamType.UnicodePlainText);
                 MessageBox.Show("Lưu thành công");
                 isSaved = true;
+                _save.Enabled = false;
             }
         }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
