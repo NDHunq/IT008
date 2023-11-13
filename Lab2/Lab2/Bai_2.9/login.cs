@@ -24,7 +24,11 @@ namespace textEdit
 
         private void loginBut_Click(object sender, EventArgs e)
         {
-            if (Authentic(userNameBox.Text, textBox1.Text))
+            if (userNameBox.Text == "" || textBox1.Text == "")
+            {
+                MessageBox.Show("Vui lòng điền đủ thông tin", "Notice");
+            }
+            else if (Authentic(userNameBox.Text, textBox1.Text))
             {
                 islogin = true;
                 this.Close();
