@@ -73,8 +73,10 @@
             this.passwdBox.Location = new System.Drawing.Point(317, 205);
             this.passwdBox.Multiline = true;
             this.passwdBox.Name = "passwdBox";
+            this.passwdBox.PasswordChar = '*';
             this.passwdBox.Size = new System.Drawing.Size(261, 36);
             this.passwdBox.TabIndex = 4;
+            this.passwdBox.TextChanged += new System.EventHandler(this.passwdBox_TextChanged);
             // 
             // label2
             // 
@@ -92,8 +94,10 @@
             this.rePasswdBox.Location = new System.Drawing.Point(317, 285);
             this.rePasswdBox.Multiline = true;
             this.rePasswdBox.Name = "rePasswdBox";
+            this.rePasswdBox.PasswordChar = '*';
             this.rePasswdBox.Size = new System.Drawing.Size(261, 36);
             this.rePasswdBox.TabIndex = 6;
+            this.rePasswdBox.TextChanged += new System.EventHandler(this.rePasswdBox_TextChanged);
             // 
             // label3
             // 
