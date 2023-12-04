@@ -70,6 +70,12 @@ namespace Instagram
                 Dangbai a = new Dangbai();
                 View.Content = a.Content;
             }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
+            {
+
+                Follow a = new Follow();
+                View.Content = a.Content;
+            }
         }
     }
 }

@@ -64,6 +64,9 @@
     <Compile Include="Tinh_nang\Dangbai.xaml.cs">
       <DependentUpon>Dangbai.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tinh_nang\Follow.xaml.cs">
+      <DependentUpon>Follow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tinh_nang\Tim.xaml.cs">
       <DependentUpon>Tim.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tinh_nang\Dangbai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tinh_nang\Follow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
