@@ -5,62 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Instagram"
         mc:Ignorable="d"
-        Title="MainWindow" Height="932" Width="1412" ResizeMode="NoResize">
+       Height="900px" Width="1300px" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent"  Topmost="True">
     <Window.Resources>
-       
+
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="264*"/>
-            <ColumnDefinition Width="577*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Background="#FF4C4C4C">
-            <TextBlock Text="Account" Style="{DynamicResource txt_block}" Margin="34,32,-6,774" FontSize="30">
+    <Grid >
+        <Border Background="Gray" CornerRadius="10" MouseDown="Border_MouseDown_1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border x:Name="delbtn_border" 
+                           
+                            CornerRadius="0,10,0,0" MouseDown="Border_MouseDown" MouseEnter="delbtn_border_MouseEnter" MouseLeave="delbtn_border_MouseLeave" Margin="1258,0,0,2" Cursor="Hand"
+                            >
+                    <TextBlock x:Name="delbtn_text" FontSize="25 
+                                "  VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" FontFamily="Sylfaen" Text="X"
+                                   Foreground="#740909" Cursor="Hand"/>
 
-            </TextBlock>
-            <TextBlock Text="Password" Style="{DynamicResource ResourceKey=txt_block}" Margin="34,142,-7,681" FontSize="30"/>
-            <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="32,70,35,774"/>
-            <Button x:Name="btn" Margin="94,253,97,574" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
-                <TextBlock x:Name="btn_txt" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="371*">
 
-                </TextBlock>
-            </Button>
-            <Border Background="White"  CornerRadius="10,10,10,10" Margin="28,394,30,28">
-                
-            </Border>
-            <TextBox x:Name="tb2" Style="{DynamicResource ResourceKey=txt_box}" Margin="34,176,33,668"/>
-            <TextBlock Text="Nhiệm vụ" Style="{DynamicResource ResourceKey=txt_block}" Margin="28,347,0,476" FontSize="30"/>
+                        </ColumnDefinition>
+                        <ColumnDefinition Width="929*">
 
-        </Grid>
-        <Grid Grid.Column="1" Background="#FF4C4C4C">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Tính năng" Style="{DynamicResource txt_block}" Margin="167,28,430,640" FontSize="30"/>
-            <ComboBox x:Name="cbb" Margin="331,13,215,835" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" >
-                <ComboBoxItem Content="Cào ảnh+comment">
-
-                </ComboBoxItem>
-                <ComboBoxItem Content="Thả tim">
-
-                </ComboBoxItem>
-                <ComboBoxItem Content="Bình luận">
-
-                </ComboBoxItem>
-                <ComboBoxItem Content="Follow">
-
-                </ComboBoxItem>
-                <ComboBoxItem Content="Đăng bài">
-
-                </ComboBoxItem>
-                <ComboBoxItem Content="Nuôi acc clone">
-
-                </ComboBoxItem>
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <TextBlock Height="60" Text="Tính năng" FontSize="30" Margin="35,480,-35,320" FontFamily="Bahnschrift" Foreground="Pink"/>
+                        <ComboBox Height="60" x:Name="cbb" Margin="35,523,22,277" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" >
+                            <ComboBoxItem Content="Cào ảnh+comment"/>
+                            <ComboBoxItem Content="Thả tim"/>
+                            <ComboBoxItem Content="Bình luận"/>
+                            <ComboBoxItem Content="Follow"/>
+                            <ComboBoxItem Content="Đăng bài"/>
+                            <ComboBoxItem Content="Nuôi acc clone"/>
 
 
-            </ComboBox>
-            <ContentControl x:Name="View" Margin="34,79,35,30" Width="900"/>
-        </Grid>
+                        </ComboBox>
 
+
+
+                        <TextBlock Text="Account"  Margin="34,134,-6,586" FontSize="30" Foreground="#FFEFB6C0" RenderTransformOrigin="0.5,0.5"/>
+
+                        <TextBlock Text="Password"  Margin="34,10,-7,743" FontSize="30" Foreground="Pink"/>
+                        <Border Background="White" Margin="34,54,898,708" CornerRadius="7"/>
+
+
+                        <Border Background="White" Margin="34,209,893,542" CornerRadius="7">
+                            <TextBox   Height="60" x:Name="tb2" Margin="0,-20,-317,69" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center"/>
+                        </Border>
+                        <TextBox Height="60" x:Name="tb1" Margin="35,54,22,736" Background="White" RenderTransformOrigin="0.5,0.5" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center"/>
+                        <Button Height="60" x:Name="btn" Margin="88,279,75,0" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Top"  >
+                            <TextBlock x:Name="btn_txt" Text="Accept" Foreground="Black"  Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+
+                            </TextBlock>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="808*"/>
+                            <ColumnDefinition Width="121*"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="View" Margin="5,14,24,46" Height="800" Width="900" Grid.ColumnSpan="2"/>
+                    </Grid>
+
+
+
+                </Grid>
+            </Grid>
+
+        </Border>
     </Grid>
 </Window>

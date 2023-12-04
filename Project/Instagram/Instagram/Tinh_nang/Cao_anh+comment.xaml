@@ -23,6 +23,6 @@
         <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
             <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,682" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,682" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
     </Grid>
 </UserControl>

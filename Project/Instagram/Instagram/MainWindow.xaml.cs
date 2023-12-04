@@ -26,21 +26,41 @@ namespace Instagram
             InitializeComponent();
         }
 
+       
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+        private void delbtn_border_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // animation đóng form
+            delbtn_border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#740909"));
+            delbtn_text.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void delbtn_border_MouseLeave(object sender, MouseEventArgs e)
+        {
+            delbtn_border.Background = new SolidColorBrush(Colors.Gray);
+            delbtn_text.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#740909"));
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(btn_txt.Text=="Accept")
+            if (btn_txt.Text == "Accept")
             {
                 btn_txt.Text = "Đổi";
                 tb1.IsEnabled = false;
                 tb2.IsEnabled = false;
-            } 
+            }
             else
             {
                 tb1.IsEnabled = true;
                 tb2.IsEnabled = true;
                 btn_txt.Text = "Accept";
-            }    
-                
+            }
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,13 +75,13 @@ namespace Instagram
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
             {
 
-                Tim a = new  Tim();
+                Tim a = new Tim();
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
             {
 
-               binhluan a = new binhluan();
+                binhluan a = new binhluan();
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
@@ -76,6 +96,12 @@ namespace Instagram
                 Follow a = new Follow();
                 View.Content = a.Content;
             }
+        }
+
+        private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
     }
 }

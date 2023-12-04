@@ -23,7 +23,7 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="41,15,-41,726" Foreground="#FFDD193B" FontSize="35">
 
         </TextBlock>
-        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
+        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink"  >
             <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="41,453,-41,80" Foreground="#FFDD193B" FontSize="35"/>
