@@ -4,6 +4,31 @@
              xmlns:local="clr-namespace:Instagram"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="txt_block" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Bahnschrift">
+
+            </Setter>
+            <Setter Property="FontSize" Value="25">
+
+            </Setter>
+            <Setter Property="Foreground" Value="Pink">
+
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="txt_box" TargetType="TextBox">
+            <Setter Property="Background" Value="White">
+
+            </Setter>
+            <Setter Property="Foreground" Value="Black">
+
+            </Setter>
+            <Setter Property="FontSize" Value="18">
+
+            </Setter>
+
+        </Style>
+
     </Application.Resources>
 </Application>

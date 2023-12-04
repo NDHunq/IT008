@@ -5,8 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Instagram"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="932" Width="1412" ResizeMode="NoResize">
+    <Window.Resources>
+       
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="264*"/>
+            <ColumnDefinition Width="577*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FF4C4C4C">
+            <TextBlock Text="Account" Style="{DynamicResource txt_block}" Margin="34,32,-6,774" FontSize="30">
+
+            </TextBlock>
+            <TextBlock Text="Password" Style="{DynamicResource ResourceKey=txt_block}" Margin="34,142,-7,681" FontSize="30"/>
+            <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="32,70,35,774"/>
+            <Button x:Name="btn" Margin="94,253,97,574" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
+                <TextBlock x:Name="btn_txt" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+
+                </TextBlock>
+            </Button>
+            <Border Background="White"  CornerRadius="10,10,10,10" Margin="28,394,30,28">
+                
+            </Border>
+            <TextBox x:Name="tb2" Style="{DynamicResource ResourceKey=txt_box}" Margin="34,176,33,668"/>
+            <TextBlock Text="Nhiệm vụ" Style="{DynamicResource ResourceKey=txt_block}" Margin="28,347,0,476" FontSize="30"/>
+
+        </Grid>
+        <Grid Grid.Column="1" Background="#FF4C4C4C">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Tính năng" Style="{DynamicResource txt_block}" Margin="167,28,430,640" FontSize="30"/>
+            <ComboBox x:Name="cbb" Margin="331,13,215,835" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" >
+                <ComboBoxItem Content="Cào ảnh+comment">
+
+                </ComboBoxItem>
+                <ComboBoxItem Content="Thả tim">
+
+                </ComboBoxItem>
+                <ComboBoxItem Content="Bình luận">
+
+                </ComboBoxItem>
+                <ComboBoxItem Content="Follow">
+
+                </ComboBoxItem>
+                <ComboBoxItem Content="Đăng bài">
+
+                </ComboBoxItem>
+                <ComboBoxItem Content="Nuôi acc clone">
+
+                </ComboBoxItem>
+
+
+            </ComboBox>
+            <ContentControl x:Name="View" Margin="34,79,35,30" Width="900"/>
+        </Grid>
+
     </Grid>
 </Window>

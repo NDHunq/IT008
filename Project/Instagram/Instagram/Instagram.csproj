@@ -55,6 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Tinh_nang\binhluan.xaml.cs">
+      <DependentUpon>binhluan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tinh_nang\Cao_anh+comment.xaml.cs">
+      <DependentUpon>Cao_anh+comment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tinh_nang\Dangbai.xaml.cs">
+      <DependentUpon>Dangbai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tinh_nang\Tim.xaml.cs">
+      <DependentUpon>Tim.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +79,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Tinh_nang\binhluan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tinh_nang\Cao_anh+comment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tinh_nang\Dangbai.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tinh_nang\Tim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
