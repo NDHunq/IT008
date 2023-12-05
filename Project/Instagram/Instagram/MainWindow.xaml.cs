@@ -81,8 +81,8 @@ namespace Instagram
                 Tim a = new Tim();
                 if (!tb1.IsEnabled && !tb2.IsEnabled)
                 {
-                    a.setPW(tb1.Text);
-                    a.setUS(tb2.Text);
+                    a.setPW(tb2.Text);
+                    a.setUS(tb1.Text);
                 }
                 View.Content = a.Content;
             }
