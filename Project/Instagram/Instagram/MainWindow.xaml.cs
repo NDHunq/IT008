@@ -60,7 +60,7 @@ namespace Instagram
                 tb2.IsEnabled = true;
                 btn_txt.Text = "Accept";
             }
-
+           
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,6 +95,8 @@ namespace Instagram
 
                 Follow a = new Follow();
                 View.Content = a.Content;
+                a.Account = tb2.Text;
+                a.Pass= tb1.Text;
             }
         }
 
