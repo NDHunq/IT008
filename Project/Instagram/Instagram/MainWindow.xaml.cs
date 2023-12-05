@@ -88,9 +88,13 @@ namespace Instagram
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
             {
-
-                binhluan a = new binhluan();
-                View.Content = a.Content;
+                binhluan bl = new binhluan();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    bl.SetUs(tb1.Text);
+                   bl.SetPw(tb2.Text);
+                }
+                View.Content = bl.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
             {

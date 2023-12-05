@@ -10,17 +10,17 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="username hoặc link người cần bình luận" Margin="60,17,-60,724" Foreground="#FFDD193B" FontSize="35">
 
         </TextBlock>
-        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
-            <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="AcceptButton" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="ButtonBase_OnClick"  >
+            <TextBlock x:Name="AcceptButtonText" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,76,41,666" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBox x:Name="UsernameCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,76,41,666" BorderBrush="Black" BorderThickness="2,2,2,2"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="41,346,-41,187" Foreground="#FFDD193B" FontSize="35"/>
-        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,400,41,134" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,400,41,134" BorderBrush="Black" BorderThickness="2,2,2,2"/>
         <RadioButton Margin="41,30,822,720" Height="50" Width="37" FontSize="40" Click="RadioButton_Click" >
             
         </RadioButton>
         <TextBlock Style="{DynamicResource txt_block}" Text="link bài viết" Margin="78,215,-78,526" Foreground="#FFDD193B" FontSize="35"/>
-        <TextBox x:Name="tb2" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,274,41,468" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBox x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,274,41,468" BorderBrush="Black" BorderThickness="2,2,2,2"/>
         <RadioButton Margin="41,224,822,526" Height="50" Width="37" FontSize="40" Click="RadioButton_Click_1" />
         <TextBlock Style="{DynamicResource txt_block}" Text="chế độ" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
         <ComboBox x:Name="cbb" Margin="265,141,306,602" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" >
