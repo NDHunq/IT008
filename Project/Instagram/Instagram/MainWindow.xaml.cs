@@ -14,8 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Instagram
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -25,7 +27,7 @@ namespace Instagram
         {
             InitializeComponent();
         }
-
+       
        
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,6 +55,7 @@ namespace Instagram
                 btn_txt.Text = "Đổi";
                 tb1.IsEnabled = false;
                 tb2.IsEnabled = false;
+               
             }
             else
             {
@@ -76,6 +79,11 @@ namespace Instagram
             {
 
                 Tim a = new Tim();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    a.setPW(tb1.Text);
+                    a.setUS(tb2.Text);
+                }
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")

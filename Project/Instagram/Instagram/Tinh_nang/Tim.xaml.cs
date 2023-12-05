@@ -22,35 +22,50 @@ namespace Instagram.Tinh_nang
     /// </summary>
     public partial class Tim : UserControl
     {
+        public string user_name;
+        public string password;
         public Tim()
         {
             InitializeComponent();
         }
+        public void setUS(string _us)
+        {
+           user_name= _us;
+        }
+        public void setPW(string _pw) {
+            password= _pw;
+        }
         ChromeDriver driver;
+        List<string> user_list = new List<string>();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string a = "\n" + username_tb.Text;
+            user_list.Add(username_tb.Text);
             Ds.Text += a;
         }
 
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            driver=new ChromeDriver();
-            driver.Url = "https://www.instagram.com/";
-            driver.Navigate();
-            System.Threading.Thread.Sleep(3000);
+            if (!string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(user_name))
+            {
+                if (user_list.Count > 0)
+                {
+                    driver = new ChromeDriver();
+                    driver.Url = "https://www.instagram.com/";
+                    driver.Navigate();
+                    System.Threading.Thread.Sleep(3000);
 
-            IWebElement usernameInput = driver.FindElement(By.CssSelector("input[name='username']"));
-            IWebElement passwordInput = driver.FindElement(By.CssSelector("input[name='password']"));
-            /*usernameInput.SendKeys(username_tb.Text);*/
-           
-            /*passwordInput.SendKeys(password_tb.Text);*/
-
-            // Click vào nút Đăng nhập
-            IWebElement loginButton = driver.FindElement(By.CssSelector("button[type='submit']"));
-            loginButton.Click();
-            System.Threading.Thread.Sleep(5000);
-            Tym("jennierubyjane");
+                    IWebElement usernameInput = driver.FindElement(By.CssSelector("input[name='username']"));
+                    IWebElement passwordInput = driver.FindElement(By.CssSelector("input[name='password']"));
+                    usernameInput.SendKeys(user_name);
+                    passwordInput.SendKeys(password);
+                    // Click vào nút Đăng nhập
+                    IWebElement loginButton = driver.FindElement(By.CssSelector("button[type='submit']"));
+                    loginButton.Click();
+                    System.Threading.Thread.Sleep(5000);
+                    Tym(user_list[0]);
+                }
+            }
         }
         private void Tym(string user)
         {

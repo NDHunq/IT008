@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        Height="900px" Width="1300px" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent"  Topmost="True">
+        Background="Transparent">
     <Window.Resources>
 
     </Window.Resources>
