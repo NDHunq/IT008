@@ -7,22 +7,39 @@
              mc:Ignorable="d" 
      d:DesignHeight="800" d:DesignWidth="900">
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text=" Danh sách người dùng cần tim(link hoặc username)" Margin="19,10,-19,523" Foreground="#FFDD193B" FontSize="35">
-
+        <!-- dòng trên -->
+        <TextBlock Style="{DynamicResource txt_block}" Text=" Danh sách người dùng cần tim(link hoặc username)" 
+                   Margin="19,18,51,747" Foreground="#FFDD193B" FontSize="35">
         </TextBlock>
-        <ScrollViewer Margin="19,144,36,125" BorderBrush="Black" BorderThickness="2,2,2,2">
+        
+        <!-- scroll viewer -->
+        <ScrollViewer Margin="19,150,36,125" BorderBrush="Black" BorderThickness="2,2,2,2">
             <TextBlock x:Name="Ds" Style="{DynamicResource txt_block}" Foreground="Black" Width="764" >
 
             </TextBlock>
         </ScrollViewer>
-        <Button x:Name="btn" Margin="723,60,36,682" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
-            <TextBlock x:Name="btn_txt" Text="Thêm" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+
+        <!-- nút thêm -->
+        <Button x:Name="add_but" Margin="723,60,36,682" RenderTransformOrigin="0.539,0.908" 
+                Background="Pink" Click="Button_Click"  >
+            <TextBlock x:Name="btn_txt" Text="Thêm" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" 
+                       Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" 
+                       TextAlignment="Center" HorizontalAlignment="Center">
 
             </TextBlock>
         </Button>
-        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink"  >
-            <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+
+        
+        <!-- nút chấp nhận -->
+        <Button x:Name="accept_but" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908"
+                Background="Pink" Click="btn_Copy1_Click"  >
+            <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" 
+                       Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <TextBox x:Name="tb1" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,682" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
+        
+        
+        <!-- box thêm người dùng-->
+        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,682" BorderBrush="Black" 
+                 BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
     </Grid>
 </UserControl>
