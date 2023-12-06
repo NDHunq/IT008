@@ -81,8 +81,8 @@ namespace Instagram
                 Tim a = new Tim();
                 if (!tb1.IsEnabled && !tb2.IsEnabled)
                 {
-                    a.setPW(tb1.Text);
-                    a.setUS(tb2.Text);
+                    a.setPW(tb2.Text);
+                    a.setUS(tb1.Text);
                 }
                 View.Content = a.Content;
             }
@@ -107,8 +107,8 @@ namespace Instagram
 
                 Follow a = new Follow();
                 View.Content = a.Content;
-                a.Account = tb2.Text;
-                a.Pass= tb1.Text;
+                a.Account = tb1.Text;
+                a.Pass= tb2.Text;
             }
         }
 
