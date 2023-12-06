@@ -107,8 +107,8 @@ namespace Instagram
 
                 Follow a = new Follow();
                 View.Content = a.Content;
-                a.Account = tb2.Text;
-                a.Pass= tb1.Text;
+                a.Account = tb1.Text;
+                a.Pass= tb2.Text;
             }
         }
 
