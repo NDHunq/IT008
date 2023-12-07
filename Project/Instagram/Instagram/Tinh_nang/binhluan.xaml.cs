@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V117.FedCm;
 using OpenQA.Selenium.Interactions;
 
 namespace Instagram.Tinh_nang
@@ -24,7 +25,7 @@ namespace Instagram.Tinh_nang
     /// </summary>
     public partial class binhluan : UserControl
     {
-        public string UserName;
+        public string UserName ;
         public string Password;
         
         public void SetUs(string us)
@@ -45,95 +46,173 @@ namespace Instagram.Tinh_nang
         
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            ChromeDriver chromeDriver = new ChromeDriver();
+            _Login(chromeDriver);
             if (LinkCommented.IsEnabled)
             {
-                _LinkCommented();
+                _LinkCommented(chromeDriver);
             }
             else if (UsernameCommented.IsEnabled)
             {
                 if(cbb.Text == "Comment bài gần nhất")
-                    _FirstPostComment();
+                    _FirstPostComment(chromeDriver);
                 else if (cbb.Text == "Comment tất cả")
                 {
-                    _AllPostComment();
+                    _AllPostComment(chromeDriver);
                 }
             }
-            
-            
-            
 
+            MessageBox.Show("Hoàn thành", "Thông báo ");
         }
 
-        private void _AllPostComment()
-        {
-            
-        }
-        private void _FirstPostComment()
-        {
-            var driver = new ChromeDriver();
-            
-            //chuyển tới trang
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
-            Thread.Sleep(TimeSpan.FromSeconds(5));
-            
-            //Điền username và password
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")).SendKeys("duylam1412");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")).SendKeys("duyhieu123");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            
-            //Đăng nhập
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(10));
-            
-            driver.Navigate().GoToUrl("https://www.instagram.com/" + UsernameCommented.Text + "/");
-            Thread.Sleep(TimeSpan.FromSeconds(3));
-            
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/div[2]/article/div/div/div/div[1]/a/div[1]/div[2]")).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(3));
-            
-            //Điền cmt vào ô
-            IWebElement textarea = driver.FindElement(By.TagName("textarea"));
-            textarea.Click();
-            textarea = driver.FindElement(By.TagName("textarea"));
-            textarea.SendKeys(Comment.Text);
-            Thread.Sleep(TimeSpan.FromSeconds(3));
-            //Gửi cmt
-            Actions actions = new Actions(driver);
-            actions.SendKeys(Keys.Enter).Perform();
-        }
-        
-        private void _LinkCommented()
-        {
-            ChromeDriver driver = new ChromeDriver();
+        #region Login
 
-            //chuyển tới trang
-            driver.Navigate().GoToUrl("https://www.instagram.com/");
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+        private void _Login(ChromeDriver driver)
+        {
+            try
+            {
+                //chuyển tới trang
+                driver.Navigate().GoToUrl("https://www.instagram.com/");
+                Thread.Sleep(TimeSpan.FromSeconds(3));
             
-            //Điền username và password
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")).SendKeys("duylam1412");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")).SendKeys("duyhieu123");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
+                //Điền username và password
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")).SendKeys("duylam1412");
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")).SendKeys("duyhieu123");
+                Thread.Sleep(TimeSpan.FromSeconds(2));
             
-            //Đăng nhập
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+                //Đăng nhập
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(10));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
             
-            driver.Navigate().GoToUrl(LinkCommented.Text);
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+        #region AllPostComment
+
+        private void _AllPostComment(ChromeDriver driver)
+        {
+            try
+            {
             
-            //Điền cmt vào ô
-            IWebElement textarea = driver.FindElement(By.TagName("textarea"));
-            textarea.Click();
-            textarea = driver.FindElement(By.TagName("textarea"));
-            textarea.SendKeys(Comment.Text);
+                driver.Navigate().GoToUrl("https://www.instagram.com/duylam1412/");
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/div[2]/article/div/div/div/div[1]/a/div[1]/div[2]")).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(3));
                 
-            //Gửi cmt
-            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/div[2]/div/div[4]/section/div/form/div/div[2]/div")).Click();
+                while (true)
+                {
+                    //Điền cmt vào ô
+                    IWebElement textarea = driver.FindElement(By.TagName("textarea"));
+                    textarea.Click();
+                    textarea = driver.FindElement(By.TagName("textarea"));
+                    textarea.SendKeys(Comment.Text);
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    //Gửi cmt
+                    Actions actions = new Actions(driver);
+                    actions.SendKeys(Keys.Enter).Perform();
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    if (!_isFoundElement(driver))
+                        break;
+                    NextButtonClick(driver); 
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
+        private bool _isFoundElement(ChromeDriver chromeDriver)
+        {
+            try
+            {
+                By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                chromeDriver.FindElement(nextButtonSelector);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        private void NextButtonClick(ChromeDriver chromeDriver)
+        {
+            By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+            chromeDriver.FindElement(nextButtonSelector).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+        }
+
+        #endregion
+
+        #region FirstPostComment
+
+        private void _FirstPostComment(ChromeDriver driver)
+        {
+            try
+            {
+            
+                driver.Navigate().GoToUrl("https://www.instagram.com/" + UsernameCommented.Text + "/");
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/div[2]/article/div/div/div/div[1]/a/div[1]/div[2]")).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+                //Điền cmt vào ô
+                IWebElement textarea = driver.FindElement(By.TagName("textarea"));
+                textarea.Click();
+                textarea = driver.FindElement(By.TagName("textarea"));
+                textarea.SendKeys(Comment.Text);
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+                //Gửi cmt
+                Actions actions = new Actions(driver);
+                actions.SendKeys(Keys.Enter).Perform();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+        }
+
+        #endregion
+
+        #region LinkCommented
+
+        private void _LinkCommented(ChromeDriver driver)
+        {
+            try
+            {
+                driver.Navigate().GoToUrl(LinkCommented.Text);
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+                //Điền cmt vào ô
+                IWebElement textarea = driver.FindElement(By.TagName("textarea"));
+                textarea.Click();
+                textarea = driver.FindElement(By.TagName("textarea"));
+                textarea.SendKeys(Comment.Text);
+                
+                //Gửi cmt
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/div[2]/div/div[4]/section/div/form/div/div[2]/div")).Click();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+        }
+
+        #endregion
+        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -152,5 +231,19 @@ namespace Instagram.Tinh_nang
             LinkCommented.IsEnabled =true;
             cbb.IsEnabled = false;
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            bd1.Visibility = Visibility.Collapsed;
+            bd2.Visibility = Visibility.Visible;
+        }
+    
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            bd1.Visibility = Visibility.Visible;
+            bd2.Visibility = Visibility.Collapsed;
+        }
+
     }
 }

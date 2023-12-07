@@ -20,30 +20,33 @@
         </Style>
     </UserControl.Resources>
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="41,15,-41,726" Foreground="#FFDD193B" FontSize="35">
+        <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="41,31,-41,710" Foreground="Black" FontSize="35">
 
         </TextBlock>
-        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="Pink"  >
-            <TextBlock x:Name="new_usr" Text="Accept" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="btn_Copy1" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A"  >
+            <TextBlock x:Name="new_usr" Text="Accept" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="41,453,-41,80" Foreground="#FFDD193B" FontSize="35"/>
-        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,502,41,129" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="41,453,-41,80" Foreground="Black" FontSize="35"/>
+        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="41,502,41,120" BorderBrush="Black" BorderThickness="2,2,2,2"/>
         <TextBlock Style="{DynamicResource txt_block}" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Tùy chỉnh" Margin="546,10,-546,731" Foreground="#FFDD193B" FontSize="35"/>
-        <Button x:Name="btn_Copy" Margin="41,385,663,352" RenderTransformOrigin="0.539,0.908" Background="Pink" Click="Button_Click"  >
-            <TextBlock x:Name="new_usr1" Text="Chọn " Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Style="{DynamicResource txt_block}" Text="Tùy chỉnh" Margin="546,30,-546,711" Foreground="Black" FontSize="35"/>
+        <Button x:Name="btn_Copy" Margin="380,22,389,731" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >
+            <TextBlock x:Name="new_usr1" Text="import" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
 
             </TextBlock>
         </Button>
-        <Image x:Name="photo" Margin="41,70,382,429">
+        <Border Margin="41,79,389,365" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <Image x:Name="photo" Margin="0,-1,1,0">
 
-        </Image>
-        <CheckBox Style="{DynamicResource check_box}" Content=" Tắt bình luận" Margin="559,112,137,639" RenderTransformOrigin="0.36,0.347" FontSize="26" Foreground="#FFDD193B">
+            </Image>
+        </Border>
+
+        <CheckBox Style="{DynamicResource check_box}" Content=" Tắt bình luận" Margin="576,110,120,641" RenderTransformOrigin="0.36,0.347" FontSize="26" Foreground="Black">
 
         </CheckBox>
-        <CheckBox Style="{DynamicResource check_box}" Content="Ẩn lượt thích và lượt&#xD;&#xA; xem" Margin="559,220,27,504" FontSize="26" Checked="CheckBox_Checked" Foreground="#FFE6403B">
+        <CheckBox Style="{DynamicResource check_box}" Content="Ẩn lượt thích và lượt&#xD;&#xA; xem" Margin="576,219,10,505" FontSize="26" Checked="CheckBox_Checked" Foreground="Black">
 
         </CheckBox>
-        <Border BorderBrush="#FFD02768" BorderThickness="2,2,2,2" CornerRadius="7" Margin="546,74,41,352"/>
+        <Border BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7" Margin="546,79,25,365"/>
     </Grid>
 </UserControl>
