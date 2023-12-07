@@ -152,5 +152,19 @@ namespace Instagram.Tinh_nang
             LinkCommented.IsEnabled =true;
             cbb.IsEnabled = false;
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            bd1.Visibility = Visibility.Collapsed;
+            bd2.Visibility = Visibility.Visible;
+        }
+    
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            bd1.Visibility = Visibility.Visible;
+            bd2.Visibility = Visibility.Collapsed;
+        }
+
     }
 }
