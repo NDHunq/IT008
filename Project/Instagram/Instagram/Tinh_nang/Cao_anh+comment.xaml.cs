@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,9 +28,23 @@ namespace Instagram.Tinh_nang
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string a="\n"+tb1.Text;
-            Ds.Text += a;
+            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Image to set avatar";
+            ofd.Filter = "I(*.TXT;*.DOCS)|*.txt;*.docs";
+            ofd.ShowDialog();
+          
 
+            if (ofd.FileName != "")
+            {
+                string tb_uri;
+                tb_uri = ofd.FileName;
+                Uri image_Path = new Uri(tb_uri);
+               
+
+            }
+            else
+            {
+            }
         }
     }
     

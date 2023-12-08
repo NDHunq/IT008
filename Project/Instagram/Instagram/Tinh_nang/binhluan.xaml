@@ -20,8 +20,8 @@
         </Button>
         <Border Margin="0,25,0,549" HorizontalAlignment="Center" Width="848" BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7,7,7,7"/>
         <TextBox x:Name="UsernameCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="52,89,482,666" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,293,-26,240" Foreground="#FF166AF3" FontSize="30"/>
-        <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,340,26,127" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,281,-26,252" Foreground="#FF166AF3" FontSize="30"/>
+        <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,340,26,127" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF"/>
         <RadioButton Margin="51,58,812,692" Height="50" Width="37" FontSize="40" Click="RadioButton_Click" Checked="RadioButton_Checked" />
         <TextBlock Style="{DynamicResource txt_block}" Text="link bài viết" Margin="494,54,-495,688" Foreground="Black" FontSize="25"/>
         <TextBox x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,89,51,666" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White"/>

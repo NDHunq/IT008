@@ -43,7 +43,7 @@ namespace Instagram
 
         private void delbtn_border_MouseLeave(object sender, MouseEventArgs e)
         {
-            delbtn_border.Background = new SolidColorBrush(Colors.Gray);
+            delbtn_border.Background = new SolidColorBrush(Colors.White);
             delbtn_text.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#740909"));
 
         }
@@ -56,7 +56,9 @@ namespace Instagram
                 tb1.IsEnabled = false;
                 tb2.IsEnabled = false;
                
-            }
+                        
+
+        }
             else
             {
                 tb1.IsEnabled = true;
@@ -68,47 +70,56 @@ namespace Instagram
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if (tb1.Text==""||tb2.Text=="")
             {
-
-                Cao_anh_comment a = new Cao_anh_comment();
-                View.Content = a.Content;
+                MessageBox.Show("Vui long nhap day du thong tin");
+               
             }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
+            else
             {
 
-                Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
+
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
                 {
-                    a.setPW(tb2.Text);
-                    a.setUS(tb1.Text);
+
+                    Cao_anh_comment a = new Cao_anh_comment();
+                    View.Content = a.Content;
                 }
-                View.Content = a.Content;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
-            {
-                binhluan bl = new binhluan();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
                 {
-                    bl.SetUs(tb1.Text);
-                    bl.SetPw(tb2.Text);
+
+                    Tim a = new Tim();
+                    if (!tb1.IsEnabled && !tb2.IsEnabled)
+                    {
+                        a.setPW(tb2.Text);
+                        a.setUS(tb1.Text);
+                    }
+                    View.Content = a.Content;
                 }
-                View.Content = bl.Content;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
-            {
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
+                {
+                    binhluan bl = new binhluan();
+                    if (!tb1.IsEnabled && !tb2.IsEnabled)
+                    {
+                        bl.SetUs(tb1.Text);
+                        bl.SetPw(tb2.Text);
+                    }
+                    View.Content = bl.Content;
+                }
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
+                {
 
-                Dangbai a = new Dangbai();
-                View.Content = a.Content;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
-            {
+                    Dangbai a = new Dangbai();
+                    View.Content = a.Content;
+                }
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
+                {
 
-                Follow a = new Follow();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass= tb2.Text;
+                    Follow a = new Follow();
+                    View.Content = a.Content;
+                    a.Account = tb1.Text;
+                    a.Pass = tb2.Text;
+                }
             }
         }
 
