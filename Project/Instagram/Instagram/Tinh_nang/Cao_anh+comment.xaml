@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="900">
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ds user cần cào(link hoặc username)" Margin="23,20,-23,513" Foreground="Black" FontSize="30">
+        <TextBlock Style="{DynamicResource txt_block}" Text="Ds user cần cào(link/username)" Margin="23,20,-23,513" Foreground="Black" FontSize="30">
             
         </TextBlock>
         <ScrollViewer Margin="19,144,28,125" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox  AcceptsReturn="True"  x:Name="Ds" Foreground="Black" Width="827" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="25" BorderThickness="2,1,2,2" >
+            <TextBox  AcceptsReturn="True"  x:Name="Ds" Foreground="Black" Width="827" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="30" BorderThickness="2,1,2,2" >
                 
             </TextBox>
         </ScrollViewer>

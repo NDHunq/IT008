@@ -40,7 +40,6 @@ namespace Instagram.Tinh_nang
       
             add_tbx.Text = "";
         }
-
         private void Accept_Butt_Click(object sender, RoutedEventArgs e)
         {
             ChromeDriver CD = new ChromeDriver();
@@ -51,7 +50,6 @@ namespace Instagram.Tinh_nang
             Thread.Sleep(TimeSpan.FromSeconds(1));
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
             Thread.Sleep(TimeSpan.FromSeconds(5));
-     
             string[] ListUser = User_Tbx.Text.Split(new string[] { "\n" }, StringSplitOptions.None);
             for (int i = 0; i < ListUser.Length - 1; i++)
             {
@@ -60,7 +58,7 @@ namespace Instagram.Tinh_nang
                 CD.SwitchTo().Window(tabs[tabs.Count - 1]);
 
                 CD.Navigate().GoToUrl("https://www.instagram.com/" + ListUser[i] +"/");
-                Thread.Sleep(TimeSpan.FromSeconds(10));
+                Thread.Sleep(TimeSpan.FromSeconds(7));
                 try
                 {   //có tích xanh
                     CD.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button")).Click();
@@ -81,5 +79,4 @@ hhhhhhhh444
 ndhunq
 taylorswift
 beyonce
-
  */

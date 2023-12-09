@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="Instagram.Tinh_nang.nuoiaccclone"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Instagram.Tinh_nang"
+             mc:Ignorable="d" 
+              d:DesignHeight="800" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border CornerRadius="5,0,0,5"
+                            BorderThickness="1,1,0,1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Black">
+                                <ScrollViewer x:Name="PART_ContentHost"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ComboBoxButtonStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border 
+                        Background="White" 
+                        x:Name="border" 
+                        CornerRadius="0,5,5,0" 
+                        BorderThickness="0,1,1,1"
+                        BorderBrush="Black">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style  x:Key="RoundComboBox" TargetType="{x:Type ComboBox}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="18"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Name="PART_EditableTextBox"
+                             Style="{StaticResource ComboBoxTextBoxStyle}"
+                             Padding="5,0,0,0"
+                             Height="{TemplateBinding Height}"/>
+                            <ToggleButton Grid.Column="1" Margin="0"
+                            Height="{TemplateBinding Height}"
+                            Style="{StaticResource ComboBoxButtonStyle}"
+                            Focusable="False"
+                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                                <Path Grid.Column="1"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="M 0 0 L 4 4 L 8 0 Z"
+                                  Fill="DodgerBlue" />
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="5,0,0,0"/>
+                            <Popup Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                                SnapsToDevicePixels="True"                
+                                MinWidth="{TemplateBinding ActualWidth}"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                    x:Name="DropDownBorder"
+                                    BorderThickness="1"
+                                    CornerRadius="5"
+                                    Background="Azure"
+                                    BorderBrush="Black"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Lập lịch" Margin="10,31,-10,710" Foreground="Black" FontSize="35"/>
+        <Border Margin="10,90,450,364" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5">
+            <ScrollViewer >
+                <StackPanel x:Name="nv">
+
+                </StackPanel>
+
+            </ScrollViewer>
+        </Border>
+        <Button x:Name="btn_Copy1" Margin="334,29,450,729" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
+            <TextBlock x:Name="new_usr" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
+        </Button>
+        <Border Margin="475,31,10,19" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Đăng bài" Margin="491,50,225,691" Foreground="Black" FontSize="35"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text=" Folder ảnh" Margin="495,114,-495,624" Foreground="Black" FontSize="30"/>
+        <Border Margin="491,153,22,602" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" CornerRadius="3,3,3,3">
+            <TextBlock  x:Name="uri"  Margin="0,0,87,0" FontFamily="Bahnschrift" FontSize="25">
+                
+            </TextBlock>
+        </Border>
+        <Button Margin="789,158,28,607" BorderThickness="1,1,1,1" BorderBrush="White" Background="#FF3055D2" MouseDown="Button_MouseDown" Click="Button_Click">
+            <TextBlock Style="{DynamicResource txt_block}" Text="import" Foreground="White" FontSize="20" Height="21" Width="80" HorizontalAlignment="Center" TextAlignment="Center" MouseDown="TextBlock_MouseDown_1"/>
+        </Button>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="527,218,-527,520" Foreground="Black" FontSize="30"><Run Text="Description rác"/><LineBreak/><Run Text=" "/></TextBlock>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="491,540,-491,198" Foreground="Black" FontSize="30"><Run Text="Hastag rác"/><LineBreak/><Run Text=" "/></TextBlock>
+        <Border Margin="491,257,22,265" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="3,3,3,3" Background="White">
+            <ScrollViewer x:Name="D_scrl">
+                <StackPanel x:Name="sd">
+
+                </StackPanel>
+
+            </ScrollViewer>
+        </Border>
+        <Border Margin="491,582,22,37" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="3,3,3,3" Background="White">
+            <ScrollViewer>
+                <TextBox AcceptsReturn="True">
+
+                </TextBox>
+            </ScrollViewer>
+        </Border>
+        <Border Margin="10,466,450,19" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="0,477,652,260" Foreground="Black" FontSize="30" Height="63" HorizontalAlignment="Right" TextAlignment="Right"><Run Text="Comment rác "/><LineBreak/><Run Text=" "/></TextBlock>
+        <Border Margin="22,521,466,37" BorderThickness="2,2,2,2" BorderBrush="Black" RenderTransformOrigin="-0.488,0.49" Background="White" CornerRadius="3,3,3,3">
+            <ScrollViewer >
+                <StackPanel x:Name="sc">
+
+                </StackPanel>
+
+            </ScrollViewer>
+        </Border>
+        <Border Margin="495,99,23,699" BorderThickness="2,2,2,2" BorderBrush="Black" Background="#FFF7F7F7" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.796"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.007"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <ComboBox  Style="{DynamicResource RoundComboBox}" x:Name="cbb1" Margin="687,50,22,710" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
+            <ComboBoxItem Content="lần lượt"/>
+            <ComboBoxItem Content="ngẫu nhiên"/>
+
+
+        </ComboBox>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="25,468,839,270" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown_2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="495,203,369,535" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown"/>
+
+    </Grid>
+</UserControl>

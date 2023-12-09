@@ -120,6 +120,13 @@ namespace Instagram
                     a.Account = tb1.Text;
                     a.Pass = tb2.Text;
                 }
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
+                {
+
+                    nuoiaccclone a = new nuoiaccclone();
+                    View.Content = a.Content;
+                 
+                }
             }
         }
 
