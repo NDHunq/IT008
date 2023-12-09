@@ -36,12 +36,20 @@ namespace Instagram.Tinh_nang.form
 
             {
                 MessageBox.Show("Vui lòng nhập decription");
-                
+
             }
             else
             {
-                EnteredContent = txt.Text;
-                Close();
+                if (txt.Text != ""|| mdtxt.Text== "Thêm discription rác")
+                {
+                    EnteredContent = txt.Text;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                }
+            
             }
 
         }

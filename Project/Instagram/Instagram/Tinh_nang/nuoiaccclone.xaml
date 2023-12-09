@@ -113,15 +113,15 @@
 
             </ScrollViewer>
         </Border>
-        <Button x:Name="btn_Copy1" Margin="334,29,450,729" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
-            <TextBlock x:Name="new_usr" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
+        <Button x:Name="btn_Copy1" Margin="334,29,450,724" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
+            <TextBlock x:Name="new_usr" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
         <Border Margin="475,31,10,19" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Đăng bài" Margin="491,50,225,691" Foreground="Black" FontSize="35"/>
         <TextBlock Style="{DynamicResource txt_block}" Text=" Folder ảnh" Margin="495,114,-495,624" Foreground="Black" FontSize="30"/>
         <Border Margin="491,153,22,602" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" CornerRadius="3,3,3,3">
             <TextBlock  x:Name="uri"  Margin="0,0,87,0" FontFamily="Bahnschrift" FontSize="25">
-                
+
             </TextBlock>
         </Border>
         <Button Margin="789,158,28,607" BorderThickness="1,1,1,1" BorderBrush="White" Background="#FF3055D2" MouseDown="Button_MouseDown" Click="Button_Click">
@@ -170,8 +170,8 @@
 
 
         </ComboBox>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="25,468,839,270" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown_2"/>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="495,203,369,535" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown"/>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="25,468,839,270" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown_2" Cursor=""/>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="495,203,369,535" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown" Cursor="Hand"/>
 
     </Grid>
 </UserControl>

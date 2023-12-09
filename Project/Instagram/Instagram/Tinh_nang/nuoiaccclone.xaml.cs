@@ -135,25 +135,32 @@ namespace Instagram.Tinh_nang
             a.ShowDialog();
             string txt = a.EnteredContent;
 
-
-            Label labeledText = new Label
+            if (txt == null)
             {
-
-                Content = txt,
-                FontSize = 16,
-                FontWeight = FontWeights.Bold,
-                Margin = new Thickness(10)
-            };
-
-            Border border = new Border
+                MessageBox.Show("Vui long nhap comment");
+            }
+            else
             {
-                BorderBrush = Brushes.Black,   // Màu của đường viền
-                BorderThickness = new Thickness(2),  // Độ dày của đường viền
-                Child = labeledText  // Đặt Label làm con của Border
-            };
+                Label labeledText = new Label
+                {
 
-            // Thêm đối tượng TextBlock mới vào ScrollViewer
-           nv.Children.Add(border);
+                    Content = txt,
+                    FontSize = 16,
+                    FontWeight = FontWeights.Bold,
+                    Margin = new Thickness(10)
+                };
+
+                Border border = new Border
+                {
+                    BorderBrush = Brushes.Black,   // Màu của đường viền
+                    BorderThickness = new Thickness(2),  // Độ dày của đường viền
+                    Child = labeledText  // Đặt Label làm con của Border
+                };
+
+                // Thêm đối tượng TextBlock mới vào ScrollViewer
+                nv.Children.Add(border);
+            }
+           
 
         }
     }
