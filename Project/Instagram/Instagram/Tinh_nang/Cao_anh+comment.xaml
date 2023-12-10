@@ -10,8 +10,8 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Ds user cần cào(link/username)" Margin="23,20,-23,513" Foreground="Black" FontSize="30">
             
         </TextBlock>
-        <ScrollViewer Margin="19,144,28,125" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox  AcceptsReturn="True"  x:Name="Ds" Foreground="Black" Width="827" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="30" BorderThickness="2,1,2,2" >
+        <ScrollViewer Margin="19,144,28,245" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <TextBox  AcceptsReturn="True"  x:Name="Ds" Foreground="Black" Width="827" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="30" BorderThickness="2,1,2,2" Height="410" >
                 
             </TextBox>
         </ScrollViewer>
@@ -22,5 +22,7 @@
         <Button x:Name="btn_Copy" Margin="732,60,27,682" RenderTransformOrigin="0.539,0.908" Background="White" Click="Button_Click" BorderThickness="2,2,2,2" BorderBrush="Black"  >
             <TextBlock x:Name="btn_txt1" Text="import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="23,565,-23,189" Foreground="Black" FontSize="30"/>
+        <TextBox x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,611,28,131" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
     </Grid>
 </UserControl>

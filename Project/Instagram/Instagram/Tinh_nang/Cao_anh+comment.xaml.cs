@@ -29,23 +29,20 @@ namespace Instagram.Tinh_nang
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Image to set avatar";
-            ofd.Filter = "I(*.TXT;*.DOCS)|*.txt;*.docs";
-            ofd.ShowDialog();
-          
+            ofd.Title = "Select Text or Word Document";
+            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.docx, *.doc)|*.docx;*.doc";
 
-            if (ofd.FileName != "")
+            if (ofd.ShowDialog() == true)
             {
-                string tb_uri;
-                tb_uri = ofd.FileName;
-                Uri image_Path = new Uri(tb_uri);
-               
+                string selectedFilePath = ofd.FileName;
 
+                tb1.Text = selectedFilePath;
             }
             else
             {
+               
             }
         }
+
     }
-    
 }

@@ -135,12 +135,7 @@ namespace Instagram.Tinh_nang
             a.ShowDialog();
             string txt = a.EnteredContent;
 
-            if (txt == null)
-            {
-                MessageBox.Show("Vui long nhap comment");
-            }
-            else
-            {
+           
                 Label labeledText = new Label
                 {
 
@@ -159,7 +154,7 @@ namespace Instagram.Tinh_nang
 
                 // Thêm đối tượng TextBlock mới vào ScrollViewer
                 nv.Children.Add(border);
-            }
+          
            
 
         }
