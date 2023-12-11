@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.IO;
 namespace Instagram.Tinh_nang
 {
     /// <summary>
@@ -46,10 +47,6 @@ namespace Instagram.Tinh_nang
 
                 add_tbx.Text = selectedFilePath;
             }
-            else
-            {
-
-            }
         }
         private void Accept_Butt_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +58,23 @@ namespace Instagram.Tinh_nang
             Thread.Sleep(TimeSpan.FromSeconds(1));
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
             Thread.Sleep(TimeSpan.FromSeconds(5));
-            string[] ListUser = User_Tbx.Text.Split(new string[] { "\n" }, StringSplitOptions.None);
+
+            string[] ListUser=new string[100];
+            if (add_tbx.Text != "")
+            {
+                FileStream fs = new FileStream(add_tbx.Text, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+                string l;
+                int index=0;
+                while ((l = sr.ReadLine()) != null)
+                {
+                    ListUser[index] = l;
+                    index++;
+                }
+            }
+            else
+                ListUser = User_Tbx.Text.Split(new string[] { "\n" }, StringSplitOptions.None);
+
             for (int i = 0; i < ListUser.Length - 1; i++)
             {
                 CD.ExecuteScript("window.open('');");
