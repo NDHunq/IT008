@@ -22,6 +22,10 @@ using FlaUI.Core.AutomationElements;
 using FlaUI.Core.Input;
 using FlaUI.UIA3;
 using FlaUI.Core.Definitions;
+using Keyboard = FlaUI.Core.Input.Keyboard;
+using FlaUI.Core.WindowsAPI;
+using static System.Net.Mime.MediaTypeNames;
+using Image = System.Windows.Controls.Image;
 
 namespace Instagram.Tinh_nang
 {
@@ -32,6 +36,7 @@ namespace Instagram.Tinh_nang
     {
         public string Account;
         public string Pass;
+        private List<string> dsuri = new List<string>();
 
         public Dangbai()
         {
@@ -40,19 +45,41 @@ namespace Instagram.Tinh_nang
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Uri image_Path;
             Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select Image";
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.bmp;*.jpg;*.png|JPG Files|*.jpg|PNG Files|*.png|JPEG Files|*.jpeg";
             ofd.ShowDialog();
+           
+           
             if (ofd.FileName != "")
             {
-                string tb_uri;
-                tb_uri = ofd.FileName;
-                Uri image_Path = new Uri(tb_uri);
-                photo.Source = new BitmapImage(image_Path);
-                photo.Stretch = System.Windows.Media.Stretch.UniformToFill;
+               
+                Image img = new System.Windows.Controls.Image();
+                {
+
+
+                };
+                Border border = new Border
+                {
+                    BorderBrush = Brushes.Black,   // Màu của đường viền
+                    BorderThickness = new Thickness(2),  // Độ dày của đường viền
+                    Child = img // Đặt Label làm con của Border
+                };
+                string tb_uri = ofd.FileName;
+                dsuri.Add(tb_uri);
+                image_Path = new Uri(tb_uri);
+                img.Source = new BitmapImage(image_Path);
+               img.Stretch = System.Windows.Media.Stretch.UniformToFill;
+                im.Children.Add(border);
             }
             else { }
+
+
+
+            // Thêm đối tượng TextBlock mới vào ScrollViewer
+            
+            
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -72,23 +99,48 @@ namespace Instagram.Tinh_nang
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
             Thread.Sleep(TimeSpan.FromSeconds(1));
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-
+            
             IWebElement newPostButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='New post']")));
             newPostButton.Click();
             Thread.Sleep(TimeSpan.FromSeconds(1));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).SendKeys("D:\\Ca nhan\\iCON\\6rn12okhovqnvoreknb6f47n17.png");
-            var automation = new UIA3Automation();
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            Keyboard.Type(dsuri[0]);
 
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            Keyboard.Press(VirtualKeyShort.ENTER);
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+           
+           
+            CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
+            for (int i=1;i<dsuri.Count();i++)
+           {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
+      
+                 
 
-            // Tìm cửa sổ (ví dụ: Notepad)
-            var window= automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Open"));
-            var cancelButton = window.FindFirstDescendant(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.Button).And(cf.ByName("Cancel")));
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='Plus icon']"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                Keyboard.Type(dsuri[i]);
 
-            // Nếu nút "Cancel" được tìm thấy, thực hiện click
-            if (cancelButton != null)
-            {
-                cancelButton.Click();
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                Keyboard.Press(VirtualKeyShort.ENTER);
             }
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div[1]/div[1]/p"))).SendKeys(tb1_Copy.Text);
+
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/span[2]"))).Click();
+            if(ck2.IsChecked == true)
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div[1]/div[2]/div/input"))).Click();
+            if (ck1.IsChecked == true)
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[2]/div[1]/div[2]/div/input"))).Click();
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+
         }
 
 

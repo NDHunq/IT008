@@ -36,15 +36,21 @@
             </TextBlock>
         </Button>
         <Border Margin="41,79,389,365" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <Image x:Name="photo" Margin="0,-1,1,0">
+            <ScrollViewer >
+                <StackPanel x:Name="im">
+                    <Image x:Name="photo" Margin="0,-1,1,0">
 
-            </Image>
+                    </Image>
+                </StackPanel>
+               
+            </ScrollViewer>
+            
         </Border>
 
-        <CheckBox Style="{DynamicResource check_box}" Content=" Tắt bình luận" Margin="576,110,120,641" RenderTransformOrigin="0.36,0.347" FontSize="26" Foreground="Black">
+        <CheckBox x:Name="ck1" Style="{DynamicResource check_box}" Content=" Tắt bình luận" Margin="576,110,120,641" RenderTransformOrigin="0.36,0.347" FontSize="26" Foreground="Black">
 
         </CheckBox>
-        <CheckBox Style="{DynamicResource check_box}" Content="Ẩn lượt thích và lượt&#xD;&#xA; xem" Margin="576,219,10,505" FontSize="26" Checked="CheckBox_Checked" Foreground="Black">
+        <CheckBox  x:Name="ck2" Style="{DynamicResource check_box}" Content="Ẩn lượt thích và lượt&#xD;&#xA; xem" Margin="576,219,10,505" FontSize="26" Checked="CheckBox_Checked" Foreground="Black">
 
         </CheckBox>
         <Border BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7" Margin="546,79,25,365"/>
