@@ -1,8 +1,13 @@
 ﻿using Microsoft.Win32;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,28 +26,41 @@ namespace Instagram.Tinh_nang
     /// </summary>
     public partial class Cao_anh_comment : UserControl
     {
+        public string Account;
+        public string Pass;
         public Cao_anh_comment()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void accept_butt_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Text or Word Document";
-            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.docx, *.doc)|*.docx;*.doc";
 
-            if (ofd.ShowDialog() == true)
-            {
-                string selectedFilePath = ofd.FileName;
-
-                tb1.Text = selectedFilePath;
-            }
-            else
-            {
-               
-            }
         }
 
+        private void run_butt_Click(object sender, RoutedEventArgs e)
+        {
+            string saveFolderPath = file_output_path.Text;
+            /////////////////////////////////////
+            ChromeDriver CD = new ChromeDriver();
+            CD.Navigate().GoToUrl("https://www.instagram.com/");
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //////////////////////////////////////
+        }
+    }
+    public class FileDownloader
+    {
+        public void DownloadFile(string url, string path)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(url, path);
+            }
+        }
     }
 }

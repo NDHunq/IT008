@@ -35,7 +35,7 @@ namespace Instagram.Tinh_nang
             InitializeComponent();
         }
 
-            private void add_butt_Click(object sender, RoutedEventArgs e)
+        private void add_butt_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select Text or Word Document";

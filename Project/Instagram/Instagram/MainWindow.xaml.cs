@@ -81,6 +81,8 @@ namespace Instagram
 
                         Cao_anh_comment a = new Cao_anh_comment();
                         View.Content = a.Content;
+                        a.Account = tb1.Text;
+                        a.Pass = tb2.Text;
                     }
                     if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
                     {
