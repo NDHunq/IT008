@@ -110,7 +110,12 @@ namespace Instagram.Tinh_nang
             var clickedItem = FindClickedItem(sender);
             if (clickedItem != null)
             {
-                
+                add_Description a = new add_Description("Thêm comment rác");
+                a.ShowDialog();
+
+
+                string txt = a.EnteredContent;
+                clickedItem.Content = txt;
             }
         }
 
@@ -217,7 +222,10 @@ namespace Instagram.Tinh_nang
             var clickedItem = FindClickedItem(sender);
             if (clickedItem != null)
             {
-                
+                laplich a = new laplich();
+                a.ShowDialog();
+                string txt = a.EnteredContent;
+                clickedItem.Content = txt;
             }
         }
 
