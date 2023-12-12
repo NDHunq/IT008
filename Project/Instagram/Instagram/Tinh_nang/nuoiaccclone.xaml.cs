@@ -158,5 +158,21 @@ namespace Instagram.Tinh_nang
            
 
         }
+
+        private void btn_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            if(new_usr1_Copy1.Text=="start")
+            {
+                new_usr1_Copy1.Text = "stop";
+                btn_Copy2.Background= new SolidColorBrush(Colors.Red);
+            }   
+            else
+            {
+                new_usr1_Copy1.Text = "start";
+                btn_Copy2.Background = new SolidColorBrush(Colors.Green);
+            }
+
+        }    
+        
     }
 }
