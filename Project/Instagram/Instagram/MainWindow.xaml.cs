@@ -65,7 +65,7 @@ namespace Instagram
                 tb2.IsEnabled = true;
                 btn_txt.Text = "Accept";
             }
-            if (tb1.Text == "" || tb2.Text == "")
+            if (tb1.Text == "" || tb2.Password == "")
             {
                 MessageBox.Show("Vui long nhap day du thong tin");
 
@@ -82,7 +82,7 @@ namespace Instagram
                         Cao_anh_comment a = new Cao_anh_comment();
                         View.Content = a.Content;
                         a.Account = tb1.Text;
-                        a.Pass = tb2.Text;
+                        a.Pass = tb2.Password;
                     }
                     if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
                     {
@@ -90,7 +90,7 @@ namespace Instagram
                         Tim a = new Tim();
                         if (!tb1.IsEnabled && !tb2.IsEnabled)
                         {
-                            a.setPW(tb2.Text);
+                            a.setPW(tb2.Password);
                             a.setUS(tb1.Text);
                         }
                         View.Content = a.Content;
@@ -101,7 +101,7 @@ namespace Instagram
                         if (!tb1.IsEnabled && !tb2.IsEnabled)
                         {
                             bl.SetUs(tb1.Text);
-                            bl.SetPw(tb2.Text);
+                            bl.SetPw(tb2.Password);
                         }
                         View.Content = bl.Content;
                     }
@@ -111,7 +111,7 @@ namespace Instagram
                         Dangbai a = new Dangbai();
                         View.Content = a.Content;
                         a.Account = tb1.Text;
-                        a.Pass = tb2.Text;
+                        a.Pass = tb2.Password;
                     }
                     if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
                     {
@@ -119,7 +119,7 @@ namespace Instagram
                         Follow a = new Follow();
                         View.Content = a.Content;
                         a.Account = tb1.Text;
-                        a.Pass = tb2.Text;
+                        a.Pass = tb2.Password;
                     }
                     if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
                     {
@@ -136,7 +136,7 @@ namespace Instagram
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (tb1.Text==""||tb2.Text=="")
+            if (tb1.Text==""||tb2.Password=="")
             {
                 MessageBox.Show("Vui long nhap day du thong tin");
                
@@ -151,7 +151,7 @@ namespace Instagram
                     Cao_anh_comment a = new Cao_anh_comment();
                     View.Content = a.Content;
                     a.Account = tb1.Text;
-                    a.Pass = tb2.Text;
+                    a.Pass = tb2.Password;
                 }
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
                 {
@@ -159,7 +159,7 @@ namespace Instagram
                     Tim a = new Tim();
                     if (!tb1.IsEnabled && !tb2.IsEnabled)
                     {
-                        a.setPW(tb2.Text);
+                        a.setPW(tb2.Password);
                         a.setUS(tb1.Text);
                     }
                     View.Content = a.Content;
@@ -170,7 +170,7 @@ namespace Instagram
                     if (!tb1.IsEnabled && !tb2.IsEnabled)
                     {
                         bl.SetUs(tb1.Text);
-                        bl.SetPw(tb2.Text);
+                        bl.SetPw(tb2.Password);
                     }
                     View.Content = bl.Content;
                 }
@@ -180,7 +180,7 @@ namespace Instagram
                     Dangbai a = new Dangbai();
                     View.Content = a.Content;
                     a.Account = tb1.Text;
-                    a.Pass = tb2.Text;
+                    a.Pass = tb2.Password;
                 }
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
                 {
@@ -188,7 +188,7 @@ namespace Instagram
                     Follow a = new Follow();
                     View.Content = a.Content;
                     a.Account = tb1.Text;
-                    a.Pass = tb2.Text;
+                    a.Pass = tb2.Password;
                 }
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
                 {

@@ -124,8 +124,8 @@
                 </TransformGroup>
             </ComboBox.RenderTransform>
             <ComboBoxItem Content="Tim"/>
-            <ComboBoxItem Content="Comment ngãu nhiên"/>
-            <ComboBoxItem Content="Đăng bài ngãu nhiên"/>
+            <ComboBoxItem Content="Comment ngẫu nhiên"/>
+            <ComboBoxItem Content="Đăng bài ngẫu nhiên"/>
 
 
         </ComboBox>

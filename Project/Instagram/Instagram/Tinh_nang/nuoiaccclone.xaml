@@ -128,7 +128,7 @@
             <TextBlock Style="{DynamicResource txt_block}" Text="import" Foreground="White" FontSize="20" Height="21" Width="80" HorizontalAlignment="Center" TextAlignment="Center" MouseDown="TextBlock_MouseDown_1"/>
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Margin="527,218,-527,520" Foreground="Black" FontSize="30"><Run Text="Description rác"/><LineBreak/><Run Text=" "/></TextBlock>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="491,540,-491,198" Foreground="Black" FontSize="30"><Run Text="Hastag rác"/><LineBreak/><Run Text=" "/></TextBlock>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="491,540,-491,198" Foreground="Black" FontSize="30"><Run Text="Hashtag rác"/><LineBreak/><Run Text=" "/></TextBlock>
         <Border Margin="491,257,22,265" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="3,3,3,3" Background="White">
             <ScrollViewer x:Name="D_scrl">
                 <StackPanel x:Name="sd">
