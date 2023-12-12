@@ -7,6 +7,22 @@
              mc:Ignorable="d" 
               d:DesignHeight="800" d:DesignWidth="900">
     <UserControl.Resources>
+        <ContextMenu x:Key="contextMenu">
+            <MenuItem Header="Edit"
+                      Click="Edit_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+            <MenuItem Header="Delete"
+                      Click="Delete_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
+        </ContextMenu>
+        <ContextMenu x:Key="contextMenuComment">
+            <MenuItem Header="Edit"
+                      Click="EditComment_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+            <MenuItem Header="Delete"
+                      Click="DeleteComment_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
+        </ContextMenu>
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>

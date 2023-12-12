@@ -87,6 +87,8 @@ namespace Instagram.Tinh_nang
             {
                
                 Content = txt,
+                ContextMenu = (ContextMenu)Resources["contextMenuComment"],
+
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(10)
@@ -102,6 +104,22 @@ namespace Instagram.Tinh_nang
             // Thêm đối tượng TextBlock mới vào ScrollViewer
             sc.Children.Add(border);
 
+        }
+        private void EditComment_OnClick(object sender, RoutedEventArgs e)
+        {
+            var clickedItem = FindClickedItem(sender);
+            if (clickedItem != null)
+            {
+                
+            }
+        }
+
+        private void DeleteComment_OnClick(object sender, RoutedEventArgs e)
+        {
+            Label clickedItem = FindClickedItem(sender);
+            var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
+
+            sc.Children.Remove(parentBorder);
         }
 
         private void Button_MouseDown(object sender, MouseButtonEventArgs e)
@@ -136,24 +154,26 @@ namespace Instagram.Tinh_nang
             string txt = a.EnteredContent;
 
            
-                Label labeledText = new Label
-                {
+            Label labeledText = new Label
+            {
+                Content = txt,
+                ContextMenu = (ContextMenu)Resources["contextMenu"],
+                FontSize = 16,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(10)
+            };
 
-                    Content = txt,
-                    FontSize = 16,
-                    FontWeight = FontWeights.Bold,
-                    Margin = new Thickness(10)
-                };
+            Border border = new Border
+            {
+                BorderBrush = Brushes.Black,   // Màu của đường viền
+                BorderThickness = new Thickness(2),  // Độ dày của đường viền
+                Child = labeledText  // Đặt Label làm con của Border
+            };
 
-                Border border = new Border
-                {
-                    BorderBrush = Brushes.Black,   // Màu của đường viền
-                    BorderThickness = new Thickness(2),  // Độ dày của đường viền
-                    Child = labeledText  // Đặt Label làm con của Border
-                };
-
-                // Thêm đối tượng TextBlock mới vào ScrollViewer
-                nv.Children.Add(border);
+            // Thêm đối tượng TextBlock mới vào ScrollViewer
+            
+            
+            nv.Children.Add(border);
           
            
 
@@ -172,7 +192,42 @@ namespace Instagram.Tinh_nang
                 btn_Copy2.Background = new SolidColorBrush(Colors.Green);
             }
 
-        }    
+        }   
+        
+        
+        private static Label FindClickedItem(object sender)
+        {
+            var mi = sender as MenuItem;
+            if (mi == null)
+            {
+                return null;
+            }
+
+            var cm = mi.CommandParameter as ContextMenu;
+            if (cm == null)
+            {
+                return null;
+            }
+
+            return cm.PlacementTarget as Label;
+        }
+        
+        private void Edit_OnClick(object sender, RoutedEventArgs e)
+        {
+            var clickedItem = FindClickedItem(sender);
+            if (clickedItem != null)
+            {
+                
+            }
+        }
+
+        private void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            Label clickedItem = FindClickedItem(sender);
+            var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
+
+            nv.Children.Remove(parentBorder);
+        }
         
     }
 }
