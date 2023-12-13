@@ -61,8 +61,8 @@ namespace Instagram.Tinh_nang
                     _AllPostComment(chromeDriver);
                 }
             }
-
-            MessageBox.Show("Hoàn thành", "Thông báo ");
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+            chromeDriver.Quit();
         }
 
         #region Login
@@ -76,8 +76,8 @@ namespace Instagram.Tinh_nang
                 Thread.Sleep(TimeSpan.FromSeconds(3));
             
                 //Điền username và password
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")).SendKeys("duylam1412");
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")).SendKeys("duyhieu123");
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")).SendKeys(UserName);
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")).SendKeys(Password);
                 Thread.Sleep(TimeSpan.FromSeconds(2));
             
                 //Đăng nhập
