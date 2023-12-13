@@ -39,7 +39,9 @@ namespace Instagram.Tinh_nang
         List<string> user_list = new List<string>();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string a = "\n" + username_tb.Text;
+            if (string.IsNullOrEmpty(username_tb.Text))
+                return;
+            string a =  username_tb.Text+"\n";
             user_list.Add(username_tb.Text);
             Ds.Text += a;
         }
@@ -67,7 +69,7 @@ namespace Instagram.Tinh_nang
                     {
                         Tym(a);
                     }
-                   
+                    driver.Quit();
                 }
             }
         }
