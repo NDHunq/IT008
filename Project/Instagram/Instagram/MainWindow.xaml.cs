@@ -66,7 +66,7 @@ namespace Instagram
                 {
 
                     Tim a = new Tim();
-                    if (!tb1.IsEnabled && !tb2.IsEnabled)
+                    if (!string.IsNullOrEmpty(tb1.Text)&&!string.IsNullOrEmpty(tb2.Password))
                     {
                         a.setPW(tb2.Password);
                         a.setUS(tb1.Text);
@@ -127,11 +127,10 @@ namespace Instagram
             {
 
                 Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
+                
                     a.setPW(tb2.Password);
                     a.setUS(tb1.Text);
-                }
+                
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
@@ -181,11 +180,10 @@ namespace Instagram
             {
 
                 Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
+              
                     a.setPW(tb2.Password);
                     a.setUS(tb1.Text);
-                }
+                
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
