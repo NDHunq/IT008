@@ -22,6 +22,8 @@ using System.Collections.ObjectModel;
 using FlaUI.Core.WindowsAPI;
 using System.Xml.Linq;
 using System.Net.PeerToPeer;
+using static System.Net.WebRequestMethods;
+using System.Security.Policy;
 
 namespace Instagram.Tinh_nang
 {
@@ -41,15 +43,19 @@ namespace Instagram.Tinh_nang
 
         private void accept_butt_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Text or Word Document";
-            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.docx, *.doc)|*.docx;*.doc";
-
-            if (ofd.ShowDialog() == true)
+            var folderBrowserDialog = new OpenFileDialog
             {
-                string selectedFilePath = ofd.FileName;
+                Title = "Select a Folder",
+                Filter = "Folders|*.folder",
+                FileName = "SelectFolder",
+                CheckFileExists = false,
+                CheckPathExists = true
+            };
 
-                file_output_path.Text = selectedFilePath;
+            if (folderBrowserDialog.ShowDialog() == true)
+            {
+                string selectedFolder = System.IO.Path.GetDirectoryName(folderBrowserDialog.FileName);
+                file_output_path.Text = selectedFolder;
             }
         }
         private void run_butt_Click(object sender, RoutedEventArgs e)
@@ -93,9 +99,9 @@ namespace Instagram.Tinh_nang
                         }
                         else
                             break;
-                        //}
-                        //if (AnhDaCao > 15)
-                        //    break;
+
+                        if (AnhDaCao > (int.Parse(this.SoAnhTbx.Text))) 
+                            break;
                         System.Threading.Thread.Sleep(1000);
 
                     }
@@ -176,6 +182,30 @@ namespace Instagram.Tinh_nang
                     client.DownloadFile(url, path);
                 }
             }
+        }
+
+        private void Cao_Anh_Checked(object sender, RoutedEventArgs e)
+        {
+            this.SoAnhLbl.IsEnabled= true;
+            this.SoAnhTbx.IsEnabled= true;
+        }
+
+        private void Cao_BL_Checked(object sender, RoutedEventArgs e)
+        {
+            this.SoCmtLbl.IsEnabled= true;
+            this.SoCmtTbx.IsEnabled= true;
+        }
+
+        private void Cao_Anh_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.SoAnhLbl.IsEnabled = false;
+            this.SoAnhTbx.IsEnabled = false;
+        }
+
+        private void Cao_BL_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.SoCmtLbl.IsEnabled = false;
+            this.SoCmtTbx.IsEnabled = false;
         }
     }
 }
