@@ -149,7 +149,7 @@
 
                         <TextBlock Text="Tính năng" FontSize="30" Margin="104,494,92,250" FontFamily="Bahnschrift" Foreground="Black" FontWeight="Bold"/>
                         <ComboBox Style="{DynamicResource RoundComboBox}" x:Name="cbb" Margin="34,555,23,176" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
-                            <ComboBoxItem Content="Cào ảnh+comment"/>
+                            <ComboBoxItem Content="Cào ảnh hoặc comment"/>
 
                             <ComboBoxItem Content="Thả tim"/>
                             <ComboBoxItem Content="Bình luận"/>
