@@ -101,6 +101,8 @@ namespace Instagram
 
                     nuoiaccclone a = new nuoiaccclone();
                     View.Content = a.Content;
+                    a.Username = tb1.Text;
+                    a.Password = tb2.Password;
                  
                 }
             
@@ -162,6 +164,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }
@@ -216,6 +220,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }
@@ -274,6 +280,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }
