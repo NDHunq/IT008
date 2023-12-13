@@ -205,8 +205,16 @@ namespace Instagram.Tinh_nang
                 btn_Copy2.Background = new SolidColorBrush(Colors.Green);
             }
 
+            foreach (Border Item in nv.Children)
+            {
+                Label label = Item.Child as Label;
+                if (label.Content.ToString().Contains("Comment"))
+                {
+                    Comment(chromeDriver);
+                    
+                }
+            }
             
-            Comment(chromeDriver);
             
 
         }
@@ -259,13 +267,18 @@ namespace Instagram.Tinh_nang
         private string GetRandomComment()
         {
             Random random = new Random();
-            int index = random.Next(0, sc.Children.Count);
-            var item = sc.Children[index];
-            var parentBorder = VisualTreeHelper.GetParent(item) as Border;
-            var label = parentBorder.Child as Label;
-            return label.Content.ToString();
-        }
+            
+            List<string> listComment = new List<string>();
+            foreach (Border Item in sc.Children)
+            {
+                Label label = Item.Child as Label;
+                listComment.Add(label.Content.ToString());
+            }
 
+            int index = random.Next(0, listComment.Count);
+            return listComment[index];
+        }
+        
         private void ScrollTo(int xPosition, int yPosition, ChromeDriver driver)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
