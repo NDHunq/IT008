@@ -21,8 +21,8 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="23,215,-23,539" Foreground="Black" FontSize="30"/>
         <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,261,28,481" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,377" Foreground="Black" FontSize="30"/>
-        <RadioButton x:Name="Cao_Anh_Butt" Content="Cào ảnh" HorizontalAlignment="Left" Margin="68,475,0,0" VerticalAlignment="Top" Height="40" Width="208" FontSize="30" FontFamily="Bahnschrift"/>
-        <RadioButton x:Name="Cao_BL_Butt" Content="Cào bình luận" HorizontalAlignment="Left" Margin="68,552,0,0" VerticalAlignment="Top" Height="66" Width="226" FontSize="30" FontFamily="Bahnschrift" />
+        <CheckBox x:Name="Cao_Anh" Content="Cào ảnh" HorizontalAlignment="Left" Height="41" Margin="84,468,0,0" VerticalAlignment="Top" Width="150" FontFamily="Bahnschrift" FontSize="30"/>
+        <CheckBox x:Name="Cao_BL" Content="Cào bình luận" HorizontalAlignment="Left" Height="41" Margin="84,564,0,0" VerticalAlignment="Top" Width="218" FontFamily="Bahnschrift" FontSize="30"/>
 
     </Grid>
 
