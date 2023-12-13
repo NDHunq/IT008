@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using FlaUI.Core.WindowsAPI;
 using Instagram.Tinh_nang.form;
 using Microsoft.Win32;
@@ -32,7 +25,7 @@ namespace Instagram.Tinh_nang
     public partial class nuoiaccclone : UserControl
     {
         private List<string> _filenamepath = new List<string>();
-
+        private int PostTimeCount = 0;
         public string Username;
         public string Password;
         int itd = 0;
@@ -211,38 +204,46 @@ namespace Instagram.Tinh_nang
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             ChromeDriver chromeDriver = new ChromeDriver();
-            Login(chromeDriver);
-            if(new_usr1_Copy1.Text=="start")
+            try
             {
-                new_usr1_Copy1.Text = "stop";
-                btn_Copy2.Background= new SolidColorBrush(Colors.Red);
-            }   
-            else
-            {
-                new_usr1_Copy1.Text = "start";
-                btn_Copy2.Background = new SolidColorBrush(Colors.Green);
-            }
+                Login(chromeDriver);
+                if(new_usr1_Copy1.Text=="start")
+                {
+                    new_usr1_Copy1.Text = "stop";
+                    btn_Copy2.Background= new SolidColorBrush(Colors.Red);
+                }   
+                else
+                {
+                    new_usr1_Copy1.Text = "start";
+                    btn_Copy2.Background = new SolidColorBrush(Colors.Green);
+                }
 
-            foreach (Border Item in nv.Children)
-            {
-                Label label = Item.Child as Label;
-                if (label.Content.ToString().Contains("Comment"))
+                foreach (Border Item in nv.Children)
                 {
-                    Comment(chromeDriver);
+                    Label label = Item.Child as Label;
+                    if (label.Content.ToString().Contains("Comment"))
+                    {
+                        Comment(chromeDriver);
                     
-                }
-                if (label.Content.ToString().Contains("Tim"))
-                {
-                    Tym(chromeDriver);
+                    }
+                    if (label.Content.ToString().Contains("Tim"))
+                    {
+                        Tym(chromeDriver);
                     
+                    }
+                    if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
+                    {
+                        Post(chromeDriver);
+                    }
                 }
-                if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
-                {
-                    Post(chromeDriver);
-                    
-                }
+                PostTimeCount = 0;
+                chromeDriver.Quit();
+                
             }
-            chromeDriver.Quit();
+            catch (Exception exception)
+            {
+                chromeDriver.Quit();
+            }
             
             
 
@@ -274,7 +275,14 @@ namespace Instagram.Tinh_nang
         private void Post(ChromeDriver CD)
         {
                 WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
-
+                CD.Navigate().GoToUrl("https://www.instagram.com/");
+                Thread.Sleep(300);
+                if (PostTimeCount == 0)
+                {
+                    CD.FindElement(By.XPath("/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]")).Click();
+                    Thread.Sleep(300);
+                }
+                
                 IWebElement newPostButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='New post']")));
                 newPostButton.Click();
                 Thread.Sleep(TimeSpan.FromSeconds(1));
@@ -303,18 +311,34 @@ namespace Instagram.Tinh_nang
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     Keyboard.Press(VirtualKeyShort.ENTER);
                 }
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div[1]/div[1]/p"))).SendKeys("test");
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div[1]/div[1]/p"))).SendKeys(getRandomDescription()+"  #"+"hehe");
 
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/span[2]"))).Click();
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/span[2]"))).Click();
               
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                PostTimeCount++;
                 Thread.Sleep(TimeSpan.FromSeconds(15));
         }
-        
+
+        public string getRandomDescription()
+        {
+            Random random = new Random();
+            
+            List<string> listComment = new List<string>();
+            foreach (Border Item in sd.Children)
+            {
+                Label label = Item.Child as Label;
+                listComment.Add(label.Content.ToString());
+            }
+
+            int index = random.Next(0, listComment.Count);
+            return listComment[index];
+        }
 
         #endregion
         
