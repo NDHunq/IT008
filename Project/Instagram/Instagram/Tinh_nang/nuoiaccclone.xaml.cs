@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Instagram.Tinh_nang.form;
 using Microsoft.Win32;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 
 namespace Instagram.Tinh_nang
 {
@@ -23,7 +27,8 @@ namespace Instagram.Tinh_nang
     /// </summary>
     public partial class nuoiaccclone : UserControl
     {
-
+        public string Username;
+        public string Password;
         int itd = 0;
 
         public nuoiaccclone()
@@ -52,6 +57,8 @@ namespace Instagram.Tinh_nang
             {
                
                 Content = txt,
+                ContextMenu = (ContextMenu)Resources["contextMenuDescription"],
+
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(10)
@@ -186,6 +193,7 @@ namespace Instagram.Tinh_nang
 
         private void btn_Copy2_Click(object sender, RoutedEventArgs e)
         {
+            ChromeDriver chromeDriver = new ChromeDriver();
             if(new_usr1_Copy1.Text=="start")
             {
                 new_usr1_Copy1.Text = "stop";
@@ -197,8 +205,75 @@ namespace Instagram.Tinh_nang
                 btn_Copy2.Background = new SolidColorBrush(Colors.Green);
             }
 
-        }   
+            
+            Comment(chromeDriver);
+            
+
+        }
+
         
+
+        #region Comment
+        private void Comment(ChromeDriver driver)
+        {
+            //chuyển tới trang
+            driver.Navigate().GoToUrl("https://www.instagram.com/");
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+
+            //Điền username và password
+            driver.FindElement(By.XPath(
+                    "/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input"))
+                .SendKeys(Username);
+            driver.FindElement(By.XPath(
+                    "/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input"))
+                .SendKeys(Password);
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            //Đăng nhập
+            driver.FindElement(By.XPath(
+                "/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(10));
+
+            driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+
+            ScrollTo(100,100, driver);
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+            driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div[6]/div[2]/div/a/div/div[2]")).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+            IWebElement textarea = driver.FindElement(By.TagName("textarea"));
+            textarea.Click();
+            textarea = driver.FindElement(By.TagName("textarea"));
+            textarea.SendKeys(GetRandomComment());
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            //Gửi cmt
+            Actions actions = new Actions(driver);
+            actions.SendKeys(Keys.Enter).Perform();
+            Thread.Sleep(TimeSpan.FromSeconds(3));
+            
+            driver.Quit();
+        }
+        
+        private string GetRandomComment()
+        {
+            Random random = new Random();
+            int index = random.Next(0, sc.Children.Count);
+            var item = sc.Children[index];
+            var parentBorder = VisualTreeHelper.GetParent(item) as Border;
+            var label = parentBorder.Child as Label;
+            return label.Content.ToString();
+        }
+
+        private void ScrollTo(int xPosition, int yPosition, ChromeDriver driver)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
+        }
+        
+
+        #endregion
         
         private static Label FindClickedItem(object sender)
         {
@@ -236,6 +311,24 @@ namespace Instagram.Tinh_nang
 
             nv.Children.Remove(parentBorder);
         }
+        
+        private void EditDesctiption_OnClick(object sender, RoutedEventArgs e)
+        {
+            var clickedItem = FindClickedItem(sender);
+            if (clickedItem != null)
+            {
+                
+            }
+        }
+
+        private void DeleteDescripton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Label clickedItem = FindClickedItem(sender);
+            var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
+
+            sd.Children.Remove(parentBorder);
+        }
+        
         
     }
 }

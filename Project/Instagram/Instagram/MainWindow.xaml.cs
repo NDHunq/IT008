@@ -54,7 +54,7 @@ namespace Instagram
         {
           
 
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
                 {
 
                     Cao_anh_comment a = new Cao_anh_comment();
@@ -66,7 +66,7 @@ namespace Instagram
                 {
 
                     Tim a = new Tim();
-                    if (!tb1.IsEnabled && !tb2.IsEnabled)
+                    if (!string.IsNullOrEmpty(tb1.Text)&&!string.IsNullOrEmpty(tb2.Password))
                     {
                         a.setPW(tb2.Password);
                         a.setUS(tb1.Text);
@@ -76,11 +76,8 @@ namespace Instagram
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
                 {
                     binhluan bl = new binhluan();
-                    if (!tb1.IsEnabled && !tb2.IsEnabled)
-                    {
-                        bl.SetUs(tb1.Text);
-                        bl.SetPw(tb2.Password);
-                    }
+                    bl.UserName = tb1.Text;
+                    bl.Password = tb2.Password;
                     View.Content = bl.Content;
                 }
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
@@ -104,6 +101,8 @@ namespace Instagram
 
                     nuoiaccclone a = new nuoiaccclone();
                     View.Content = a.Content;
+                    a.Username = tb1.Text;
+                    a.Password = tb2.Password;
                  
                 }
             
@@ -118,7 +117,7 @@ namespace Instagram
         private void tb1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
@@ -130,21 +129,17 @@ namespace Instagram
             {
 
                 Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
+                
                     a.setPW(tb2.Password);
                     a.setUS(tb1.Text);
-                }
+                
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
             {
                 binhluan bl = new binhluan();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
-                    bl.SetUs(tb1.Text);
-                    bl.SetPw(tb2.Password);
-                }
+                bl.UserName = tb1.Text;
+                bl.Password = tb2.Password;
                 View.Content = bl.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
@@ -168,6 +163,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }
@@ -175,7 +172,7 @@ namespace Instagram
         private void tb2_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
@@ -187,21 +184,17 @@ namespace Instagram
             {
 
                 Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
+              
                     a.setPW(tb2.Password);
                     a.setUS(tb1.Text);
-                }
+                
                 View.Content = a.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
             {
                 binhluan bl = new binhluan();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
-                    bl.SetUs(tb1.Text);
-                    bl.SetPw(tb2.Password);
-                }
+                bl.UserName = tb1.Text;
+                bl.Password = tb2.Password;
                 View.Content = bl.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
@@ -225,6 +218,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }
@@ -233,7 +228,7 @@ namespace Instagram
         {
 
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
@@ -283,6 +278,8 @@ namespace Instagram
 
                 nuoiaccclone a = new nuoiaccclone();
                 View.Content = a.Content;
+                a.Username = tb1.Text;
+                a.Password = tb2.Password;
 
             }
         }

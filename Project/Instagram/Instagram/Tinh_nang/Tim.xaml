@@ -8,6 +8,7 @@
      d:DesignHeight="729" d:DesignWidth="818">
     <Grid Background="White">
         <!-- dòng trên -->
+
         <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
                    Margin="19,18,51,665" Foreground="Black" FontSize="35">
         </TextBlock>
@@ -39,7 +40,7 @@
         
         
         <!-- box thêm người dùng-->
-        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,604" BorderBrush="Black" 
-                 BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
+
+        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,60,194,604" BorderBrush="Black"></TextBox>
     </Grid>
 </UserControl>
