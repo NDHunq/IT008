@@ -29,7 +29,7 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="chế độ" Margin="55,166,718,575" Foreground="Black" FontSize="25" RenderTransformOrigin="0.579,0.72"/>
 
         <ComboBox x:Name="cbb" Margin="136,161,484,597" FontSize="18" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" BorderBrush="Black" BorderThickness="2,2,2,2" >
-            <ComboBoxItem Content="Comment bài gần nhất"/>
+            <ComboBoxItem  Content="Comment bài gần nhất"/>
             <ComboBoxItem Content="Comment tất cả"/>
 
 

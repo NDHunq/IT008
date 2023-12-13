@@ -222,7 +222,8 @@ namespace Instagram.Tinh_nang
         {
             UsernameCommented.IsEnabled = true;
             LinkCommented.IsEnabled = false;
-            cbb.IsEnabled = true;   
+            cbb.IsEnabled = true;
+            cbb.Text = "Comment bài gần nhất";
         }
 
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
