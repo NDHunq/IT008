@@ -140,18 +140,26 @@
 
             </ScrollViewer>
         </Border>
-        <Button x:Name="btn_Copy1" Margin="309,29,399,656" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
+        <Button x:Name="btn_Copy1" Margin="309,29,399,656" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click" Cursor="Hand"  >
             <TextBlock x:Name="new_usr" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
         <Border Margin="435,31,10,78" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Đăng bài" Margin="447,50,210,639" Foreground="Black" FontSize="35"/>
         <TextBlock Style="{DynamicResource txt_block}" Text=" Folder ảnh" Margin="442,109,-442,576" Foreground="Black" FontSize="30"/>
-        <Border Margin="447,153,22,535" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" CornerRadius="3,3,3,3">
-            <TextBlock  x:Name="uri"  Margin="0,0,87,0" FontFamily="Bahnschrift" FontSize="25">
+        <Border Margin="447,153,22,525" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" CornerRadius="3,3,3,3">
+            <Grid>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="-1,0,94,0">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="0,0,0,-1" VerticalScrollBarVisibility="Auto">
+                        <TextBlock  x:Name="uri"  Margin="0,0,94,0" FontFamily="Bahnschrift" FontSize="20">
 
-            </TextBlock>
+                        </TextBlock>
+                    </ScrollViewer>
+                </Border>
+                
+            </Grid>
+           
         </Border>
-        <Button Margin="704,158,33,542" BorderThickness="1,1,1,1" BorderBrush="White" Background="#FF3055D2" MouseDown="Button_MouseDown" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+        <Button Margin="707,161,29,532" BorderThickness="1,1,1,1" BorderBrush="White" Background="#FF3055D2" MouseDown="Button_MouseDown" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1"/>
@@ -160,7 +168,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <TextBlock Style="{DynamicResource txt_block}" Text="import" Foreground="White" FontSize="20" Height="43" Width="81" HorizontalAlignment="Left" TextAlignment="Center" MouseDown="TextBlock_MouseDown_1"/>
+            <TextBlock Style="{DynamicResource txt_block}" Text="import" Foreground="White" FontSize="20" Height="19" Width="81" HorizontalAlignment="Left" TextAlignment="Center" MouseDown="TextBlock_MouseDown_1"/>
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Margin="487,209,-487,489" Foreground="Black" FontSize="30"><Run Text="Description rác"/><LineBreak/><Run Text=" "/></TextBlock>
         <TextBlock Style="{DynamicResource txt_block}" Margin="487,463,132,221" Foreground="Black" FontSize="30" RenderTransformOrigin="0.5,0.5">
