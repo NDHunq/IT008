@@ -20,7 +20,8 @@ namespace Instagram.Tinh_nang.form
     public partial class add_Description : Window
     {
        
-        public string EnteredContent { get; private set; }
+        public bool isAccept = false;
+        public string EnteredContent { get;  set; }
         public add_Description(string modau)
         {
 
@@ -43,6 +44,7 @@ namespace Instagram.Tinh_nang.form
                 if (txt.Text != ""|| mdtxt.Text== "Thêm discription rác")
                 {
                     EnteredContent = txt.Text;
+                    isAccept = true;
                     Close();
                 }
                 else

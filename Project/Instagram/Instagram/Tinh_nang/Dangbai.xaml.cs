@@ -89,69 +89,75 @@ namespace Instagram.Tinh_nang
 
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
 
-            ChromeDriver CD = new ChromeDriver();
-            WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
-            CD.Navigate().GoToUrl("https://www.instagram.com/");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-            
-            IWebElement newPostButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='New post']")));
-            newPostButton.Click();
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            Keyboard.Type(dsuri[0]);
-
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            Keyboard.Press(VirtualKeyShort.ENTER);
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-           
-           
-            CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
-            for (int i=1;i<dsuri.Count();i++)
-           {
+                ChromeDriver CD = new ChromeDriver();
+                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
+                CD.Navigate().GoToUrl("https://www.instagram.com/");
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
+                CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
                 Thread.Sleep(TimeSpan.FromSeconds(1));
-                CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
-      
-                 
+                CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
 
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='Plus icon']"))).Click();
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-                Keyboard.Type(dsuri[i]);
+                IWebElement newPostButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='New post']")));
+                newPostButton.Click();
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Keyboard.Type(dsuri[0]);
 
-                Thread.Sleep(TimeSpan.FromSeconds(2));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 Keyboard.Press(VirtualKeyShort.ENTER);
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+
+
+                CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
+                for (int i = 1; i < dsuri.Count(); i++)
+                {
+                    Thread.Sleep(TimeSpan.FromSeconds(1));
+                    CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
+
+
+
+                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='Plus icon']"))).Click();
+                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                    Keyboard.Type(dsuri[i]);
+
+                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                    Keyboard.Press(VirtualKeyShort.ENTER);
+                }
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div[1]/div[1]/p"))).SendKeys(tb1_Copy.Text);
+
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/span[2]"))).Click();
+                if (ck2.IsChecked == true)
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div[1]/div[2]/div/input"))).Click();
+                if (ck1.IsChecked == true)
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[2]/div[1]/div[2]/div/input"))).Click();
+              
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(15));
+                CD.Quit();
             }
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div[1]/div[1]/p"))).SendKeys(tb1_Copy.Text);
-
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/span[2]"))).Click();
-            if(ck2.IsChecked == true)
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div[1]/div[2]/div/input"))).Click();
-            if (ck1.IsChecked == true)
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[2]/div[1]/div[2]/div/input"))).Click();
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+            catch (Exception ex)
+            {
+              
+                
+            }
 
         }
 
-
-
-
-
-
-
-
-
+        private void tb1_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
+    }
     }
 

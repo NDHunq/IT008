@@ -41,7 +41,16 @@ namespace Instagram.Tinh_nang
 
         private void accept_butt_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Text or Word Document";
+            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.docx, *.doc)|*.docx;*.doc";
 
+            if (ofd.ShowDialog() == true)
+            {
+                string selectedFilePath = ofd.FileName;
+
+                file_output_path.Text = selectedFilePath;
+            }
         }
         private void run_butt_Click(object sender, RoutedEventArgs e)
         {

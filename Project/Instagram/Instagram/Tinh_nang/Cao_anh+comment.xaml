@@ -5,24 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Instagram.Tinh_nang"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="900">
+             d:DesignHeight="729" d:DesignWidth="818">
 
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,64,371,701" Foreground="Black" FontSize="30">
+        <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,64,212,633" Foreground="Black" FontSize="30">
 
         </TextBlock>
-        <Button x:Name="run_butt" Margin="352,671,352,55" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Click="run_butt_Click" Cursor="Hand"    >
-            <TextBlock x:Name="new_usr" Text="Run" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        <Button  x:Name="run_butt" Margin="339,659,339,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  >
+
         </Button>
-        <TextBox x:Name="user_name" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,104,190,638" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" />
-        <Button x:Name="accept_butt" Margin="732,104,27,638" RenderTransformOrigin="0.539,0.908" Background="White"  BorderThickness="2,2,2,2" BorderBrush="Black" Click="accept_butt_Click" Cursor="Hand"   >
-            <TextBlock x:Name="btn_txt1" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left" Text="Accept"/>
+        <TextBox x:Name="user_name" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,104,30,561" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" />
+        <Button x:Name="accept_butt" Margin="660,261,30,404" RenderTransformOrigin="0.539,0.908" Background="White"  BorderThickness="2,2,2,2" BorderBrush="Black" Click="accept_butt_Click" Cursor="Hand"   >
+            <TextBlock x:Name="btn_txt1" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left" Text="import"/>
         </Button>
+<<<<<<< HEAD
         <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="23,215,-23,539" Foreground="Black" FontSize="30"/>
         <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,261,28,481" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,377" Foreground="Black" FontSize="30"/>
         <CheckBox x:Name="Cao_Anh" Content="Cào ảnh" HorizontalAlignment="Left" Height="41" Margin="84,468,0,0" VerticalAlignment="Top" Width="150" FontFamily="Bahnschrift" FontSize="30"/>
         <CheckBox x:Name="Cao_BL" Content="Cào bình luận" HorizontalAlignment="Left" Height="41" Margin="84,564,0,0" VerticalAlignment="Top" Width="218" FontFamily="Bahnschrift" FontSize="30"/>
+=======
+        <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="23,215,-23,482" Foreground="Black" FontSize="30"/>
+        <Border BorderThickness="2,2,2,2" BorderBrush="Black" Margin="23,424,30,89"/>
+        <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,261,181,408" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="25" IsEnabled="False" VerticalContentAlignment="Center"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,310" Foreground="Black" FontSize="30"/>
+        <CheckBox x:Name="Cao_Anh_Butt" Content="Cào ảnh" HorizontalAlignment="Left" Margin="68,475,0,0" VerticalAlignment="Top" Height="40" Width="208" FontSize="30" FontFamily="Bahnschrift"/>
+        <CheckBox x:Name="Cao_BL_Butt" Content="Cào bình luận" HorizontalAlignment="Left" Margin="68,552,0,0" VerticalAlignment="Top" Height="66" Width="226" FontSize="30" FontFamily="Bahnschrift" />
+>>>>>>> 1ec8d12e438e6c65edf5374d96c935b7abfe1473
 
     </Grid>
 

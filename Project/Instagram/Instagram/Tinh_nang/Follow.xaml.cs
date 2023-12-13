@@ -47,6 +47,7 @@ namespace Instagram.Tinh_nang
 
                 add_tbx.Text = selectedFilePath;
             }
+            sc.Visibility = Visibility.Visible;
         }
         private void Accept_Butt_Click(object sender, RoutedEventArgs e)
         {
