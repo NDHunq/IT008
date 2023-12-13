@@ -21,7 +21,7 @@ namespace Instagram.Tinh_nang.form
     {
        
         public bool isAccept = false;
-        public string EnteredContent { get; private set; }
+        public string EnteredContent { get;  set; }
         public add_Description(string modau)
         {
 
