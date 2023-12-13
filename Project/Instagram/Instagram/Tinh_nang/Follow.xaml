@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
   d:DesignHeight="800" d:DesignWidth="900">
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text=" Ds user cần follow(link/ursername)" Margin="25,20,-25,513" Foreground="Black" FontSize="30">
+        <TextBlock Style="{DynamicResource txt_block}" Text=" Danh sách users cần follow (link/ursername)" Margin="25,20,-25,513" Foreground="Black" FontSize="30">
 
         </TextBlock>
         <ScrollViewer Margin="25,144,48,125" BorderBrush="Black" BorderThickness="2,2,2,2">

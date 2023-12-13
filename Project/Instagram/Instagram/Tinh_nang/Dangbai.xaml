@@ -31,7 +31,7 @@
         <TextBlock Style="{DynamicResource txt_block}" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Tùy chỉnh" Margin="546,30,-546,711" Foreground="Black" FontSize="35"/>
         <Button x:Name="btn_Copy" Margin="380,22,389,731" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >
-            <TextBlock x:Name="new_usr1" Text="import" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="new_usr1" Text="Import" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
 
             </TextBlock>
         </Button>

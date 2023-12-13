@@ -54,7 +54,7 @@ namespace Instagram
         {
           
 
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
                 {
 
                     Cao_anh_comment a = new Cao_anh_comment();
@@ -115,7 +115,7 @@ namespace Instagram
         private void tb1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
@@ -169,7 +169,7 @@ namespace Instagram
         private void tb2_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
@@ -224,7 +224,7 @@ namespace Instagram
         {
 
 
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh hoặc comment")
             {
 
                 Cao_anh_comment a = new Cao_anh_comment();
