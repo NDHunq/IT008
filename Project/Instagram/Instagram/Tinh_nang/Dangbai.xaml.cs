@@ -141,11 +141,15 @@ namespace Instagram.Tinh_nang
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[1]/div/div[1]/div[2]/div/input"))).Click();
                 if (ck1.IsChecked == true)
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div[2]/div/div[2]/div[1]/div[2]/div/input"))).Click();
+              
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                Thread.Sleep(TimeSpan.FromSeconds(15));
+                CD.Quit();
             }
             catch (Exception ex)
             {
-                //
+              
+                
             }
 
         }

@@ -5,22 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Instagram.Tinh_nang"
              mc:Ignorable="d" 
-  d:DesignHeight="800" d:DesignWidth="900">
+ d:DesignHeight="729" d:DesignWidth="818">
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text=" Danh sách users cần follow (link/ursername)" Margin="25,20,-25,513" Foreground="Black" FontSize="30">
+
+        <TextBlock Style="{DynamicResource txt_block}" Text=" Ds user cần follow(link/username)" Margin="25,20,-25,513" Foreground="Black" FontSize="30">
 
         </TextBlock>
-        <ScrollViewer Margin="25,144,48,125" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox x:Name="User_Tbx" AcceptsReturn="True" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" TextWrapping="Wrap" Background="White"    />
+        <ScrollViewer Margin="25,164,19,125" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <TextBox x:Name="User_Tbx" AcceptsReturn="True" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" TextWrapping="Wrap" Background="White" Height="440"    />
         </ScrollViewer>
-        <Button x:Name="add_butt" Margin="710,60,49,682" RenderTransformOrigin="0.539,0.908" Background="White"  Cursor="Hand" Click="add_butt_Click" BorderThickness="2,2,2,2"  >
+        <Button x:Name="add_butt" Margin="657,60,19,590" RenderTransformOrigin="0.539,0.908" Background="White"  Cursor="Hand" Click="add_butt_Click" BorderThickness="2,2,2,2"  >
             <TextBlock x:Name="btn_txt" Text="Import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center">
 
             </TextBlock>
         </Button>
-        <Button x:Name="Accept_Butt" Margin="352,699,352,27" RenderTransformOrigin="0.539,0.908" Background="#FF15670A"  Cursor="Hand" Click="Accept_Butt_Click"  >
-            <TextBlock x:Name="new_usr" Text="Accept" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="Accept_Butt" Margin="352,639,352,20" RenderTransformOrigin="0.539,0.908" Background="#FF15670A"  Cursor="Hand" Click="Accept_Butt_Click"  >
+            <TextBlock x:Name="new_usr" Text="run" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <TextBox x:Name="add_tbx" Style="{DynamicResource ResourceKey=txt_box}" Margin="25,60,220,682" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" IsEnabled="False"/>
+
+        <Border BorderThickness="2" BorderBrush="Black" Margin="25,60,179,590">
+            <ScrollViewer x:Name="sc" Height="77" VerticalAlignment="Top" Margin="0,0,1,0" HorizontalScrollBarVisibility="Auto" Visibility="Hidden"  >
+                <TextBox x:Name="add_tbx" Width="594" Height="61" IsEnabled="False" FontSize="20" FontFamily="Bahnschrift"/>
+            </ScrollViewer>
+        </Border>
+
+
     </Grid>
 </UserControl>

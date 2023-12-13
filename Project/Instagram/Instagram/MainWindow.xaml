@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Instagram"
         mc:Ignorable="d"
-       Height="900px" Width="1300px" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+       Height="837" Width="1219" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent">
     <Window.Resources>
@@ -102,8 +102,8 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid >
-        <Border Background="White" CornerRadius="10" MouseDown="Border_MouseDown_1" BorderBrush="White" >
+    <Grid Margin="0,0,10,0" >
+        <Border Background="White" CornerRadius="10" MouseDown="Border_MouseDown_1" BorderBrush="White" Height="840" VerticalAlignment="Top" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -111,12 +111,29 @@
                 </Grid.RowDefinitions>
                 <Border x:Name="delbtn_border" 
                            
-                            CornerRadius="0,10,0,0" MouseDown="Border_MouseDown" MouseEnter="delbtn_border_MouseEnter" MouseLeave="delbtn_border_MouseLeave" Margin="1258,0,0,2" Cursor="Hand"
+                            CornerRadius="10,0,0,0" MouseDown="Border_MouseDown" MouseEnter="delbtn_border_MouseEnter" MouseLeave="delbtn_border_MouseLeave" Margin="1170,0,0,2" Cursor="Hand" RenderTransformOrigin="0.5,0.5"
                             >
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
                     <TextBlock x:Name="delbtn_text" FontSize="25 
                                 "  VerticalAlignment="Center" 
-                                   HorizontalAlignment="Center" FontFamily="Sylfaen" Text="X"
-                                   Foreground="#740909" Cursor="Hand"/>
+                                   HorizontalAlignment="Right" FontFamily="Sylfaen" Text="X"
+                                   Foreground="#740909" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Width="18" Margin="0,0,11,0">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
 
                 </Border>
                 <Grid Grid.Row="1">
@@ -129,9 +146,11 @@
                         </ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid>
-                        <TextBlock Height="60" Text="Tính năng" FontSize="30" Margin="119,546,120,254" FontFamily="Bahnschrift" Foreground="Black" FontWeight="Bold"/>
-                        <ComboBox Style="{DynamicResource RoundComboBox}" x:Name="cbb" Margin="34,593,23,197" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
-                            <ComboBoxItem Content="Cào ảnh hoặc comment"/>
+
+                        <TextBlock Text="Tính năng" FontSize="30" Margin="104,494,92,250" FontFamily="Bahnschrift" Foreground="Black" FontWeight="Bold"/>
+                        <ComboBox Style="{DynamicResource RoundComboBox}" x:Name="cbb" Margin="34,555,23,176" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
+                            <ComboBoxItem Content="Cào ảnh+comment"/>
+
                             <ComboBoxItem Content="Thả tim"/>
                             <ComboBoxItem Content="Bình luận"/>
                             <ComboBoxItem Content="Follow"/>
@@ -140,8 +159,8 @@
 
 
                         </ComboBox>
-                    
-                        <Border CornerRadius="5" BorderThickness="2,2,2,2.2" BorderBrush="Black" Margin="16,65,17,422"/>
+
+                        <Border CornerRadius="5" BorderThickness="2,2,2,2.2" BorderBrush="Black" Margin="16,65,17,427"/>
 
 
 
@@ -152,12 +171,12 @@
 
 
                         <Border Background="White" Margin="34,209,893,542" CornerRadius="7">
-                            <PasswordBox x:Name="tb2" PasswordChar="*" Margin="10,64,-303,-17" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFD5D5D5" PasswordChanged="tb2_PasswordChanged_1"/>
+                            <PasswordBox x:Name="tb2" PasswordChar="*" Margin="10,64,-266,-66" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFD5D5D5" PasswordChanged="tb2_PasswordChanged_1"/>
                         </Border>
 
-                        <TextBox x:Name="tb1" Margin="39,146,38,649" Background="#FFD5D5D5" RenderTransformOrigin="0.5,0.5" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderThickness="2,2,2,2" BorderBrush="Black" TextChanged="tb1_TextChanged"/>
+                        <TextBox x:Name="tb1" Margin="39,146,38,602" Background="#FFD5D5D5" RenderTransformOrigin="0.5,0.5" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderThickness="2,2,2,2" BorderBrush="Black" TextChanged="tb1_TextChanged"/>
                         <TextBlock Text="Thông tin đăng nhập"  Margin="49,13,-22,739" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Bahnschrift"/>
-                        <Border CornerRadius="0" BorderThickness="2,2,2,2.2" BorderBrush="Black" Margin="27,505,27,353" RenderTransformOrigin="0.5,0.5">
+                        <Border CornerRadius="0" BorderThickness="2,2,2,2.2" BorderBrush="Black" Margin="27,455,27,403" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"/>
@@ -172,8 +191,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Border CornerRadius="7" Margin="-2,12,11,38" Height="810" Width="920" BorderThickness="2,2,2,2" BorderBrush="Black">
-                            <ContentControl x:Name="View" Height="800" Width="900" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2,2,2,2" Margin="7,3,9,3"/>
+                        <Border CornerRadius="7" Margin="-2,12,27,39" BorderThickness="2,2,2,2" BorderBrush="Black">
+                            <ContentControl x:Name="View" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2,2,2,2" Margin="8,8,8,8"/>
                         </Border>
 
                     </Grid>

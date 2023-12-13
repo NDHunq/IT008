@@ -213,17 +213,14 @@ namespace Instagram.Tinh_nang
 
         #endregion
         
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
             UsernameCommented.IsEnabled = true;
             LinkCommented.IsEnabled = false;
             cbb.IsEnabled = true;
-            cbb.Text = "Comment bài gần nhất";
+            cbb.SelectedIndex = 0;
         }
 
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)
