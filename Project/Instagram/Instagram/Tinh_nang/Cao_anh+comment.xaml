@@ -11,8 +11,8 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,64,212,633" Foreground="Black" FontSize="30">
 
         </TextBlock>
-        <Button x:Name="run_butt" Margin="352,671,352,10" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Click="run_butt_Click" Cursor="Hand"    >
-            <TextBlock x:Name="new_usr" Text="Run" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        <Button  x:Name="run_butt" Margin="339,659,339,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  >
+
         </Button>
         <TextBox x:Name="user_name" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,104,30,561" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" />
         <Button x:Name="accept_butt" Margin="660,261,30,404" RenderTransformOrigin="0.539,0.908" Background="White"  BorderThickness="2,2,2,2" BorderBrush="Black" Click="accept_butt_Click" Cursor="Hand"   >
@@ -20,7 +20,7 @@
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="23,215,-23,482" Foreground="Black" FontSize="30"/>
         <Border BorderThickness="2,2,2,2" BorderBrush="Black" Margin="23,424,30,89"/>
-        <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,261,181,408" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" IsEnabled="False"/>
+        <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,261,181,408" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="25" IsEnabled="False" VerticalContentAlignment="Center"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,310" Foreground="Black" FontSize="30"/>
         <CheckBox x:Name="Cao_Anh_Butt" Content="Cào ảnh" HorizontalAlignment="Left" Margin="68,475,0,0" VerticalAlignment="Top" Height="40" Width="208" FontSize="30" FontFamily="Bahnschrift"/>
         <CheckBox x:Name="Cao_BL_Butt" Content="Cào bình luận" HorizontalAlignment="Left" Margin="68,552,0,0" VerticalAlignment="Top" Height="66" Width="226" FontSize="30" FontFamily="Bahnschrift" />

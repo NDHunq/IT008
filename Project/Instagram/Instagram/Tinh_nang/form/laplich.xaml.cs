@@ -40,20 +40,22 @@ namespace Instagram.Tinh_nang.form
 
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            // if(truee==1 && numericTextBox.Text!="" && dateTimePicker.Text!="")
-            // {
-                EnteredContent = hd.Text + " " + numericTextBox.Text + " lần vào thời điểm: " + dateTimePicker.Text;  
+             if(truee==1 && numericTextBox.Text!="" && dateTimePicker.Text!="")
+             {
+                EnteredContent = hd.Text + " " + numericTextBox.Text + " lần vào thời điểm: " + dateTimePicker.Text;
+                truee = 0;
                 Close();
-            // }
-            // else
-            // {
-               // MessageBox.Show("Vui lòng nhập đủ thông tin");
-            //}
+                
+             }
+             else
+             {
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            truee++;
+            truee = 1;
         }
     }
     
