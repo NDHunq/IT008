@@ -23,8 +23,8 @@
                       Click="DeleteDescripton_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
         </ContextMenu>
-        
-        
+
+
         <ContextMenu x:Key="contextMenuComment">
             <MenuItem Header="Edit"
                       Click="EditComment_OnClick"
@@ -33,7 +33,7 @@
                       Click="DeleteComment_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
         </ContextMenu>
-        
+
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -163,7 +163,7 @@
             <TextBlock Style="{DynamicResource txt_block}" Text="import" Foreground="White" FontSize="20" Height="43" Width="81" HorizontalAlignment="Left" TextAlignment="Center" MouseDown="TextBlock_MouseDown_1"/>
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Margin="487,209,-487,489" Foreground="Black" FontSize="30"><Run Text="Description rác"/><LineBreak/><Run Text=" "/></TextBlock>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="487,465,-487,219" Foreground="Black" FontSize="30" RenderTransformOrigin="0.5,0.5">
+        <TextBlock Style="{DynamicResource txt_block}" Margin="487,463,132,221" Foreground="Black" FontSize="30" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -188,7 +188,7 @@
             </ScrollViewer>
         </Border>
         <Border Margin="10,430,399,19" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="0,438,603,256" Foreground="Black" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right" Width="193"><Run Text="Comment rác "/><LineBreak/><Run Text=" "/></TextBlock>
+        <TextBlock Style="{DynamicResource txt_block}" Margin="0,438,559,256" Foreground="Black" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right" Width="193"><Run Text="Comment rác "/><LineBreak/><Run Text=" "/></TextBlock>
         <Border Margin="22,474,409,37" BorderThickness="2,2,2,2" BorderBrush="Black" RenderTransformOrigin="-0.488,0.49" Background="White" CornerRadius="3,3,3,3">
             <ScrollViewer >
                 <StackPanel x:Name="sc">
@@ -207,13 +207,8 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <ComboBox  Style="{DynamicResource RoundComboBox}" x:Name="cbb1" Margin="652,50,22,644" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
-            <ComboBoxItem Content="lần lượt"/>
-            <ComboBoxItem Content="ngẫu nhiên"/>
-
-
-        </ComboBox>
-        <TextBlock Style="{DynamicResource txt_block}" Margin="25,468,839,270" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown_2" Cursor=""/>
+        
+        <TextBlock Style="{DynamicResource txt_block}" Margin="30,427,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown_2" Cursor="Hand"/>
         <TextBlock Style="{DynamicResource txt_block}" Margin="447,199,334,483" Foreground="#FF239F5E" FontSize="50" Text="+ " MouseDown="TextBlock_MouseDown" Cursor="Hand"/>
         <Button x:Name="btn_Copy" Margin="334,29,450,724" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
             <TextBlock x:Name="new_usr1_Copy" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>

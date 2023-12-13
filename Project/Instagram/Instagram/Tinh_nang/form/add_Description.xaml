@@ -31,7 +31,18 @@
         <TextBlock x:Name="mdtxt" Text="" Style="{DynamicResource txt_block}" Margin="34,10,-34,315" Foreground="Black" FontSize="30" RenderTransformOrigin="0.5,0.5">
             
         </TextBlock>
-            
+        <Button x:Name="btn_Copy" Margin="274,356,271,10" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <TextBlock x:Name="new_usr1" Text="Accept" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
+
 
     </Grid>
 </Window>

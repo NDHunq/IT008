@@ -34,7 +34,6 @@ namespace Instagram.Tinh_nang
         public nuoiaccclone()
         {
             InitializeComponent();
-            cbb1.SelectedIndex = 0;
          
 
         }
@@ -71,7 +70,8 @@ namespace Instagram.Tinh_nang
                 Child = labeledText  // Đặt Label làm con của Border
             };
           // Thêm đối tượng TextBlock mới vào ScrollViewer
-            sd.Children.Add(border) ;
+            if(a.isAccept == true)
+                sd.Children.Add(border);
         }
 
         private void TextBlock_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -107,9 +107,9 @@ namespace Instagram.Tinh_nang
                 BorderThickness = new Thickness(2),  // Độ dày của đường viền
                 Child = labeledText  // Đặt Label làm con của Border
             };
-           
             // Thêm đối tượng TextBlock mới vào ScrollViewer
-            sc.Children.Add(border);
+            if(a.isAccept == true)
+                sc.Children.Add(border);
 
         }
         private void EditComment_OnClick(object sender, RoutedEventArgs e)
