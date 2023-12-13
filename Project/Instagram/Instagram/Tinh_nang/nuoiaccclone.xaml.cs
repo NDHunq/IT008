@@ -52,6 +52,8 @@ namespace Instagram.Tinh_nang
             {
                
                 Content = txt,
+                ContextMenu = (ContextMenu)Resources["contextMenuDescription"],
+
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(10)
@@ -236,6 +238,24 @@ namespace Instagram.Tinh_nang
 
             nv.Children.Remove(parentBorder);
         }
+        
+        private void EditDesctiption_OnClick(object sender, RoutedEventArgs e)
+        {
+            var clickedItem = FindClickedItem(sender);
+            if (clickedItem != null)
+            {
+                
+            }
+        }
+
+        private void DeleteDescripton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Label clickedItem = FindClickedItem(sender);
+            var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
+
+            sd.Children.Remove(parentBorder);
+        }
+        
         
     }
 }

@@ -15,6 +15,16 @@
                       Click="Delete_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
         </ContextMenu>
+        <ContextMenu x:Key="contextMenuDescription">
+            <MenuItem Header="Edit"
+                      Click="EditDesctiption_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
+            <MenuItem Header="Delete"
+                      Click="DeleteDescripton_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
+        </ContextMenu>
+        
+        
         <ContextMenu x:Key="contextMenuComment">
             <MenuItem Header="Edit"
                       Click="EditComment_OnClick"
@@ -23,6 +33,7 @@
                       Click="DeleteComment_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
         </ContextMenu>
+        
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>
