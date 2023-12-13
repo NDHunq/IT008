@@ -26,6 +26,7 @@ namespace Instagram
         public MainWindow()
         {
             InitializeComponent();
+            cbb.SelectedIndex = 0;
         }
        
        
@@ -48,102 +49,10 @@ namespace Instagram
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (btn_txt.Text == "Accept")
-            {
-                btn_txt.Text = "Đổi";
-                tb1.IsEnabled = false;
-                tb2.IsEnabled = false;
-               
-                        
-
-        }
-            else
-            {
-                tb1.IsEnabled = true;
-                tb2.IsEnabled = true;
-                btn_txt.Text = "Accept";
-            }
-            if (tb1.Text == "" || tb2.Password == "")
-            {
-                MessageBox.Show("Vui long nhap day du thong tin");
-
-            }
-            else
-            {
-                if(cbb.Text=="")
-                {  }
-                else {
-
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
-                    {
-
-                        Cao_anh_comment a = new Cao_anh_comment();
-                        View.Content = a.Content;
-                        a.Account = tb1.Text;
-                        a.Pass = tb2.Password;
-                    }
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
-                    {
-
-                        Tim a = new Tim();
-                        if (!tb1.IsEnabled && !tb2.IsEnabled)
-                        {
-                            a.setPW(tb2.Password);
-                            a.setUS(tb1.Text);
-                        }
-                        View.Content = a.Content;
-                    }
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
-                    {
-                        binhluan bl = new binhluan();
-                        if (!tb1.IsEnabled && !tb2.IsEnabled)
-                        {
-                            bl.SetUs(tb1.Text);
-                            bl.SetPw(tb2.Password);
-                        }
-                        View.Content = bl.Content;
-                    }
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
-                    {
-
-                        Dangbai a = new Dangbai();
-                        View.Content = a.Content;
-                        a.Account = tb1.Text;
-                        a.Pass = tb2.Password;
-                    }
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
-                    {
-
-                        Follow a = new Follow();
-                        View.Content = a.Content;
-                        a.Account = tb1.Text;
-                        a.Pass = tb2.Password;
-                    }
-                    if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
-                    {
-
-                        nuoiaccclone a = new nuoiaccclone();
-                        View.Content = a.Content;
-
-                    }
-                }
-            }
-
-
-        }
-
+        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (tb1.Text==""||tb2.Password=="")
-            {
-                MessageBox.Show("Vui long nhap day du thong tin");
-               
-            }
-            else
-            {
-
+          
 
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
                 {
@@ -197,13 +106,127 @@ namespace Instagram
                     View.Content = a.Content;
                  
                 }
-            }
+            
         }
 
         private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+
+        private void tb1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            {
+
+                Cao_anh_comment a = new Cao_anh_comment();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
+            {
+
+                Tim a = new Tim();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    a.setPW(tb2.Password);
+                    a.setUS(tb1.Text);
+                }
+                View.Content = a.Content;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
+            {
+                binhluan bl = new binhluan();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    bl.SetUs(tb1.Text);
+                    bl.SetPw(tb2.Password);
+                }
+                View.Content = bl.Content;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
+            {
+
+                Dangbai a = new Dangbai();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
+            {
+
+                Follow a = new Follow();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
+            {
+
+                nuoiaccclone a = new nuoiaccclone();
+                View.Content = a.Content;
+
+            }
+        }
+
+        private void tb2_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh+comment")
+            {
+
+                Cao_anh_comment a = new Cao_anh_comment();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả tim")
+            {
+
+                Tim a = new Tim();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    a.setPW(tb2.Password);
+                    a.setUS(tb1.Text);
+                }
+                View.Content = a.Content;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình luận")
+            {
+                binhluan bl = new binhluan();
+                if (!tb1.IsEnabled && !tb2.IsEnabled)
+                {
+                    bl.SetUs(tb1.Text);
+                    bl.SetPw(tb2.Password);
+                }
+                View.Content = bl.Content;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng bài")
+            {
+
+                Dangbai a = new Dangbai();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
+            {
+
+                Follow a = new Follow();
+                View.Content = a.Content;
+                a.Account = tb1.Text;
+                a.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi acc clone")
+            {
+
+                nuoiaccclone a = new nuoiaccclone();
+                View.Content = a.Content;
+
+            }
         }
     }
 }
