@@ -205,47 +205,29 @@ namespace Instagram.Tinh_nang
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             ChromeDriver chromeDriver = new ChromeDriver();
-            try
+            Login(chromeDriver);
+            
+            foreach (Border Item in nv.Children)
             {
-                Login(chromeDriver);
-                if(new_usr1_Copy1.Text=="start")
+                Label label = Item.Child as Label;
+                if (label.Content.ToString().Contains("Comment"))
                 {
-                    new_usr1_Copy1.Text = "stop";
-                    btn_Copy2.Background= new SolidColorBrush(Colors.Red);
-                }   
-                else
-                {
-                    new_usr1_Copy1.Text = "start";
-                    btn_Copy2.Background = new SolidColorBrush(Colors.Green);
-                }
-
-                foreach (Border Item in nv.Children)
-                {
-                    Label label = Item.Child as Label;
-                    if (label.Content.ToString().Contains("Comment"))
-                    {
-                        Comment(chromeDriver);
-                    
-                    }
-                    if (label.Content.ToString().Contains("Tim"))
-                    {
-                        Tym(chromeDriver);
-                    
-                    }
-                    if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
-                    {
-                        Post(chromeDriver);
-                    }
-                }
-                PostTimeCount = 0;
-                chromeDriver.Quit();
+                    Comment(chromeDriver);
                 
+                }
+                if (label.Content.ToString().Contains("Tim"))
+                {
+                    Tym(chromeDriver);
+                
+                }
+                if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
+                {
+                    Post(chromeDriver);
+                }
             }
-            catch (Exception exception)
-            {
-                chromeDriver.Quit();
-                MessageBox.Show(exception.Message);
-            }
+            PostTimeCount = 0;
+            chromeDriver.Quit();
+                
             
             
 
@@ -272,11 +254,14 @@ namespace Instagram.Tinh_nang
                 driver.FindElement(By.XPath(
                     "/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(10));
+                
+                if(driver.Url == "https://www.instagram.com/")
+                    throw new Exception();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw;
+                driver.Quit();  
+                MessageBox.Show("Đăng nhập thất bại");
             }
            
         }

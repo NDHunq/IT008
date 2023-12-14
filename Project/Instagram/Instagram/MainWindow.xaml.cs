@@ -76,9 +76,9 @@ namespace Instagram
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
                 {
                     binhluan bl = new binhluan();
+                    View.Content = bl.Content;
                     bl.UserName = tb1.Text;
                     bl.Password = tb2.Password;
-                    View.Content = bl.Content;
                 }
                 if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
                 {
@@ -138,9 +138,9 @@ namespace Instagram
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
             {
                 binhluan bl = new binhluan();
+                View.Content = bl.Content;
                 bl.UserName = tb1.Text;
                 bl.Password = tb2.Password;
-                View.Content = bl.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
             {
@@ -193,9 +193,9 @@ namespace Instagram
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
             {
                 binhluan bl = new binhluan();
+                View.Content = bl.Content;
                 bl.UserName = tb1.Text;
                 bl.Password = tb2.Password;
-                View.Content = bl.Content;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
             {
@@ -250,12 +250,9 @@ namespace Instagram
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
             {
                 binhluan bl = new binhluan();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
-                {
-                    bl.SetUs(tb1.Text);
-                    bl.SetPw(tb2.Password);
-                }
                 View.Content = bl.Content;
+                bl.UserName = tb1.Text;
+                bl.Password = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
             {
