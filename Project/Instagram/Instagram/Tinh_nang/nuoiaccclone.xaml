@@ -17,10 +17,10 @@
         </ContextMenu>
         <ContextMenu x:Key="contextMenuDescription">
             <MenuItem Header="Edit"
-                      Click="EditDesctiption_OnClick"
+                      Click="EditDescription_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}" />
             <MenuItem Header="Delete"
-                      Click="DeleteDescripton_OnClick"
+                      Click="DeleteDescription_OnClick"
                       CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
         </ContextMenu>
 
@@ -190,7 +190,7 @@
         </Border>
         <Border Margin="447,501,22,93" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="3,3,3,3" Background="White">
             <ScrollViewer Height="135" VerticalAlignment="Center">
-                <TextBox AcceptsReturn="True" Height="131">
+                <TextBox Name="HashTagBox" AcceptsReturn="True" Height="131">
 
                 </TextBox>
             </ScrollViewer>
