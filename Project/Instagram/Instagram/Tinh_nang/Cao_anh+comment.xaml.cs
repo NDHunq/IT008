@@ -60,8 +60,9 @@ namespace Instagram.Tinh_nang
         }
         private void run_butt_Click(object sender, RoutedEventArgs e)
         {
+            string tempPath = file_output_path.Text;
+            saveFolderPath = tempPath.Replace(@"\", @"\\");
             CD = new ChromeDriver();
-            saveFolderPath = this.file_output_path.Text;
             /////////////////////////////////////
             CD.Navigate().GoToUrl("https://www.instagram.com/");
             Thread.Sleep(TimeSpan.FromSeconds(5));
@@ -72,7 +73,7 @@ namespace Instagram.Tinh_nang
             Thread.Sleep(TimeSpan.FromSeconds(30));
             //////////////////////////////////////
             CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
-            Thread.Sleep(TimeSpan.FromSeconds(13));
+            Thread.Sleep(TimeSpan.FromSeconds(20));
             //Chọn bài đăng đầu tiên        
             IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));
             postSelector.Click();
@@ -80,11 +81,20 @@ namespace Instagram.Tinh_nang
             if (this.Cao_Anh.IsChecked == true)
             {
                 int AnhDaCao = 0;
+                int stop = 0;
                 while (true)
                 {
+                    if (this.SoAnhRadio.IsChecked == true)
+                    {
+                        if (stop == 1)
+                        {
+                            break;
+                        }
+                        System.Threading.Thread.Sleep(1000);
+                    }
                     try
                     {
-                        EachPost(ref AnhDaCao);
+                        EachPost(ref AnhDaCao, ref stop);
                         System.Threading.Thread.Sleep(500);
                     }
                     catch { }
@@ -99,11 +109,7 @@ namespace Instagram.Tinh_nang
                         }
                         else
                             break;
-
-                        if (AnhDaCao > (int.Parse(this.SoAnhTbx.Text))) 
-                            break;
-                        System.Threading.Thread.Sleep(1000);
-
+                        
                     }
                 }
                 if (this.Cao_BL.IsChecked == true)
@@ -112,15 +118,24 @@ namespace Instagram.Tinh_nang
                 }
             }
         }
-        public void EachPost(ref int AnhDaCao)
+        public void EachPost(ref int AnhDaCao,ref int stop)
         {
             IWebElement nextImgButton=null;
             int ImageCount = 1;
             List<string> ListURLImg=new List<string>();
+            
             while (true)
             {
-                
-                if(ImageCount==1)
+                if (this.SoAnhRadio.IsChecked == true)
+                {
+                    if (stop==1)
+                    {
+                        break;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+
+                if (ImageCount==1)
                     nextImgButton = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl > div > div._aamn > div.x9f619.xjbqb8w.x78zum5.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x10l6tqk.x1ey2m1c.x13vifvy.x17qophe.xds687c.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.xdt5ytf.xqjyukv.x1qjc9v5.x1oa3qoh.x1nhvcw1 > div > button"));
                 else
                 {
@@ -154,6 +169,16 @@ namespace Instagram.Tinh_nang
                             string imagePath = System.IO.Path.Combine(saveFolderPath, fileName);
                             downloader.DownloadFile(imageUrl, imagePath);
                             AnhDaCao++;
+                            if (this.SoAnhRadio.IsChecked == true)
+                            {
+                                if (AnhDaCao > (int.Parse(this.SoAnhTbx.Text))-1 )
+                                {
+                                    stop = 1;
+                                    break;
+                      
+                                }
+                                System.Threading.Thread.Sleep(1000);
+                            }
                         }
                         ImageCount++;
                         
@@ -186,26 +211,52 @@ namespace Instagram.Tinh_nang
 
         private void Cao_Anh_Checked(object sender, RoutedEventArgs e)
         {
-            this.SoAnhLbl.IsEnabled= true;
-            this.SoAnhTbx.IsEnabled= true;
+            this.TatCaAnh.IsEnabled= true;
+            this.SoAnhRadio.IsEnabled= true;
+            
         }
 
         private void Cao_BL_Checked(object sender, RoutedEventArgs e)
         {
-            this.SoCmtLbl.IsEnabled= true;
-            this.SoCmtTbx.IsEnabled= true;
+            this.TatCaCmt.IsEnabled = true;
+            this.SoCmtRadio.IsEnabled = true;
+            
         }
 
         private void Cao_Anh_Unchecked(object sender, RoutedEventArgs e)
         {
-            this.SoAnhLbl.IsEnabled = false;
-            this.SoAnhTbx.IsEnabled = false;
+            this.TatCaAnh.IsEnabled = false;
+            this.SoAnhRadio.IsEnabled = false;
+            
         }
 
         private void Cao_BL_Unchecked(object sender, RoutedEventArgs e)
         {
-            this.SoCmtLbl.IsEnabled = false;
+            this.TatCaCmt.IsEnabled = false;
+            this.SoCmtRadio.IsEnabled = false;
+            
+        }
+
+        private void SoAnhRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            this.SoAnhTbx.IsEnabled = true;
+        }
+
+        private void SoCmtRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            this.SoCmtTbx.IsEnabled = true;
+        }
+
+        private void SoAnhRadio_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.SoAnhTbx.IsEnabled = false;
+            this.SoAnhTbx.Text = string.Empty;
+        }
+
+        private void SoCmtRadio_Unchecked(object sender, RoutedEventArgs e)
+        {
             this.SoCmtTbx.IsEnabled = false;
+            this.SoCmtTbx.Text= string.Empty;
         }
     }
 }
