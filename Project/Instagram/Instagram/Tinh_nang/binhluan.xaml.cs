@@ -83,11 +83,14 @@ namespace Instagram.Tinh_nang
                 //Đăng nhập
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button/div")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(10));
+
+                if (driver.Url == "https://www.instagram.com/")
+                    throw new Exception();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                driver.Quit();
+                MessageBox.Show("Đăng nhập thất bại");
             }
         }
 
@@ -125,8 +128,8 @@ namespace Instagram.Tinh_nang
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                driver.Quit();
+                MessageBox.Show("Comment thất bại");
             }
             
         }
@@ -177,8 +180,8 @@ namespace Instagram.Tinh_nang
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                driver.Quit();
+                MessageBox.Show("Comment thất bại");
             }
             
         }
@@ -205,8 +208,8 @@ namespace Instagram.Tinh_nang
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                driver.Quit();
+                MessageBox.Show("Comment thất bại");
             }
             
         }
