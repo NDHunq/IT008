@@ -187,10 +187,13 @@ namespace Instagram.Tinh_nang
 
             Border border = new Border
             {
+                
                 BorderBrush = Brushes.Black,   // Màu của đường viền
                 BorderThickness = new Thickness(2),  // Độ dày của đường viền
                 Child = labeledText  // Đặt Label làm con của Border
             };
+            
+            
 
             // Thêm đối tượng TextBlock mới vào ScrollViewer
             
@@ -208,6 +211,7 @@ namespace Instagram.Tinh_nang
             
             foreach (Border Item in nv.Children)
             {
+                
                 Label label = Item.Child as Label;
                 if (label.Content.ToString().Contains("Comment"))
                 {
@@ -284,7 +288,7 @@ namespace Instagram.Tinh_nang
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(1));
-                Keyboard.Type(_filenamepath[0]);
+                Keyboard.Type(getRandomImagePathList()[0]);
 
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 Keyboard.Press(VirtualKeyShort.ENTER);
@@ -292,7 +296,7 @@ namespace Instagram.Tinh_nang
 
 
                 CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
-                for (int i = 1; i < _filenamepath.Count(); i++)
+                for (int i = 1; i < getRandomImagePathList().Count(); i++)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(1));
                     CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
@@ -302,7 +306,7 @@ namespace Instagram.Tinh_nang
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='Plus icon']"))).Click();
                     Thread.Sleep(TimeSpan.FromSeconds(2));
-                    Keyboard.Type(_filenamepath[i]);
+                    Keyboard.Type(getRandomImagePathList()[i]);
 
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     Keyboard.Press(VirtualKeyShort.ENTER);
@@ -328,6 +332,18 @@ namespace Instagram.Tinh_nang
                 
         }
 
+        private List<string> getRandomImagePathList()
+        {
+            Random random = new Random();
+            int listCount = random.Next(1, _filenamepath.Count);
+            List<string> temp = new List<string>();   
+            for (int i = 0; i < listCount; i++)
+            {
+                int index = random.Next(0, _filenamepath.Count);
+                temp.Add(_filenamepath[i]);
+            }
+            return temp;
+        }
         private string getRandomHashtag()
         {
             

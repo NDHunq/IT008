@@ -24,6 +24,7 @@ namespace Instagram.Tinh_nang.form
     {
         public string EnteredContent { get; private set; }
          public int truee=0;
+         private bool isAccept = false;
         public laplich()
         {
             InitializeComponent();
@@ -40,17 +41,18 @@ namespace Instagram.Tinh_nang.form
 
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
         {
-             if(truee==1 && numericTextBox.Text!="" && dateTimePicker.Text!="")
+             if(truee==1 && dateTimePicker.Text!="")
              {
-                EnteredContent = hd.Text + " " + numericTextBox.Text + " lần vào thời điểm: " + dateTimePicker.Text;
+                EnteredContent = hd.Text + " vào thời điểm: " + dateTimePicker.Text;
                 truee = 0;
+                isAccept = true;
                 Close();
                 
              }
              else
              {
                 MessageBox.Show("Vui lòng nhập đủ thông tin");
-            }
+             }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -145,7 +145,7 @@
         </Button>
         <Border Margin="435,31,10,78" BorderThickness="2,2,2,2" BorderBrush="Black" CornerRadius="5,5,5,5" Background="#FFF7F7F7"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Đăng bài" Margin="447,50,210,639" Foreground="Black" FontSize="35"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text=" Folder ảnh" Margin="442,109,-442,576" Foreground="Black" FontSize="30"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text=" Folder ảnh" Margin="442,109,22,576" Foreground="Black" FontSize="30"/>
         <Border Margin="447,153,22,525" BorderThickness="2,2,2,2" BorderBrush="Black" Background="White" CornerRadius="3,3,3,3">
             <Grid>
                 <Border BorderBrush="Black" BorderThickness="1" Margin="-1,0,94,0">
