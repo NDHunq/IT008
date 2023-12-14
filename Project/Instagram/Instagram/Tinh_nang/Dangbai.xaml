@@ -7,6 +7,15 @@
              mc:Ignorable="d" 
          d:DesignHeight="729" d:DesignWidth="818">
     <UserControl.Resources>
+        <ContextMenu x:Key="contextMenu">
+            
+            <MenuItem Header="Delete"
+                      Click="Delete_OnClick"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}"/>
+        </ContextMenu>
+       
+
+
         <Style x:Key="check_box" TargetType="CheckBox">
             <Setter Property="FontFamily" Value="Bahnschrift">
 
