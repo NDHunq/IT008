@@ -67,58 +67,95 @@ namespace Instagram.Tinh_nang
             string tempPath = file_output_path.Text;
             saveFolderPath = tempPath.Replace(@"\", @"\\");
             CD = new ChromeDriver();
-            /////////////////////////////////////
+            //Log in 
             CD.Navigate().GoToUrl("https://www.instagram.com/");
             Thread.Sleep(TimeSpan.FromSeconds(5));
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
             Thread.Sleep(TimeSpan.FromSeconds(1));
             CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(30));
-            //////////////////////////////////////
+            Thread.Sleep(TimeSpan.FromSeconds(20));
+            //Go to target 
             CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
             Thread.Sleep(TimeSpan.FromSeconds(30));
-            //Chọn bài đăng đầu tiên        
+            //Choosing first post        
             IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));
             postSelector.Click();
             Thread.Sleep(TimeSpan.FromSeconds(6));
+            //*****************************************************************************************************
             if (this.Cao_Anh.IsChecked == true)
             {
                 int AnhDaCao = 0;
-                int stop = 0;
+                int stopImg = 0;
+                int stopCmt = 0;
+                int CmtDaCao = 0;
+                int CmtDaLoad = 0;
+                int PostIndex = 1;
+                int enableCmt = 1;
                 while (true)
                 {
-                    if (this.SoAnhRadio.IsChecked == true)
+                    
+                    if (this.Cao_BL.IsChecked == true)
                     {
-                        if (stop == 1)
-                        {
+                        if (stopCmt == 1 && stopImg == 1)
                             break;
+                        if (stopCmt == 0)
+                        {
+                            if(enableCmt==1)
+                            {
+                                CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stopCmt, ref PostIndex);
+                                enableCmt = 0;
+                            }    
+                            
                         }
-                        System.Threading.Thread.Sleep(1000);
                     }
                     try
                     {
-                        ImgEachPost(ref AnhDaCao, ref stop);
-                        System.Threading.Thread.Sleep(500);
+                        if (this.Cao_BL.IsChecked == false && stopImg == 1)
+                            break;
+                        if (stopImg == 0)
+                        {
+                            ImgEachPost(ref AnhDaCao, ref stopImg);
+                            System.Threading.Thread.Sleep(500);
+                        }
+                        
                     }
                     catch { }
                     {
-                        //Xem coi có nút next ngoài khum
+                        //Xem coi có nút next khum
                         By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
                         IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
                         if (nextButtonsFarent.Count != 0)
                         {
                             IWebElement nextButton = nextButtonsFarent[0];
                             nextButton.Click();
+                            PostIndex++;
+                            enableCmt = 1;
                         }
                         else
                             break;
                         
                     }
+                    if(this.Cao_BL.IsChecked == true && stopImg ==1 && stopCmt==0 )
+                    {
+                        By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                        IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
+                        if (nextButtonsFarent.Count != 0)
+                        {
+                            IWebElement nextButton = nextButtonsFarent[0];
+                            nextButton.Click();
+                            PostIndex++;
+                            enableCmt = 1;
+                        }
+                        else
+                            break;
+                    }    
                 }
-                
+                CD.Quit();
+                MessageBox.Show("Done!", "Thông báo");
             }
-            if (this.Cao_BL.IsChecked == true)
+            //*****************************************************************************************
+            if (this.Cao_BL.IsChecked == true && this.Cao_Anh.IsChecked == false )
             {
                 int CmtDaCao = 0;
                 int CmtDaLoad = 0;
@@ -144,6 +181,7 @@ namespace Instagram.Tinh_nang
                 MessageBox.Show("Done!","Thông báo");
             }
         }
+        //Crawl cmt mỗi post
         public void CmtEachPost(ref int CmtDaCao, ref int CmtDaLoad, ref int stop, ref int PostIndex)
         {
             LoadCmts(ref CmtDaLoad);
@@ -170,13 +208,14 @@ namespace Instagram.Tinh_nang
             sw.Flush();
             sw.Close();
         }
+        //Loading comments
         public void LoadCmts(ref int CmtDaLoad)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)CD;
             try
             {
                 Actions actions = new Actions(CD);
-                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
+                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(6));
                
                 while (true)
                 {
@@ -194,7 +233,7 @@ namespace Instagram.Tinh_nang
             catch (WebDriverTimeoutException)
             {
                 long currentHeight = (long)js.ExecuteScript("return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );");
-                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
+                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(6));
                 long newHeight = (long)js.ExecuteScript("return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );");
 
                 if (newHeight == currentHeight)
@@ -206,6 +245,7 @@ namespace Instagram.Tinh_nang
                 wait.Until(ExpectedConditions.ElementIsVisible(lastImageLocator));
             }
         }
+        //Crawl Img mỗi post
         public void ImgEachPost(ref int AnhDaCao,ref int stop)
         {
             IWebElement nextImgButton=null;
@@ -300,20 +340,24 @@ namespace Instagram.Tinh_nang
         {
             this.TatCaAnh.IsEnabled= true;
             this.SoAnhRadio.IsEnabled= true;
-            
+            if(this.SoAnhRadio.IsChecked==true)
+                this.SoAnhTbx.IsEnabled = true;
         }
 
         private void Cao_BL_Checked(object sender, RoutedEventArgs e)
         {
             this.TatCaCmt.IsEnabled = true;
             this.SoCmtRadio.IsEnabled = true;
-            
+            if (this.SoCmtRadio.IsChecked == true)
+                this.SoCmtTbx.IsEnabled = true;
         }
 
         private void Cao_Anh_Unchecked(object sender, RoutedEventArgs e)
         {
             this.TatCaAnh.IsEnabled = false;
             this.SoAnhRadio.IsEnabled = false;
+            this.SoAnhTbx.Text = string.Empty;
+            this.SoAnhTbx.IsEnabled = false;
             
         }
 
@@ -321,7 +365,8 @@ namespace Instagram.Tinh_nang
         {
             this.TatCaCmt.IsEnabled = false;
             this.SoCmtRadio.IsEnabled = false;
-            
+            this.SoCmtTbx.Text = string.Empty;
+            this.SoCmtTbx.IsEnabled = false;
         }
 
         private void SoAnhRadio_Checked(object sender, RoutedEventArgs e)
