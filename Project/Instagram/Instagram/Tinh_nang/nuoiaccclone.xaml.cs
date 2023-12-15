@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using FlaUI.Core.WindowsAPI;
 using Instagram.Tinh_nang.form;
 using Microsoft.Win32;
@@ -16,7 +17,7 @@ using OpenQA.Selenium.Interactions;
 using Keyboard = FlaUI.Core.Input.Keyboard;
 using FlaUI.Core.WindowsAPI;
 using OpenQA.Selenium.Support.UI;
-
+using Timer = System.Timers.Timer;
 
 namespace Instagram.Tinh_nang
 {
@@ -31,10 +32,17 @@ namespace Instagram.Tinh_nang
         public string Password;
         int itd = 0;
 
+        private ChromeDriver chromeDriver;
+        private DispatcherTimer t;
+
         public nuoiaccclone()
         {
             InitializeComponent();
-         
+            
+            
+            t = new DispatcherTimer();
+            t.Interval = TimeSpan.FromSeconds(1);
+            t.Tick += HenGio;
 
         }
 
@@ -207,35 +215,74 @@ namespace Instagram.Tinh_nang
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            ChromeDriver chromeDriver = new ChromeDriver();
+            
+            chromeDriver = new ChromeDriver();
             Login(chromeDriver);
+            // t.Start();
+            
+            
+                
+                
+                
+            
+
+           
+
+
+        }
+        
+        
+
+        private void HenGio(object sender, EventArgs e )
+        {
+            
             
             foreach (Border Item in nv.Children)
             {
                 
                 Label label = Item.Child as Label;
-                if (label.Content.ToString().Contains("Comment"))
+                if(DateTime.Now == getDateTimeFromString(label.Content.ToString()))
                 {
-                    Comment(chromeDriver);
+                    MessageBox.Show("Đã đến giờ");
+                    if (label.Content.ToString().Contains("Comment")) //label.Content.ToString() = "Comment vào thời điểm: 12/12/2020 12:12:12"
+                    {
+                        Comment(chromeDriver);
                 
-                }
-                if (label.Content.ToString().Contains("Tim"))
-                {
-                    Tym(chromeDriver);
+                    }
+                    if (label.Content.ToString().Contains("Tim"))
+                    {
+                        Tym(chromeDriver);
                 
+                    }
+                    if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
+                    {
+                        Post(chromeDriver);
+                    }
                 }
-                if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
-                {
-                    Post(chromeDriver);
-                }
+                
+                
+                
             }
-            PostTimeCount = 0;
-            chromeDriver.Quit();
-                
-            
             
 
+        }            
+
+
+        private DateTime getDateTimeFromString(string s)
+        {
+            //Tim vào thời điểm: ;
+            //Comment ngẫu nhiên vào thời điểm: 12/12/2020 12:12:12;
+            //Đăng bài ngẫu nhiên vào thời điểm: 12/12/2020 12:12:12;
+            string a = s.Substring(s.Length- 19);
+            
+            DateTime dateTime = DateTime.Parse(a);
+            
+            
+            
+            return dateTime;
+            
         }
+        
 
         private void Login(ChromeDriver driver)
         {
@@ -312,7 +359,7 @@ namespace Instagram.Tinh_nang
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     Keyboard.Press(VirtualKeyShort.ENTER);
                 }
-                Thread.Sleep(TimeSpan.FromSeconds(2));
+                Thread.Sleep(TimeSpan.FromSeconds(2)); 
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(2));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
@@ -328,7 +375,7 @@ namespace Instagram.Tinh_nang
             catch (Exception e)
             {
                 CD.Quit();
-                MessageBox.Show("Đã đăng bài thất bại");
+                MessageBox.Show("Đã đăng bài thất bại" + e.Message);
             }
                 
         }
@@ -337,11 +384,12 @@ namespace Instagram.Tinh_nang
         {
             Random random = new Random();
             int listCount = random.Next(1, _filenamepath.Count);
-            List<string> temp = new List<string>();   
+            List<string> temp = new List<string>();
+            
             for (int i = 0; i < listCount; i++)
             {
                 int index = random.Next(0, _filenamepath.Count);
-                temp.Add(_filenamepath[i]);
+                temp.Add(_filenamepath[index]);
             }
             return temp;
         }
@@ -396,7 +444,7 @@ namespace Instagram.Tinh_nang
                 catch (Exception e)
                 {
                     driver.Quit();
-                    MessageBox.Show("Đã tym thất bại");
+                    MessageBox.Show("Đã tym thất bại " + e.Message);
                 }
                 
                 
