@@ -24,6 +24,10 @@ using System.Xml.Linq;
 using System.Net.PeerToPeer;
 using static System.Net.WebRequestMethods;
 using System.Security.Policy;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using Keyboard = FlaUI.Core.Input.Keyboard;
+using OpenQA.Selenium.Interactions;
 
 namespace Instagram.Tinh_nang
 {
@@ -73,11 +77,11 @@ namespace Instagram.Tinh_nang
             Thread.Sleep(TimeSpan.FromSeconds(30));
             //////////////////////////////////////
             CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
-            Thread.Sleep(TimeSpan.FromSeconds(20));
+            Thread.Sleep(TimeSpan.FromSeconds(30));
             //Chọn bài đăng đầu tiên        
             IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));
             postSelector.Click();
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+            Thread.Sleep(TimeSpan.FromSeconds(6));
             if (this.Cao_Anh.IsChecked == true)
             {
                 int AnhDaCao = 0;
@@ -94,7 +98,7 @@ namespace Instagram.Tinh_nang
                     }
                     try
                     {
-                        EachPost(ref AnhDaCao, ref stop);
+                        ImgEachPost(ref AnhDaCao, ref stop);
                         System.Threading.Thread.Sleep(500);
                     }
                     catch { }
@@ -112,13 +116,97 @@ namespace Instagram.Tinh_nang
                         
                     }
                 }
-                if (this.Cao_BL.IsChecked == true)
+                
+            }
+            if (this.Cao_BL.IsChecked == true)
+            {
+                int CmtDaCao = 0;
+                int CmtDaLoad = 0;
+                int stop = 0;
+                int PostIndex = 1;
+                while (true)
                 {
-
+                    CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stop,ref PostIndex);
+                    if (stop == 1)
+                        break;
+                    By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                    IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
+                    if (nextButtonsFarent.Count != 0)
+                    {
+                        IWebElement nextButton = nextButtonsFarent[0];
+                        nextButton.Click();
+                    }
+                    else
+                        break;
+                    PostIndex++;
                 }
+                CD.Quit();
+                MessageBox.Show("Done!","Thông báo");
             }
         }
-        public void EachPost(ref int AnhDaCao,ref int stop)
+        public void CmtEachPost(ref int CmtDaCao, ref int CmtDaLoad, ref int stop, ref int PostIndex)
+        {
+            LoadCmts(ref CmtDaLoad);
+            IList<IWebElement> commentElements = CD.FindElements(By.CssSelector("span._ap3a._aaco._aacu._aacx._aad7._aade"));
+            List<string> comments = new List<string>();
+            foreach (var commentElement in commentElements)
+            {
+                comments.Add(commentElement.Text);
+                CmtDaCao++;
+                if (SoCmtRadio.IsChecked == true)
+                    if (CmtDaCao >= (int.Parse)(SoCmtTbx.Text))
+                    {
+                        stop = 1;
+                        break;
+                    }
+            }
+            string filePath = saveFolderPath + "\\CmtOfPost_"+ PostIndex + ".txt";
+            FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                sw.WriteLine(comments[i]);
+            }
+            sw.Flush();
+            sw.Close();
+        }
+        public void LoadCmts(ref int CmtDaLoad)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)CD;
+            try
+            {
+                Actions actions = new Actions(CD);
+                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
+               
+                while (true)
+                {
+                    Thread.Sleep(1000);
+                    actions.SendKeys(OpenQA.Selenium.Keys.End).Perform();
+                    Thread.Sleep(2500);
+                    IWebElement loadButton = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("svg[aria-label='Load more comments']")));
+                    loadButton.Click();
+                    CmtDaLoad = CmtDaLoad + 14;
+                    if (SoCmtRadio.IsChecked == true)
+                        if (CmtDaLoad >= (int.Parse)(SoCmtTbx.Text))
+                            break;
+                }
+            }
+            catch (WebDriverTimeoutException)
+            {
+                long currentHeight = (long)js.ExecuteScript("return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );");
+                WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
+                long newHeight = (long)js.ExecuteScript("return Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );");
+
+                if (newHeight == currentHeight)
+                {
+                    return;
+                }
+
+                By lastImageLocator = By.CssSelector("div._aagw:last-child");
+                wait.Until(ExpectedConditions.ElementIsVisible(lastImageLocator));
+            }
+        }
+        public void ImgEachPost(ref int AnhDaCao,ref int stop)
         {
             IWebElement nextImgButton=null;
             int ImageCount = 1;
@@ -208,7 +296,6 @@ namespace Instagram.Tinh_nang
                 }
             }
         }
-
         private void Cao_Anh_Checked(object sender, RoutedEventArgs e)
         {
             this.TatCaAnh.IsEnabled= true;
