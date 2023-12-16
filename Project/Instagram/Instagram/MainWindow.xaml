@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        Height="837" Width="1219" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent" Icon="/instagram_f_icon-icons.com_65485 (1).ico">
     <Window.Resources>
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">

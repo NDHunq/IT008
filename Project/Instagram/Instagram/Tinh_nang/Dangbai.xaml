@@ -36,7 +36,7 @@
 
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="24,458,-24,75" Foreground="Black" FontSize="35"/>
-        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="24,507,10,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="20" Cursor="Hand"/>
+        <TextBox   AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}"  Margin="24,507,10,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="25" Cursor="Hand"/>
         <TextBlock Style="{DynamicResource txt_block}" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
 
         <Button x:Name="btn_Copy" Margin="692,10,10,669" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >

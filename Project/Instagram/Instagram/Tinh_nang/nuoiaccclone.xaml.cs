@@ -515,14 +515,19 @@ namespace Instagram.Tinh_nang
                     driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                     Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                    ScrollTo(driver);
-                    Thread.Sleep(TimeSpan.FromSeconds(4));
                     
-                        // /html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[2]/div/div[1]/div[4]/div/a
-                        // /html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[2]/div/div[3]/div[3]/div/a
-                        // /html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[2]/div/div[3]/div[2]/div/a
                         
-                    driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[2]/div/div[1]/div[4]/div/a/div[1]/div[2]")).Click();
+                    var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
+                    
+                    Thread.Sleep(TimeSpan.FromSeconds(5));
+            
+                    // Chọn ngẫu nhiên một bài viết
+                    Random rand = new Random();
+                    var post = posts[rand.Next(posts.Count)];
+                
+                
+                    // Click vào bài viết
+                    post.Click();
                     Thread.Sleep(TimeSpan.FromSeconds(3));
                 
                     //Tym
@@ -552,9 +557,16 @@ namespace Instagram.Tinh_nang
                 driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                 Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                ScrollTo(driver);
-                Thread.Sleep(TimeSpan.FromSeconds(4));
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[2]/div/div[1]/div[4]/div/a/div[1]/div[2]")).Click();
+                var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
+                Thread.Sleep(TimeSpan.FromSeconds(6));
+            
+                // Chọn ngẫu nhiên một bài viết
+                Random rand = new Random();
+                var post = posts[rand.Next(posts.Count)];
+                
+                
+                // Click vào bài viết
+                post.Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));
             
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));
@@ -593,18 +605,8 @@ namespace Instagram.Tinh_nang
         
         private void ScrollTo(ChromeDriver driver)
         {
-            // IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            // js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-    
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-
-            Random rand = new Random();
-            // int x = rand.Next(0, 1000);
-            // int y = rand.Next(0, 1000);
-            int x = 100;
-            int y = 100;
-
-            js.ExecuteScript("window.scrollTo(" + x + ", " + y + ");");
+            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
         }
         
 

@@ -15,7 +15,7 @@
         
         <!-- scroll viewer -->
         <ScrollViewer Margin="19,184,36,90" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="455" >
+            <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="455"  FontFamily="Bahnschrift" FontSize="25">
 
             </TextBox>
         </ScrollViewer>
@@ -40,6 +40,6 @@
         
         <!-- box thêm người dùng-->
 
-        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,82,194,582" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
+        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,82,194,582" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="25" BorderThickness="2,2,2,2"></TextBox>
     </Grid>
 </UserControl>

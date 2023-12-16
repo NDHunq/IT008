@@ -115,12 +115,12 @@
            
         </Button>
         <Border Margin="0,25,0,453" HorizontalAlignment="Center" Width="766" BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7,7,7,7"/>
-        <TextBox x:Name="UsernameCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="52,89,439,595" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
+        <TextBox x:Name="UsernameCommented" FontFamily="Bahnschrift" FontSize="25" Style="{DynamicResource ResourceKey=txt_box}" Margin="52,89,439,595" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,291,-26,242" Foreground="#FF166AF3" FontSize="30"/>
-        <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,340,26,89" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" Cursor="Hand"/>
+        <TextBox FontFamily="Bahnschrift" FontSize="25"  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,340,26,89" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" Cursor="Hand"/>
         <RadioButton Margin="51,58,689,621" Height="50" FontSize="40" Click="RadioButton_Click" Checked="RadioButton_Checked" Cursor="Hand" />
         <TextBlock Style="{DynamicResource txt_block}" Text="Link bài viết" Margin="494,54,-495,625" Foreground="Black" FontSize="25"/>
-        <TextBox x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,89,51,595" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
+        <TextBox FontFamily="Bahnschrift" FontSize="25" x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,89,51,595" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
         <RadioButton Margin="467,62,247,617" Height="50" FontSize="40" Click="RadioButton_Click_1" Checked="RadioButton_Checked_1" />
         <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ:" Margin="55,185,581,494" Foreground="Black" FontSize="25" RenderTransformOrigin="0.579,0.72"/>
 
