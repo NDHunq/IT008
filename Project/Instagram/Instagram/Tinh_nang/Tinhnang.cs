@@ -13,11 +13,13 @@ namespace Instagram.Tinh_nang
     {
         public string thoigian;
         public string noidung;
+        public bool hoanthanh;
         
         public Tinhnang(string thoigian, string noidung)
         {
             this.thoigian = thoigian;
             this.noidung = noidung;
+            this.hoanthanh = false;
         }
         
         
