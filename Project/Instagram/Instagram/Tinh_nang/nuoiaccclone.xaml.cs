@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -35,6 +36,10 @@ namespace Instagram.Tinh_nang
         private ChromeDriver chromeDriver;
         private DispatcherTimer t;
 
+        
+        List<Tinhnang> listtinhnang = new List<Tinhnang>();
+        
+        
         public nuoiaccclone()
         {
             InitializeComponent();
@@ -206,7 +211,8 @@ namespace Instagram.Tinh_nang
 
             // Thêm đối tượng TextBlock mới vào ScrollViewer
             
-            
+            Tinhnang tinhnang = a.getTinhNang();
+            listtinhnang.Add(tinhnang);
             nv.Children.Add(border);
           
            
@@ -216,53 +222,76 @@ namespace Instagram.Tinh_nang
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             
-            chromeDriver = new ChromeDriver();
-            Login(chromeDriver);
-            // t.Start();
+            // chromeDriver = new ChromeDriver();
+            // Login(chromeDriver);
+            t.Start();
             
-            
-                
-                
-                
-            
-
-           
-
-
         }
-        
         
 
         private void HenGio(object sender, EventArgs e )
         {
+            DateTime currentTime = DateTime.Now;
             
-            
-            foreach (Border Item in nv.Children)
+                Console.WriteLine(DateTime.Now);
+            for (int i = 0; i < listtinhnang.Count; i++)
             {
-                
-                Label label = Item.Child as Label;
-                if(DateTime.Now == getDateTimeFromString(label.Content.ToString()))
+                DateTime labelTime = getDateTimeFromString(listtinhnang[i].thoigian);
+                if (currentTime >= labelTime)
                 {
-                    MessageBox.Show("Đã đến giờ");
-                    if (label.Content.ToString().Contains("Comment")) //label.Content.ToString() = "Comment vào thời điểm: 12/12/2020 12:12:12"
-                    {
-                        Comment(chromeDriver);
-                
-                    }
-                    if (label.Content.ToString().Contains("Tim"))
-                    {
-                        Tym(chromeDriver);
-                
-                    }
-                    if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
-                    {
-                        Post(chromeDriver);
-                    }
+                    MessageBox.Show(listtinhnang[i].thoigian + " " + listtinhnang[i].noidung);
+                    // if (listtinhnang[i].noidung.Contains("Comment")) //label.Content.ToString() = "Comment vào thời điểm: 12/12/2020 12:12:12"
+                    // {
+                    //     OpenNewTab(chromeDriver);
+                    //     Comment(chromeDriver);
+                    //     
+                    //
+                    // }
+                    // if (listtinhnang[i].noidung.Contains("Tim"))
+                    // {
+                    //     OpenNewTab(chromeDriver);
+                    //     Tym(chromeDriver);
+                    //
+                    // }
+                    // if (listtinhnang[i].noidung.Contains("Đăng bài ngẫu nhiên"))
+                    // {
+                    //     OpenNewTab(chromeDriver);
+                    //     Post(chromeDriver);
+                    // }
                 }
-                
-                
-                
+                listtinhnang.RemoveAt(i);
             }
+            
+            
+            // foreach (Border Item in nv.Children)
+            // {
+            //     Label label = Item.Child as Label;
+            //     DateTime labelTime = getDateTimeFromString(label.Content.ToString());
+            //     
+            //     if (currentTime >= labelTime && currentTime <= labelTime.AddSeconds(1))
+            //     {
+            //         if (label.Content.ToString().Contains("Comment")) //label.Content.ToString() = "Comment vào thời điểm: 12/12/2020 12:12:12"
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Comment(chromeDriver);
+            //     
+            //         }
+            //         if (label.Content.ToString().Contains("Tim"))
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Tym(chromeDriver);
+            //     
+            //         }
+            //         if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Post(chromeDriver);
+            //         }
+            //     }
+            //     
+            //     
+            //     
+            // }
             
 
         }            
@@ -270,7 +299,7 @@ namespace Instagram.Tinh_nang
 
         private DateTime getDateTimeFromString(string s)
         {
-            //Tim vào thời điểm: ;
+            
             //Comment ngẫu nhiên vào thời điểm: 12/12/2020 12:12:12;
             //Đăng bài ngẫu nhiên vào thời điểm: 12/12/2020 12:12:12;
             string a = s.Substring(s.Length- 19);
@@ -282,7 +311,21 @@ namespace Instagram.Tinh_nang
             return dateTime;
             
         }
-        
+
+        private void OpenNewTab(ChromeDriver driver)
+        {
+            try
+            {
+                driver.ExecuteScript("window.open('');");
+                ReadOnlyCollection<string> tabs = driver.WindowHandles;
+                driver.SwitchTo().Window(tabs[tabs.Count - 1]);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Đã mở tab mới thất bại");
+            }
+            
+        }
 
         private void Login(ChromeDriver driver)
         {
@@ -431,7 +474,7 @@ namespace Instagram.Tinh_nang
                     Thread.Sleep(TimeSpan.FromSeconds(3));
 
                     ScrollTo(driver);
-                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    Thread.Sleep(TimeSpan.FromSeconds(4));
                 
                     driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div[6]/div[2]/div/a/div/div[2]")).Click();
                     Thread.Sleep(TimeSpan.FromSeconds(3));
@@ -464,7 +507,7 @@ namespace Instagram.Tinh_nang
                 Thread.Sleep(TimeSpan.FromSeconds(3));
 
                 ScrollTo(driver);
-                Thread.Sleep(TimeSpan.FromSeconds(3));
+                Thread.Sleep(TimeSpan.FromSeconds(4));
             
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div[6]/div[2]/div/a/div/div[2]")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));

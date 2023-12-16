@@ -144,6 +144,7 @@
     <Compile Include="Tinh_nang\Tim.xaml.cs">
       <DependentUpon>Tim.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tinh_nang\Tinhnang.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

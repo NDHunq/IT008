@@ -39,6 +39,11 @@ namespace Instagram.Tinh_nang.form
             }
         }
 
+        public Tinhnang getTinhNang()
+        {
+            Tinhnang a = new Tinhnang(dateTimePicker.Text, hd.Text);
+            return a;
+        }
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
         {
              if(truee==1 && dateTimePicker.Text!="")
