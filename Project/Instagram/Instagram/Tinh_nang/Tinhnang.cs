@@ -9,13 +9,13 @@ using OpenQA.Selenium.Interactions;
 
 namespace Instagram.Tinh_nang
 {
-    public class Tinhnang
+    public class Tinhnangnuoiclone
     {
         public string thoigian;
         public string noidung;
         public bool hoanthanh;
         
-        public Tinhnang(string thoigian, string noidung)
+        public Tinhnangnuoiclone(string thoigian, string noidung)
         {
             this.thoigian = thoigian;
             this.noidung = noidung;
