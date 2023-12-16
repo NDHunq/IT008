@@ -29,24 +29,23 @@
         </Style>
     </UserControl.Resources>
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="24,31,-24,661" Foreground="Black" FontSize="35">
+        <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="24,18,-24,674" Foreground="Black" FontSize="35">
 
         </TextBlock>
         <Button x:Name="btn_Copy1" Margin="339,659,339,10"  Style="{DynamicResource btn_run}"  Click="btn_Copy1_Click"  >
 
         </Button>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="24,402,-24,131" Foreground="Black" FontSize="35"/>
-        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="24,455,25,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="20" Cursor="Hand"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="24,458,-24,75" Foreground="Black" FontSize="35"/>
+        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="24,507,10,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="20" Cursor="Hand"/>
         <TextBlock Style="{DynamicResource txt_block}" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Tùy chỉnh" Margin="546,30,-546,661" Foreground="Black" FontSize="35"/>
 
-        <Button x:Name="btn_Copy" Margin="392,22,310,657" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >
+        <Button x:Name="btn_Copy" Margin="692,10,10,669" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >
             <TextBlock x:Name="new_usr1" Text="import" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
 
             </TextBlock>
         </Button>
-        <Border Margin="24,79,305,339" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <ScrollViewer Margin="-2,0,0,0" >
+        <Border Margin="24,65,10,276" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <ScrollViewer Margin="-2,0,1,2" >
                 <StackPanel x:Name="im">
                     <Image x:Name="photo" Margin="0,-1,1,0">
 
@@ -56,13 +55,5 @@
             </ScrollViewer>
 
         </Border>
-
-        <CheckBox x:Name="ck1" Style="{DynamicResource check_box}" Content=" Tắt bình luận" Margin="562,110,41,585" RenderTransformOrigin="0.36,0.347" FontSize="26" Foreground="Black">
-
-        </CheckBox>
-        <CheckBox  x:Name="ck2" Style="{DynamicResource check_box}" Content="Ẩn lượt thích và &#xD;&#xA;lượt xem" Margin="562,219,10,432" FontSize="26" Checked="CheckBox_Checked" Foreground="Black">
-
-        </CheckBox>
-        <Border BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7" Margin="546,79,25,339"/>
     </Grid>
 </UserControl>
