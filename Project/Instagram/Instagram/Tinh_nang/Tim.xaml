@@ -9,7 +9,7 @@
     <Grid Background="White">
         <!-- dòng trên -->
 
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
+        <TextBlock Style="{DynamicResource txt_block}" Text="Danh sách username/link người cần tim" 
                    Margin="19,27,51,656" Foreground="Black" FontSize="35">
         </TextBlock>
         

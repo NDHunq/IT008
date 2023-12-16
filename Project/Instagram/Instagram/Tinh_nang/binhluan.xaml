@@ -110,7 +110,7 @@
         <Border x:Name="bd2"  Margin="34,33,0,465" HorizontalAlignment="Left" Width="406" BorderThickness="2,2,2,2" CornerRadius="7,7,7,7" Background="#FFE6E6E6" Visibility="Hidden"/>
 
 
-        <TextBlock Style="{DynamicResource txt_block}" Text="người cần bình luận" Margin="78,49,513,647" Foreground="Black" FontSize="25"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="User cần bình luận" Margin="78,49,513,647" Foreground="Black" FontSize="25"/>
         <Button x:Name="AcceptButton" Style="{DynamicResource btn_run}"  Click="ButtonBase_OnClick" Margin="339,659,339,10"  >
            
         </Button>
@@ -119,10 +119,10 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,291,-26,242" Foreground="#FF166AF3" FontSize="30"/>
         <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,340,26,89" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" Cursor="Hand"/>
         <RadioButton Margin="51,58,689,621" Height="50" FontSize="40" Click="RadioButton_Click" Checked="RadioButton_Checked" Cursor="Hand" />
-        <TextBlock Style="{DynamicResource txt_block}" Text="link bài viết" Margin="494,54,-495,625" Foreground="Black" FontSize="25"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Link bài viết" Margin="494,54,-495,625" Foreground="Black" FontSize="25"/>
         <TextBox x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,89,51,595" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
         <RadioButton Margin="467,62,247,617" Height="50" FontSize="40" Click="RadioButton_Click_1" Checked="RadioButton_Checked_1" />
-        <TextBlock Style="{DynamicResource txt_block}" Text="chế độ:" Margin="55,185,581,494" Foreground="Black" FontSize="25" RenderTransformOrigin="0.579,0.72"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ:" Margin="55,185,581,494" Foreground="Black" FontSize="25" RenderTransformOrigin="0.579,0.72"/>
 
         <ComboBox Style="{DynamicResource RoundComboBox }" x:Name="cbb" Margin="146,178,439,502" FontSize="18" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Cursor="Hand" >
             <ComboBoxItem  Content="Comment bài gần nhất"/>
