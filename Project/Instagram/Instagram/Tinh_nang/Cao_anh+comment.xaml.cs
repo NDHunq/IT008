@@ -84,7 +84,7 @@ namespace Instagram.Tinh_nang
                     CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
                     Thread.Sleep(TimeSpan.FromSeconds(1));
                     CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-                    Thread.Sleep(TimeSpan.FromSeconds(20));
+                    Thread.Sleep(TimeSpan.FromSeconds(10));
                     if (CD.Url == "https://www.instagram.com/")
                     {
                         Thread.Sleep(TimeSpan.FromSeconds(3));
@@ -107,7 +107,7 @@ namespace Instagram.Tinh_nang
                         CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
                     }
 
-                    Thread.Sleep(TimeSpan.FromSeconds(30));
+                    Thread.Sleep(TimeSpan.FromSeconds(10));
                     loi = 2;
                     //Choosing first post        
                     IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));

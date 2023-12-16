@@ -125,7 +125,7 @@ namespace Instagram.Tinh_nang
 
 
                         CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
-                        for (int i = 1; i < dsuri.Count(); i++)
+                        for (int i = 1; i < 10; i++)
                         {
                             Thread.Sleep(TimeSpan.FromSeconds(1));
                             CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
