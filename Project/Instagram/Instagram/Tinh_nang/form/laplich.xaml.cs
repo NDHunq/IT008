@@ -39,9 +39,9 @@ namespace Instagram.Tinh_nang.form
             }
         }
 
-        public Tinhnang getTinhNang()
+        public Tinhnangnuoiclone getTinhNang()
         {
-            Tinhnang a = new Tinhnang(dateTimePicker.Text, hd.Text);
+            Tinhnangnuoiclone a = new Tinhnangnuoiclone(dateTimePicker.Text, hd.Text);
             return a;
         }
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)
