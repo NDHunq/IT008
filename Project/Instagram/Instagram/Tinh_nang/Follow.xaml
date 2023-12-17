@@ -20,7 +20,7 @@
             <TextBox x:Name="User_Tbx" AcceptsReturn="True" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" TextWrapping="Wrap" Background="White" Height="408"    />
         </ScrollViewer>
 
-        <Button x:Name="add_butt" Margin="657,139,19,511" RenderTransformOrigin="0.539,0.908"  Content="import"   Click="add_butt_Click" FontFamily="Bahnschrift" FontSize="25" BorderThickness="2,2,2,2" Background="{x:Null}"   >
+        <Button x:Name="add_butt" Margin="657,139,19,511" RenderTransformOrigin="0.539,0.908"  Content="import"   Click="add_butt_Click" FontFamily="Bahnschrift" FontSize="30" BorderThickness="2,2,2,2" Background="{x:Null}"   >
           
 
 
