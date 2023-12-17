@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Margin="27,2,743,670" Source="/Resources/icons8-downloads-folder-96.png"/>
+        <Image Margin="27,2,743,670" Source="/Resources/icons8-downloads-folder-96 (1).png"/>
         <Border Background="Black" Margin="23,63,33,664" />
         <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,80,212,617" Foreground="Black" FontSize="30"/>
         <Button  x:Name="run_butt" Margin="340,659,338,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  />

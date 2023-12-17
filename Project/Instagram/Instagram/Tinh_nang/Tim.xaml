@@ -14,6 +14,7 @@
         <!-- dòng trên -->
 
 
+
         <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
                    Margin="19,100,51,583" Foreground="Black" FontSize="35">
 
@@ -49,7 +50,6 @@
 
 
         <!-- box thêm người dùng-->
-
 
         <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,165,194,499" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
         <TextBlock Style="{DynamicResource txt_block}" Text="Thả tim tự động" 
