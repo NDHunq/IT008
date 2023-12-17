@@ -1,6 +1,6 @@
 ![UIT](https://img.shields.io/badge/from-UIT%20VNUHCM-blue?style=for-the-badge&link=https%3A%2F%2Fwww.uit.edu.vn%2F)
 
- <h2 align="center"> Instagram Automation App </h2>
+ <h2 align="center"> Instagram Automatic App </h2>
 
 <p align="center">
   <img src="https://www.uit.edu.vn/sites/vi/files/banner_uit.png" alt="Alt text">
@@ -30,7 +30,7 @@ This is video demo [Youtube]()
 
 <h3>Description</h3>
 
-Instagram Automation App - Automate Instagram activities
+Instagram Automatic App - Automate Instagram activities
 This app allows you to automate your daily tasks on Instagram such as:
    - Crawl photos and comments
       - Automatically extract and download photos and comments from any Instagram accounts
@@ -132,7 +132,7 @@ With automation, the app saves time, effort and optimizes the effectiveness of y
 
 <h3>Additional information</h3>
 
-Thank you for choosing our Instagram Automation App!
+Thank you for choosing our Instagram Automatic App!
 
 We are thrilled that you are having a great experience automating your Instagram activities with our app. We truly appreciate you taking the time to use our product.
 
