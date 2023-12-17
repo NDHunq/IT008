@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools.V117.FedCm;
+using OpenQA.Selenium.DevTools.V118.FedCm;
 using OpenQA.Selenium.Interactions;
 
 namespace Instagram.Tinh_nang
