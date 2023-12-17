@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 namespace Instagram.Tinh_nang
@@ -39,11 +40,17 @@ namespace Instagram.Tinh_nang
         List<string> user_list = new List<string>();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(username_tb.Text))
-                return;
-            string a =  username_tb.Text+"\n";
-            user_list.Add(username_tb.Text);
-            Ds.Text += a;
+            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Text or Word Document";
+            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.docx, *.doc)|*.docx;*.doc";
+
+            if (ofd.ShowDialog() == true)
+            {
+                string selectedFilePath = ofd.FileName;
+
+               username_tb.Text = selectedFilePath;
+            }
+           
         }
 
         private void btn_Copy1_Click(object sender, RoutedEventArgs e)

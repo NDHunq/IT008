@@ -23,7 +23,7 @@
         <!-- scroll viewer -->
 
         <ScrollViewer Margin="19,270,36,90" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="367" >
+            <TextBox  AcceptsReturn="True" x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="367" FontFamily="Bahnschrift" FontSize="25" >
 
 
             </TextBox>
@@ -51,7 +51,7 @@
 
         <!-- box thêm người dùng-->
 
-        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,165,194,499" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
+        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,165,194,499" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2" IsEnabled="False"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Thả tim tự động" 
             Margin="80,20,-10,663" Foreground="Black" FontSize="30"/>
 
