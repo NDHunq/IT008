@@ -16,18 +16,23 @@
 
         <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
                    Margin="19,100,51,583" Foreground="Black" FontSize="35">
+
         </TextBlock>
 
         <!-- scroll viewer -->
+
         <ScrollViewer Margin="19,270,36,90" BorderBrush="Black" BorderThickness="2,2,2,2">
             <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="367" >
+
 
             </TextBox>
         </ScrollViewer>
 
         <!-- nút thêm -->
+
         <Button x:Name="add_but" Margin="655,165,36,499" RenderTransformOrigin="0.539,0.908" 
                 Background="{x:Null}" Click="Button_Click" BorderThickness="2,2,2,2"  >
+
             <TextBlock x:Name="btn_txt" Text="import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" 
                        Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" 
                        TextAlignment="Center" HorizontalAlignment="Center">
@@ -45,8 +50,10 @@
 
         <!-- box thêm người dùng-->
 
+
         <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,165,194,499" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
         <TextBlock Style="{DynamicResource txt_block}" Text="Thả tim tự động" 
             Margin="80,20,-10,663" Foreground="Black" FontSize="30"/>
+
     </Grid>
 </UserControl>

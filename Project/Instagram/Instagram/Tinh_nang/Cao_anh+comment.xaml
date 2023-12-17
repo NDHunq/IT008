@@ -7,11 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="729" d:DesignWidth="818">
 
+
     <Grid Background="White" Margin="-1,0,1,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image Margin="27,2,743,670" Source="/Resources/icons8-downloads-folder-96 (1).png"/>
+        <Image Margin="27,2,743,670" Source="/Resources/icons8-downloads-folder-96.png"/>
         <Border Background="Black" Margin="23,63,33,664" />
         <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,80,212,617" Foreground="Black" FontSize="30"/>
         <Button  x:Name="run_butt" Margin="340,659,338,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  />
@@ -22,6 +23,7 @@
         <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="25,230,28,0" Foreground="Black" FontSize="30"  VerticalAlignment="Top" Height="52" />
         <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,281,28,394" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
         <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,352" Foreground="Black" FontSize="30"/>
+
         <Grid Margin="48,416,307,210">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="135*"/>
