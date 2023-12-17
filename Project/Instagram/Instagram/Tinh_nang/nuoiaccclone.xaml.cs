@@ -515,17 +515,20 @@ namespace Instagram.Tinh_nang
                     driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                     Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                    var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
+                    // var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
+                    //
+                    // Thread.Sleep(TimeSpan.FromSeconds(5));
+                    //
+                    // // Chọn ngẫu nhiên một bài viết
+                    // Random rand = new Random();
+                    // var post = posts[rand.Next(posts.Count)];
+                    //
+                    //
+                    // // Click vào bài viết
+                    // post.Click();
+                    // Thread.Sleep(TimeSpan.FromSeconds(3));
                     
-                    Thread.Sleep(TimeSpan.FromSeconds(5));
-            
-                    // Chọn ngẫu nhiên một bài viết
-                    Random rand = new Random();
-                    var post = posts[rand.Next(posts.Count)];
-                
-                
-                    // Click vào bài viết
-                    post.Click();
+                    driver.FindElement(By.ClassName("_aagw")).Click();
                     Thread.Sleep(TimeSpan.FromSeconds(3));
                 
                     //Tym
