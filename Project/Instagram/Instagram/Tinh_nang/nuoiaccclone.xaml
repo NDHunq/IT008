@@ -221,7 +221,7 @@
         <Button x:Name="btn_Copy" Margin="334,29,450,724" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
             <TextBlock x:Name="new_usr1_Copy" Text="+" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
-        <Button x:Name="btn_Copy2" Margin="557,664,132,10" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="StartButton_Click"  >
+        <Button x:Name="btn_Copy2" Margin="557,664,132,10" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="StartButton_Click" Cursor="Hand"  >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -230,7 +230,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <TextBlock x:Name="new_usr1_Copy1" Text="start" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="new_usr1_Copy1" Text="start" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="39" RenderTransformOrigin="0.5,0.5" FontSize="40" Width="101" TextAlignment="Center" HorizontalAlignment="Left" />
         </Button>
 
     </Grid>

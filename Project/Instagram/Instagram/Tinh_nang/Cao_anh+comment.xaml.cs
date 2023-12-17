@@ -209,14 +209,14 @@ namespace Instagram.Tinh_nang
                             PostIndex++;
                         }
                         CD.Quit();
-                        MessageBox.Show("Done!", "Thông báo");
+                        MessageBox.Show("Thành công", "Thông báo");
                     }
                 }
                 catch
                 {
                     CD.Quit();
                     if(loi==1)
-                        MessageBox.Show("Sai thông tin đăng nhập!", "Thông báo");
+                        MessageBox.Show("Đăng nhập thất bại!", "Thông báo");
                     if(loi==2)
                         MessageBox.Show("User không tồn tại hoặc không có bài đăng nào !", "Thông báo");
                 }

@@ -22,7 +22,7 @@
 
         <!-- nút thêm -->
         <Button x:Name="add_but" Margin="655,82,36,582" RenderTransformOrigin="0.539,0.908" 
-                Background="{x:Null}" Click="Button_Click" BorderThickness="2,2,2,2"  >
+                Background="{x:Null}" Click="Button_Click" BorderThickness="2,2,2,2" Cursor="Hand"  >
             <TextBlock x:Name="btn_txt" Text="import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" 
                        Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" 
                        TextAlignment="Center" HorizontalAlignment="Center">
