@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Instagram"
         mc:Ignorable="d"
        Height="837" Width="1219" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" Icon="/Resources/icons8-setting-96.png"
       >
     <Window.Resources>
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">

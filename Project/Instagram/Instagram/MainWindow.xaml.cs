@@ -23,10 +23,17 @@ namespace Instagram
     /// </summary>
     public partial class MainWindow : Window
     {
+        Cao_anh_comment ca = new Cao_anh_comment();
+        Tim tim = new Tim();
+        binhluan bl = new binhluan();
+        Dangbai db = new Dangbai();
+        Follow fl = new Follow();
+        nuoiaccclone nac = new nuoiaccclone();
         public MainWindow()
         {
             InitializeComponent();
             cbb.SelectedIndex = 0;
+            
         }
        
        
@@ -52,60 +59,59 @@ namespace Instagram
         
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
 
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh/Comment")
-                {
 
-                    Cao_anh_comment a = new Cao_anh_comment();
-                    View.Content = a.Content;
-                    a.Account = tb1.Text;
-                    a.Pass = tb2.Password;
-                }
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả Tim")
-                {
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh/Comment")
+            {
 
-                    Tim a = new Tim();
-                    if (!string.IsNullOrEmpty(tb1.Text)&&!string.IsNullOrEmpty(tb2.Password))
-                    {
-                        a.setPW(tb2.Password);
-                        a.setUS(tb1.Text);
-                    }
-                    View.Content = a.Content;
-                }
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
-                {
-                    binhluan bl = new binhluan();
-                    View.Content = bl.Content;
-                    bl.UserName = tb1.Text;
-                    bl.Password = tb2.Password;
-                }
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
-                {
 
-                    Dangbai a = new Dangbai();
-                    View.Content = a.Content;
-                    a.Account = tb1.Text;
-                    a.Pass = tb2.Password;
-                }
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
-                {
+                View.Content = ca.Content;
+                ca.Account = tb1.Text;
+                ca.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả Tim")
+            {
 
-                    Follow a = new Follow();
-                    View.Content = a.Content;
-                    a.Account = tb1.Text;
-                    a.Pass = tb2.Password;
-                }
-                if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi Acc Clone")
-                {
 
-                    nuoiaccclone a = new nuoiaccclone();
-                    View.Content = a.Content;
-                    a.Username = tb1.Text;
-                    a.Password = tb2.Password;
-                 
-                }
-            
+
+                tim.setPW(tb2.Password);
+                tim.setUS(tb1.Text);
+
+                View.Content = tim.Content;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
+            {
+
+                View.Content = bl.Content;
+                bl.UserName = tb1.Text;
+                bl.Password = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
+            {
+
+
+                View.Content = db.Content;
+                db.Account = tb1.Text;
+                db.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
+            {
+
+
+                View.Content = fl.Content;
+                fl.Account = tb1.Text;
+                fl.Pass = tb2.Password;
+            }
+            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi Acc Clone")
+            {
+
+
+                View.Content = nac.Content;
+                nac.Username = tb1.Text;
+                nac.Password = tb2.Password;
+
+            }
+
         }
 
         private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -120,165 +126,104 @@ namespace Instagram
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh/Comment")
             {
 
-                Cao_anh_comment a = new Cao_anh_comment();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+
+                ca.Account = tb1.Text;
+                ca.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả Tim")
             {
 
-                Tim a = new Tim();
-                
-                    a.setPW(tb2.Password);
-                    a.setUS(tb1.Text);
-                
-                View.Content = a.Content;
+
+                if (!string.IsNullOrEmpty(tb1.Text) && !string.IsNullOrEmpty(tb2.Password))
+                {
+                    tim.setPW(tb2.Password);
+                    tim.setUS(tb1.Text);
+                }
+
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
             {
-                binhluan bl = new binhluan();
-                View.Content = bl.Content;
+
                 bl.UserName = tb1.Text;
                 bl.Password = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
             {
 
-                Dangbai a = new Dangbai();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+                db.Account = tb1.Text;
+                db.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
             {
 
-                Follow a = new Follow();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+                fl.Account = tb1.Text;
+                fl.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi Acc Clone")
             {
 
-                nuoiaccclone a = new nuoiaccclone();
-                View.Content = a.Content;
-                a.Username = tb1.Text;
-                a.Password = tb2.Password;
+
+                nac.Username = tb1.Text;
+                nac.Password = tb2.Password;
 
             }
         }
 
-        private void tb2_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh/Comment")
-            {
-
-                Cao_anh_comment a = new Cao_anh_comment();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả Tim")
-            {
-
-                Tim a = new Tim();
-              
-                    a.setPW(tb2.Password);
-                    a.setUS(tb1.Text);
-                
-                View.Content = a.Content;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
-            {
-                binhluan bl = new binhluan();
-                View.Content = bl.Content;
-                bl.UserName = tb1.Text;
-                bl.Password = tb2.Password;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
-            {
-
-                Dangbai a = new Dangbai();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
-            {
-
-                Follow a = new Follow();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
-            }
-            if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi Acc Clone")
-            {
-
-                nuoiaccclone a = new nuoiaccclone();
-                View.Content = a.Content;
-                a.Username = tb1.Text;
-                a.Password = tb2.Password;
-
-            }
-        }
-
+      
         private void tb2_PasswordChanged_1(object sender, RoutedEventArgs e)
         {
 
-
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Cào ảnh/Comment")
             {
 
-                Cao_anh_comment a = new Cao_anh_comment();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+
+                ca.Account = tb1.Text;
+                ca.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Thả Tim")
             {
 
-                Tim a = new Tim();
-                if (!tb1.IsEnabled && !tb2.IsEnabled)
+
+                if (!string.IsNullOrEmpty(tb1.Text) && !string.IsNullOrEmpty(tb2.Password))
                 {
-                    a.setPW(tb2.Password);
-                    a.setUS(tb1.Text);
+                    tim.setPW(tb2.Password);
+                    tim.setUS(tb1.Text);
                 }
-                View.Content = a.Content;
+
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Bình Luận")
             {
-                binhluan bl = new binhluan();
-                View.Content = bl.Content;
+
                 bl.UserName = tb1.Text;
                 bl.Password = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Đăng Bài")
             {
 
-                Dangbai a = new Dangbai();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+                db.Account = tb1.Text;
+                db.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Follow")
             {
 
-                Follow a = new Follow();
-                View.Content = a.Content;
-                a.Account = tb1.Text;
-                a.Pass = tb2.Password;
+
+                fl.Account = tb1.Text;
+                fl.Pass = tb2.Password;
             }
             if ((cbb.SelectedItem as ComboBoxItem).Content.ToString() == "Nuôi Acc Clone")
             {
 
-                nuoiaccclone a = new nuoiaccclone();
-                View.Content = a.Content;
-                a.Username = tb1.Text;
-                a.Password = tb2.Password;
+
+                nac.Username = tb1.Text;
+                nac.Password = tb2.Password;
 
             }
+
         }
     }
 }
