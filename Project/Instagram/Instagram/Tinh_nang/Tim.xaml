@@ -7,21 +7,26 @@
              mc:Ignorable="d" 
      d:DesignHeight="729" d:DesignWidth="818">
     <Grid Background="White">
+        <Image Margin="1,15,729,674" Source="/Resources/icons8-heart-100.png"/>
+        <Border Background="Black" Margin="22,67,19,660">
+            
+        </Border>
         <!-- dòng trên -->
 
+
         <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
-                   Margin="19,27,51,656" Foreground="Black" FontSize="35">
+                   Margin="19,100,51,583" Foreground="Black" FontSize="35">
         </TextBlock>
-        
+
         <!-- scroll viewer -->
-        <ScrollViewer Margin="19,184,36,90" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="455" >
+        <ScrollViewer Margin="19,270,36,90" BorderBrush="Black" BorderThickness="2,2,2,2">
+            <TextBox x:Name="Ds" Foreground="Black" Width="764" BorderBrush="Black" Height="367" >
 
             </TextBox>
         </ScrollViewer>
 
         <!-- nút thêm -->
-        <Button x:Name="add_but" Margin="655,82,36,582" RenderTransformOrigin="0.539,0.908" 
+        <Button x:Name="add_but" Margin="655,165,36,499" RenderTransformOrigin="0.539,0.908" 
                 Background="{x:Null}" Click="Button_Click" BorderThickness="2,2,2,2"  >
             <TextBlock x:Name="btn_txt" Text="import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" 
                        Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" 
@@ -30,16 +35,18 @@
             </TextBlock>
         </Button>
 
-        
+
         <!-- nút chấp nhận -->
         <Button x:Name="accept_but" Margin="339,659,339,10" RenderTransformOrigin="0.539,0.908" Style="{DynamicResource btn_run}"
             Click="btn_Copy1_Click"   >
-           
+
         </Button>
-        
-        
+
+
         <!-- box thêm người dùng-->
 
-        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,82,194,582" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
+        <TextBox x:Name="username_tb" Style="{DynamicResource ResourceKey=txt_box}" Margin="19,165,194,499" BorderBrush="Black" FontFamily="Bahnschrift" FontSize="18" BorderThickness="2,2,2,2"></TextBox>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Thả tim tự động" 
+            Margin="80,20,-10,663" Foreground="Black" FontSize="30"/>
     </Grid>
 </UserControl>
