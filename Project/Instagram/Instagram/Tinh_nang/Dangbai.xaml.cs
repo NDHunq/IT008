@@ -106,7 +106,7 @@ namespace Instagram.Tinh_nang
                 if(truee==0)
                 {
                     CD.Quit();
-                    MessageBox.Show("Vui lòng thêm ít nhất 1 ảnh!");
+                    MessageBox.Show("Vui lòng thêm ít nhất 1 ảnh!","Thông báo");
                 }
                 else
                 {
@@ -162,7 +162,7 @@ namespace Instagram.Tinh_nang
                 catch(Exception ex)
                 {
                     CD.Quit();
-                    MessageBox.Show("Đăng bài thất bại");
+                    MessageBox.Show("Đăng bài thất bại","Thông báo");
                 }
 
                 }
