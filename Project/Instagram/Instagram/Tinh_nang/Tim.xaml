@@ -15,7 +15,7 @@
 
 
 
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ds username/link người cần tim" 
+        <TextBlock Style="{DynamicResource txt_block}" Text="Danh sách username/link người cần tim" 
                    Margin="19,100,51,583" Foreground="Black" FontSize="35">
 
         </TextBlock>

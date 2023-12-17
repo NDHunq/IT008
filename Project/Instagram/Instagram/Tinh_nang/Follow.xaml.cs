@@ -23,7 +23,7 @@ namespace Instagram.Tinh_nang
     /// <summary>
     /// Interaction logic for Follow.xaml
     /// </summary>
-    
+
     public partial class Follow : UserControl
     {
         public int index = 0;
@@ -47,59 +47,100 @@ namespace Instagram.Tinh_nang
 
                 add_tbx.Text = selectedFilePath;
             }
-            sc.Visibility = Visibility.Visible;
+            //sc.Visibility = Visibility.Visible;
         }
         private void Accept_Butt_Click(object sender, RoutedEventArgs e)
         {
-            ChromeDriver CD = new ChromeDriver();
-            CD.Navigate().GoToUrl("https://www.instagram.com/");
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
-
-            string[] ListUser=new string[100];
-            if (add_tbx.Text != "")
-            {
-                FileStream fs = new FileStream(add_tbx.Text, FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
-                string l;
-                int index=0;
-                while ((l = sr.ReadLine()) != null)
-                {
-                    ListUser[index] = l;
-                    index++;
-                }
-            }
+            if (User_Tbx.Text == "" && add_tbx.Text == "")
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
             else
-                ListUser = User_Tbx.Text.Split(new string[] { "\n" }, StringSplitOptions.None);
-
-            for (int i = 0; i < ListUser.Length - 1; i++)
             {
-                CD.ExecuteScript("window.open('');");
-                ReadOnlyCollection<string> tabs = CD.WindowHandles;
-                CD.SwitchTo().Window(tabs[tabs.Count - 1]);
-
-                CD.Navigate().GoToUrl("https://www.instagram.com/" + ListUser[i] +"/");
-                Thread.Sleep(TimeSpan.FromSeconds(7));
+                ChromeDriver CD = new ChromeDriver();
                 try
-                {   //có tích xanh
-                    CD.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button")).Click();
+                {
+                    CD.Navigate().GoToUrl("https://www.instagram.com/");
                     Thread.Sleep(TimeSpan.FromSeconds(2));
+                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
+                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
+                    Thread.Sleep(TimeSpan.FromSeconds(1));
+                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
+                    Thread.Sleep(TimeSpan.FromSeconds(5));
+                    if (CD.Url == "https://www.instagram.com/")
+                    {
+                        Thread.Sleep(TimeSpan.FromSeconds(3));
+                        throw new Exception();
+                    }
+                    List<string> ListUser = new List<string>();
+                    if (add_tbx.Text != "")
+                    {
+                        FileStream fs = new FileStream(add_tbx.Text, FileMode.Open, FileAccess.Read);
+                        StreamReader sr = new StreamReader(fs);
+                        string l;
+                        while ((l = sr.ReadLine()) != null)
+                        {
+                            ListUser.Add(l);
+                        }
+                    }
+                    string[] temp = new string[100];
+                    temp = User_Tbx.Text.Split(new string[] { "\n" }, StringSplitOptions.None);
+                    foreach (string s in temp)
+                    {
+                        ListUser.Add(s);
+                    }
+
+                    for (int i = 0; i < ListUser.Count; i++)
+                    {
+                        CD.ExecuteScript("window.open('');");
+                        ReadOnlyCollection<string> tabs = CD.WindowHandles;
+                        CD.SwitchTo().Window(tabs[tabs.Count - 1]);
+                        try
+                        {
+                            try
+                            {
+                                string target_user = ListUser[i].Substring(0, 26);
+                                if (target_user == "https://www.instagram.com/")
+                                {
+                                    CD.Navigate().GoToUrl(ListUser[i]);
+                                }
+                                else
+                                    CD.Navigate().GoToUrl("https://www.instagram.com/" + ListUser[i] + "/");
+                            }
+                            catch
+                            {
+                                CD.Navigate().GoToUrl("https://www.instagram.com/" + ListUser[i] + "/");
+                            }
+
+                            Thread.Sleep(TimeSpan.FromSeconds(7));
+                            try
+                            {   //có tích xanh
+                                CD.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button")).Click();
+                                Thread.Sleep(TimeSpan.FromSeconds(2));
+                            }
+                            catch
+                            {   //không tích xanh
+                                CD.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[1]/div/div[1]/button")).Click();
+                                Thread.Sleep(TimeSpan.FromSeconds(2));
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("User " + ListUser[i] + " không tồn tại!");
+                        }
+                    }
+                    CD.Quit();
+                    MessageBox.Show("Thành công", "Thông báo");
                 }
                 catch
-                {   //không tích xanh
-                    CD.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[1]/div/div[1]/button")).Click();
-                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                {
+                    CD.Quit();
+                    MessageBox.Show("Đăng nhập thất bại", "Thông báo");
                 }
             }
         }
     }
 }
 /* test
- 22520514@gm.uit.edu.vn
+duy07092004@gmail.com
 hhhhhhhh444
 ndhunq
 taylorswift
