@@ -108,15 +108,16 @@ namespace Instagram.Tinh_nang
             else
             {
 
-                ChromeDriver CD = new ChromeDriver();
+             
 
                 if (truee == 0)
                 {
-                    CD.Quit();
+                   
                     MessageBox.Show("Vui lòng thêm ít nhất 1 ảnh!", "Thông báo");
                 }
                 else
                 {
+                    ChromeDriver CD = new ChromeDriver();
                     try
                     {
                         WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
@@ -194,6 +195,7 @@ namespace Instagram.Tinh_nang
                 var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
             dsuri.RemoveAt(im.Children.IndexOf(parentBorder) );
             im.Children.Remove(parentBorder);
+            truee--;
         
           
         }
