@@ -9,7 +9,7 @@
    
          mc:Ignorable="d"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         
-        Title="add_Description" Height="441" Width="691">
+        Title="Lập Lịch"   Height="441" Width="691" Icon="/Resources/icons8-setting-96.png">
     <Window.Resources>
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
@@ -105,14 +105,18 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Border Background="Black" Margin="40,63,37,369" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="633*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="Black" Margin="40,63,37,362" Grid.ColumnSpan="2" >
 
         </Border>
-        <xctk:DateTimePicker   Name="dateTimePicker" Format="Custom" FormatString="yyyy-MM-dd HH:mm:ss" Margin="40,150,363,208" BorderBrush="Black" BorderThickness="2,2,0,2" Text="" FontFamily="Bahnschrift" FontSize="20" AllowDrop="True"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Lập lịch" Margin="42,21,469,354" Foreground="Black" FontSize="35"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Thời điểm" Margin="42,102,434,250" Foreground="Black" FontSize="32"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Hành động" Margin="377,102,100,245" Foreground="Black" FontSize="32"/>
-        <ComboBox x:Name="hd" Style="{DynamicResource RoundComboBox}"  Margin="377,150,37,208" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" >
+        <xctk:DateTimePicker   Name="dateTimePicker" Format="Custom" FormatString="yyyy-MM-dd HH:mm:ss" Margin="40,150,363,208" BorderBrush="Black" BorderThickness="2,2,0,2" Text="" FontFamily="Bahnschrift" FontSize="20" AllowDrop="True" Grid.ColumnSpan="2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Lập lịch" Margin="42,21,402,310" Foreground="Black" FontSize="35" Grid.ColumnSpan="2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Thời điểm" Margin="42,102,434,250" Foreground="Black" FontSize="32" Grid.ColumnSpan="2"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Hành động" Margin="319,102,100,245" Foreground="Black" FontSize="32" Grid.Column="1"/>
+        <ComboBox x:Name="hd" Style="{DynamicResource RoundComboBox}"  Margin="319,150,37,208" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Grid.Column="1" >
             <ComboBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1"/>
@@ -127,7 +131,7 @@
 
 
         </ComboBox>
-        <Button x:Name="btn_Copy1" Margin="276,277,276,79" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click"  >
+        <Button x:Name="btn_Copy1" Margin="218,277,276,79" RenderTransformOrigin="0.539,0.908" Background="#FF15670A" Foreground="#FF15670A" Click="btn_Copy1_Click" Grid.Column="1"  >
             <TextBlock x:Name="new_usr" Text="accept" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
     </Grid>

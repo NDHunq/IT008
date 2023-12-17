@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Instagram.Tinh_nang.form"
         mc:Ignorable="d"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
        
-        Title="add_Description" Height="450" Width="695">
+        Title="" Height="450" Width="695" Icon="/Resources/icons8-setting-96.png">
     <Grid>
 
         <ScrollViewer x:Name="D_scrl" Margin="34,0,31,83" Height="288" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2,2,2,2">
