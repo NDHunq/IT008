@@ -132,6 +132,11 @@ With automation, the app saves time, effort and optimizes the effectiveness of y
 
 <h3>Additional information</h3>
 
+Thank you for choosing our Instagram Automation App!
+
+We are thrilled that you are having a great experience automating your Instagram activities with our app. We truly appreciate you taking the time to use our product.
+
+Your satisfaction means everything to us and pushes us to keep improving the app. Please continue providing us with your valuable feedback - it is incredibly helpful for making the app even more user-friendly and tailored to your needs.
 
 <h3>Code of conducting</h3>
 
