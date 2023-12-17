@@ -7,20 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="729" d:DesignWidth="818">
 
-    <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,64,212,633" Foreground="Black" FontSize="30">
 
-        </TextBlock>
-        <Button  x:Name="run_butt" Margin="339,659,339,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  >
-
-        </Button>
-        <TextBox  x:Name="user_name" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,104,30,572" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="25" />
-        <Button x:Name="accept_butt" Margin="660,349,30,316" RenderTransformOrigin="0.539,0.908" Background="White"  BorderThickness="2,2,2,2" BorderBrush="Black" Click="accept_butt_Click" Cursor="Hand"   >
+    <Grid Background="White" Margin="-1,0,1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Margin="27,2,743,670" Source="/Resources/icons8-downloads-folder-96 (1).png"/>
+        <Border Background="Black" Margin="23,63,33,664" />
+        <TextBlock Style="{DynamicResource txt_block}" Text="Username/Link của User cần cào" Margin="23,80,212,617" Foreground="Black" FontSize="30"/>
+        <Button  x:Name="run_butt" Margin="340,659,338,10" Click="run_butt_Click" Cursor="Hand"  Style="{DynamicResource btn_run }"  />
+        <TextBox x:Name="user_name" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,124,30,552" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30" />
+        <Button x:Name="accept_butt" Margin="660,359,30,306" RenderTransformOrigin="0.539,0.908" Background="White"  BorderThickness="2,2,2,2" BorderBrush="Black" Click="accept_butt_Click" Cursor="Hand"   >
             <TextBlock x:Name="btn_txt1" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Left" Text="import"/>
         </Button>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="25,218,28,0" Foreground="Black" FontSize="30"  VerticalAlignment="Top" Height="52" />
-        <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,261,28,414" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="25"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,377" Foreground="Black" FontSize="30"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Đường dẫn folder " Margin="25,230,28,0" Foreground="Black" FontSize="30"  VerticalAlignment="Top" Height="52" />
+        <TextBox x:Name="file_output_path" Style="{DynamicResource ResourceKey=txt_box}" Margin="23,281,28,394" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Bahnschrift" FontSize="30"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Chế độ" Margin="23,377,-23,352" Foreground="Black" FontSize="30"/>
+
         <Grid Margin="48,416,307,210">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="135*"/>
@@ -38,6 +41,7 @@
             <RadioButton x:Name="SoCmtRadio" Margin="191,59,114,-4" Content="Số lượng" FontFamily="Bahnschrift" FontSize="29" IsEnabled="False" Checked="SoCmtRadio_Checked" Unchecked="SoCmtRadio_Unchecked" />
 
         </Grid>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Cào ảnh/Comment" Margin="90,17,145,680" Foreground="Black" FontSize="30"/>
 
     </Grid>
 

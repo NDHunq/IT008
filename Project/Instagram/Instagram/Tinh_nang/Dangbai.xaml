@@ -29,27 +29,24 @@
         </Style>
     </UserControl.Resources>
     <Grid Background="White">
-        <TextBlock Style="{DynamicResource txt_block}" Text="Ảnh" Margin="24,18,-24,674" Foreground="Black" FontSize="35">
+        <Image Margin="34,10,748,678" Source="/Resources/icons8-new-post-96.png"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Đăng bài" Margin="87,15,-87,673" Foreground="Black" FontSize="35">
 
         </TextBlock>
         <Button x:Name="btn_Copy1" Margin="339,659,339,10"  Style="{DynamicResource btn_run}"  Click="btn_Copy1_Click"  >
 
         </Button>
         <TextBlock Style="{DynamicResource txt_block}" Text="Nội dung" Margin="24,458,-24,75" Foreground="Black" FontSize="35"/>
-        <TextBox   AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}"  Margin="24,507,10,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="25" Cursor="Hand"/>
+        <TextBox  AcceptsReturn="True" x:Name="tb1_Copy" Style="{DynamicResource ResourceKey=txt_box}" Margin="24,507,10,84" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" TextChanged="tb1_Copy_TextChanged" FontFamily="Bahnschrift" FontSize="20" Cursor="Hand"/>
         <TextBlock Style="{DynamicResource txt_block}" Margin="154,146,619,595" Foreground="#FFDD193B" FontSize="35" RenderTransformOrigin="0.579,0.72"/>
 
-        <Button x:Name="btn_Copy" Margin="692,10,10,669" RenderTransformOrigin="0.539,0.908" Background="#FF166AF3" Click="Button_Click" Foreground="#FF0A6767"  >
-            <TextBlock x:Name="new_usr1" Text="import" Foreground="White" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
-
-            </TextBlock>
+        <Button x:Name="btn_Copy" Margin="692,10,10,669" RenderTransformOrigin="0.539,0.908" Background="{x:Null}" Click="Button_Click" Foreground="#FF0A6767" BorderThickness="2,2,2,2"  >
+            <TextBlock x:Name="new_usr1" Text="import" Foreground="Black" Style="{DynamicResource ResourceKey=txt_block}" Height="33" RenderTransformOrigin="0.5,0.5" FontSize="30" Width="101" TextAlignment="Center" HorizontalAlignment="Center" Cursor="Hand"/>
         </Button>
         <Border Margin="24,65,10,276" BorderBrush="Black" BorderThickness="2,2,2,2">
             <ScrollViewer Margin="-2,0,1,2" >
                 <StackPanel x:Name="im">
-                    <Image x:Name="photo" Margin="0,-1,1,0">
-
-                    </Image>
+                    
                 </StackPanel>
 
             </ScrollViewer>

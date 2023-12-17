@@ -64,165 +64,122 @@ namespace Instagram.Tinh_nang
         }
         private void run_butt_Click(object sender, RoutedEventArgs e)
         {
-            int loi = 0;
-            if(this.user_name.Text=="" || this.file_output_path.Text==""|| (Cao_Anh.IsChecked==true && SoAnhRadio.IsChecked==true && SoAnhTbx.Text=="")||(Cao_BL.IsChecked == true && SoCmtRadio.IsChecked == true && SoCmtTbx.Text == ""))
+            string tempPath = file_output_path.Text;
+            saveFolderPath = tempPath.Replace(@"\", @"\\");
+            CD = new ChromeDriver();
+            //Log in 
+            CD.Navigate().GoToUrl("https://www.instagram.com/");
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
+            Thread.Sleep(TimeSpan.FromSeconds(20));
+            //Go to target 
+            CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
+            Thread.Sleep(TimeSpan.FromSeconds(30));
+            //Choosing first post        
+            IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));
+            postSelector.Click();
+            Thread.Sleep(TimeSpan.FromSeconds(6));
+            //*****************************************************************************************************
+            if (this.Cao_Anh.IsChecked == true)
             {
-                MessageBox.Show("Bạn cần nhập đầy đủ thông tin!","Thông báo");
-            }
-            else 
-            {
-                try
+                int AnhDaCao = 0;
+                int stopImg = 0;
+                int stopCmt = 0;
+                int CmtDaCao = 0;
+                int CmtDaLoad = 0;
+                int PostIndex = 1;
+                int enableCmt = 1;
+                while (true)
                 {
-                    string tempPath = file_output_path.Text;
-                    saveFolderPath = tempPath.Replace(@"\", @"\\");
-                    CD = new ChromeDriver();
-                    //Log in 
-                    loi = 1;
-                    CD.Navigate().GoToUrl("https://www.instagram.com/");
-                    Thread.Sleep(TimeSpan.FromSeconds(5));
-                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[1]/div/label/input")).SendKeys(Account);
-                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[2]/div/label/input")).SendKeys(Pass);
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
-                    CD.FindElement(By.XPath("//*[@id=\"loginForm\"]/div/div[3]/button")).Click();
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
-                    if (CD.Url == "https://www.instagram.com/")
+                    
+                    if (this.Cao_BL.IsChecked == true)
                     {
-                        Thread.Sleep(TimeSpan.FromSeconds(3));
-                        throw new Exception();
+                        if (stopCmt == 1 && stopImg == 1)
+                            break;
+                        if (stopCmt == 0)
+                        {
+                            if(enableCmt==1)
+                            {
+                                CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stopCmt, ref PostIndex);
+                                enableCmt = 0;
+                            }    
+                            
+                        }
                     }
-                    //Go to target 
-                   
                     try
                     {
-                        string target_user = this.user_name.Text.Substring(0, 26);
-                        if (target_user == "https://www.instagram.com/")
+                        if (this.Cao_BL.IsChecked == false && stopImg == 1)
+                            break;
+                        if (stopImg == 0)
                         {
-                            CD.Navigate().GoToUrl(user_name.Text);
+                            ImgEachPost(ref AnhDaCao, ref stopImg);
+                            System.Threading.Thread.Sleep(500);
+                        }
+                        
+                    }
+                    catch { }
+                    {
+                        //Xem coi có nút next khum
+                        By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                        IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
+                        if (nextButtonsFarent.Count != 0)
+                        {
+                            IWebElement nextButton = nextButtonsFarent[0];
+                            nextButton.Click();
+                            PostIndex++;
+                            enableCmt = 1;
                         }
                         else
-                            CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
+                            break;
+                        
                     }
-                    catch
+                    if(this.Cao_BL.IsChecked == true && stopImg ==1 && stopCmt==0 )
                     {
-                        CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
-                    }
-
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
-                    loi = 2;
-                    //Choosing first post        
-                    IWebElement postSelector = CD.FindElement(By.CssSelector("div._aabd._aa8k._al3l a.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.x9f619.x1ypdohk.xt0psk2.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1a2a7pz._a6hd"));
-                    postSelector.Click();
-                    Thread.Sleep(TimeSpan.FromSeconds(6));
-                    //*****************************************************************************************************
-                    if (this.Cao_Anh.IsChecked == true)
-                    {
-                        int AnhDaCao = 0;
-                        int stopImg = 0;
-                        int stopCmt = 0;
-                        int CmtDaCao = 0;
-                        int CmtDaLoad = 0;
-                        int PostIndex = 1;
-                        int enableCmt = 1;
-                        while (true)
+                        By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                        IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
+                        if (nextButtonsFarent.Count != 0)
                         {
-
-                            if (this.Cao_BL.IsChecked == true)
-                            {
-                                if (stopCmt == 1 && stopImg == 1)
-                                    break;
-                                if (stopCmt == 0)
-                                {
-                                    if (enableCmt == 1)
-                                    {
-                                        CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stopCmt, ref PostIndex);
-                                        enableCmt = 0;
-                                    }
-
-                                }
-                            }
-                            try
-                            {
-                                if (this.Cao_BL.IsChecked == false && stopImg == 1)
-                                    break;
-                                if (stopImg == 0)
-                                {
-                                    ImgEachPost(ref AnhDaCao, ref stopImg);
-                                    System.Threading.Thread.Sleep(500);
-                                }
-
-                            }
-                            catch { }
-                            {
-                                //Xem coi có nút next khum
-                                By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
-                                IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
-                                if (nextButtonsFarent.Count != 0)
-                                {
-                                    IWebElement nextButton = nextButtonsFarent[0];
-                                    nextButton.Click();
-                                    PostIndex++;
-                                    enableCmt = 1;
-                                }
-                                else
-                                    break;
-
-                            }
-                            if (this.Cao_BL.IsChecked == true && stopImg == 1 && stopCmt == 0)
-                            {
-                                By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
-                                IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
-                                if (nextButtonsFarent.Count != 0)
-                                {
-                                    IWebElement nextButton = nextButtonsFarent[0];
-                                    nextButton.Click();
-                                    PostIndex++;
-                                    enableCmt = 1;
-                                }
-                                else
-                                    break;
-                            }
-                        }
-                        CD.Quit();
-                        MessageBox.Show("Done!", "Thông báo");
-                    }
-                    //*****************************************************************************************
-                    if (this.Cao_BL.IsChecked == true && this.Cao_Anh.IsChecked == false)
-                    {
-                        int CmtDaCao = 0;
-                        int CmtDaLoad = 0;
-                        int stop = 0;
-                        int PostIndex = 1;
-                        while (true)
-                        {
-                            CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stop, ref PostIndex);
-                            if (stop == 1)
-                                break;
-                            By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
-                            IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
-                            if (nextButtonsFarent.Count != 0)
-                            {
-                                IWebElement nextButton = nextButtonsFarent[0];
-                                nextButton.Click();
-                            }
-                            else
-                                break;
+                            IWebElement nextButton = nextButtonsFarent[0];
+                            nextButton.Click();
                             PostIndex++;
+                            enableCmt = 1;
                         }
-                        CD.Quit();
-                        MessageBox.Show("Done!", "Thông báo");
-                    }
+                        else
+                            break;
+                    }    
                 }
-                catch
-                {
-                    CD.Quit();
-                    if(loi==1)
-                        MessageBox.Show("Sai thông tin đăng nhập!", "Thông báo");
-                    if(loi==2)
-                        MessageBox.Show("User không tồn tại hoặc không có bài đăng nào !", "Thông báo");
-                }
-                
+                CD.Quit();
+                MessageBox.Show("Done!", "Thông báo");
             }
-            
+            //*****************************************************************************************
+            if (this.Cao_BL.IsChecked == true && this.Cao_Anh.IsChecked == false )
+            {
+                int CmtDaCao = 0;
+                int CmtDaLoad = 0;
+                int stop = 0;
+                int PostIndex = 1;
+                while (true)
+                {
+                    CmtEachPost(ref CmtDaCao, ref CmtDaLoad, ref stop,ref PostIndex);
+                    if (stop == 1)
+                        break;
+                    By nextButtonSelector = By.CssSelector("svg[aria-label='Next']");
+                    IList<IWebElement> nextButtonsFarent = CD.FindElements(nextButtonSelector);
+                    if (nextButtonsFarent.Count != 0)
+                    {
+                        IWebElement nextButton = nextButtonsFarent[0];
+                        nextButton.Click();
+                    }
+                    else
+                        break;
+                    PostIndex++;
+                }
+                CD.Quit();
+                MessageBox.Show("Done!","Thông báo");
+            }
         }
         //Crawl cmt mỗi post
         public void CmtEachPost(ref int CmtDaCao, ref int CmtDaLoad, ref int stop, ref int PostIndex)

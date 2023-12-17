@@ -10,7 +10,7 @@
     <Grid>
 
         <ScrollViewer x:Name="D_scrl" Margin="34,0,31,83" Height="288" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2,2,2,2">
-            <TextBox x:Name="txt" FontFamily="Bahnschrift" FontSize="25"  AcceptsReturn="True" Height="286" Background="#FFEEEEEE" TextChanged="txt_TextChanged" Width="610" BorderThickness="2,2,2,2" BorderBrush="Black">
+            <TextBox x:Name="txt" AcceptsReturn="True" Height="286" Background="#FFEEEEEE" TextChanged="txt_TextChanged" Width="610" BorderThickness="2,2,2,2" BorderBrush="Black">
 
             </TextBox>
 

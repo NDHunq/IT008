@@ -28,7 +28,7 @@ namespace Instagram.Tinh_nang
     public partial class nuoiaccclone : UserControl
     {
         private List<string> _filenamepath = new List<string>();
-        private bool PostTimeFirst;
+        private int PostTimeCount = 0;
         public string Username;
         public string Password;
         int itd = 0;
@@ -37,7 +37,7 @@ namespace Instagram.Tinh_nang
         private DispatcherTimer t;
 
         
-        List<Tinhnangnuoiclone> listtinhnang = new List<Tinhnangnuoiclone>();
+        List<Tinhnang> listtinhnang = new List<Tinhnang>();
         
         
         public nuoiaccclone()
@@ -211,7 +211,7 @@ namespace Instagram.Tinh_nang
 
             // Thêm đối tượng TextBlock mới vào ScrollViewer
             
-            Tinhnangnuoiclone tinhnang = a.getTinhNang();
+            Tinhnang tinhnang = a.getTinhNang();
             listtinhnang.Add(tinhnang);
             nv.Children.Add(border);
           
@@ -221,7 +221,7 @@ namespace Instagram.Tinh_nang
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            PostTimeFirst = true;
+            
             chromeDriver = new ChromeDriver();
             Login(chromeDriver);
             t.Start();
@@ -281,6 +281,36 @@ namespace Instagram.Tinh_nang
                 }
             }
             
+            
+            // foreach (Border Item in nv.Children)
+            // {
+            //     Label label = Item.Child as Label;
+            //     DateTime labelTime = getDateTimeFromString(label.Content.ToString());
+            //     
+            //     if (currentTime >= labelTime && currentTime <= labelTime.AddSeconds(1))
+            //     {
+            //         if (label.Content.ToString().Contains("Comment")) //label.Content.ToString() = "Comment vào thời điểm: 12/12/2020 12:12:12"
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Comment(chromeDriver);
+            //     
+            //         }
+            //         if (label.Content.ToString().Contains("Tim"))
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Tym(chromeDriver);
+            //     
+            //         }
+            //         if (label.Content.ToString().Contains("Đăng bài ngẫu nhiên"))
+            //         {
+            //             OpenNewTab(chromeDriver);
+            //             Post(chromeDriver);
+            //         }
+            //     }
+            //     
+            //     
+            //     
+            // }
             
 
         }            
@@ -358,7 +388,7 @@ namespace Instagram.Tinh_nang
                 WebDriverWait wait = new WebDriverWait(CD, TimeSpan.FromSeconds(10));
                 CD.Navigate().GoToUrl("https://www.instagram.com/");
                 Thread.Sleep(300);
-                if (PostTimeFirst)
+                if (PostTimeCount == 0)
                 {
                     CD.FindElement(By.XPath("/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]")).Click();
                     Thread.Sleep(300);
@@ -367,40 +397,16 @@ namespace Instagram.Tinh_nang
                 newPostButton.Click();
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[text()='Select from computer']"))).Click();
-                Thread.Sleep(TimeSpan.FromSeconds(3));
-                
-                Random random = new Random();
-                List<string> temp = new List<string>();
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Keyboard.Type(getRandomImagePathList()[0]);
 
-                // Random số lượng phần tử cần lấy
-                int numberOfItems = random.Next(1, 10);  
-
-                // Lặp qua số lượng đó
-                for (int i = 0; i < numberOfItems; i++)
-                {
-                    // Random chỉ số phần tử
-                    int index = random.Next(0, _filenamepath.Count);
-
-                    // Lấy phần tử tại vị trí đó trong _filenamepath 
-                    string path = _filenamepath[index];
-
-                    // Thêm vào temp
-                    temp.Add(path);
-                }
-
-                Keyboard.Type(temp[0]);
-                // Keyboard.Type(_filenamepath[0]);
-
-                
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 Keyboard.Press(VirtualKeyShort.ENTER);
                 Thread.Sleep(TimeSpan.FromSeconds(1));
 
 
                 CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
-                for (int i = 1; i < temp.Count(); i++)
-                // for (int i = 1; i < _filenamepath.Count; i++)
-
+                for (int i = 1; i < getRandomImagePathList().Count(); i++)
                 {
                     Thread.Sleep(TimeSpan.FromSeconds(1));
                     CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
@@ -410,21 +416,23 @@ namespace Instagram.Tinh_nang
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='Plus icon']"))).Click();
                     Thread.Sleep(TimeSpan.FromSeconds(2));
-                    Keyboard.Type(temp[i]);
-                    // Keyboard.Type(_filenamepath[i]);
-                    
+                    Keyboard.Type(getRandomImagePathList()[i]);
+
                     Thread.Sleep(TimeSpan.FromSeconds(2));
                     Keyboard.Press(VirtualKeyShort.ENTER);
                 }                                                                           
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromSeconds(2));                                
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div > div > div > div._ap97 > div > div > div > div._ac7b._ac7d > div > div"))).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(2));
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div > div > div > div._ap97 > div > div > div > div._ac7b._ac7d > div > div"))).Click();
+                
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div > div > div > div.x15wfb8v.x3aagtl.x6ql1ns.x78zum5.xdl72j9.x1iyjqo2.xs83m0k.x13vbajr.x1ue5u6n > div.xhk4uv.x26u7qi.xy80clv.x9f619.x78zum5.x1n2onr6.x1f4304s > div > div > div > div._ac2p > div:nth-child(2) > div > div.x6s0dn4.x78zum5.x1n2onr6.xh8yej3 > div.xw2csxc.x1odjw0f.x1n2onr6.x1hnll1o.xpqswwc.xl565be.x5dp1im.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.x1w2wdq1.xen30ot.x1swvt13.x1pi30zi.xh8yej3.x5n08af.notranslate"))).SendKeys(getRandomDescription()+"  #"+getRandomHashtag()+" ");
 
-
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div > div > div > div._ap97 > div > div > div > div._ac7b._ac7d > div > div"))).Click();
-                PostTimeFirst = false;
+              
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div/div[3]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/div"))).Click();
+                PostTimeCount++;
+                Thread.Sleep(TimeSpan.FromSeconds(15));
             }
             catch (Exception e)
             {
@@ -433,50 +441,19 @@ namespace Instagram.Tinh_nang
             }
                 
         }
-        
+
         private List<string> getRandomImagePathList()
         {
-            
-            // try
-            // {
-            //     Random random = new Random();
-            //     int listCount = random.Next(1, _filenamepath.Count);
-            //     List<string> temp = new List<string>();
-            //
-            //     for (int i = 0; i < listCount; i++)
-            //     {
-            //         int index = random.Next(0, _filenamepath.Count - 1);
-            //         temp.Add(_filenamepath[index]);
-            //     }
-            //
-            //     return temp;
-            // }
-            // catch (Exception e)
-            // {
-            //     return getRandomImagePathList();
-            // }
-            
             Random random = new Random();
+            int listCount = random.Next(1, _filenamepath.Count);
             List<string> temp = new List<string>();
-
-            // Random số lượng phần tử cần lấy
-            int numberOfItems = random.Next(1, _filenamepath.Count);  
-
-            // Lặp qua số lượng đó
-            for (int i = 0; i < numberOfItems; i++)
-            {
-                // Random chỉ số phần tử
-                int index = random.Next(0, _filenamepath.Count);
-
-                // Lấy phần tử tại vị trí đó trong _filenamepath 
-                string path = _filenamepath[index];
-        
-                // Thêm vào temp
-                temp.Add(path);  
-            }
-
-            return temp;
             
+            for (int i = 0; i < listCount; i++)
+            {
+                int index = random.Next(0, _filenamepath.Count);
+                temp.Add(_filenamepath[index]);
+            }
+            return temp;
         }
         private string getRandomHashtag()
         {
@@ -515,19 +492,10 @@ namespace Instagram.Tinh_nang
                     driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                     Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                    
-                        
-                    var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
-                    
-                    Thread.Sleep(TimeSpan.FromSeconds(5));
-            
-                    // Chọn ngẫu nhiên một bài viết
-                    Random rand = new Random();
-                    var post = posts[rand.Next(posts.Count)];
+                    ScrollTo(driver);
+                    Thread.Sleep(TimeSpan.FromSeconds(4));
                 
-                
-                    // Click vào bài viết
-                    post.Click();
+                    driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div[6]/div[2]/div/a/div/div[2]")).Click();
                     Thread.Sleep(TimeSpan.FromSeconds(3));
                 
                     //Tym
@@ -537,7 +505,7 @@ namespace Instagram.Tinh_nang
                 }
                 catch (Exception e)
                 {
-                    // driver.Quit();
+                    driver.Quit();
                     MessageBox.Show("Đã tym thất bại " + e.Message);
                 }
                 
@@ -557,16 +525,10 @@ namespace Instagram.Tinh_nang
                 driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                 Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
-                Thread.Sleep(TimeSpan.FromSeconds(6));
+                ScrollTo(driver);
+                Thread.Sleep(TimeSpan.FromSeconds(4));
             
-                // Chọn ngẫu nhiên một bài viết
-                Random rand = new Random();
-                var post = posts[rand.Next(posts.Count)];
-                
-                
-                // Click vào bài viết
-                post.Click();
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div/div[6]/div[2]/div/a/div/div[2]")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));
             
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));
@@ -599,14 +561,22 @@ namespace Instagram.Tinh_nang
                 listComment.Add(label.Content.ToString());
             }
 
-            int index = random.Next(0, listComment.Count - 1);
+            int index = random.Next(0, listComment.Count);
             return listComment[index];
         }
         
         private void ScrollTo(ChromeDriver driver)
         {
+            // IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            // js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
+    
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+
+            Random rand = new Random();
+            int x = rand.Next(0, 1000);
+            int y = rand.Next(0, 1000);
+
+            js.ExecuteScript("window.scrollTo(" + x + ", " + y + ");");
         }
         
 

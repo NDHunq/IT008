@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Instagram"
         mc:Ignorable="d"
        Height="837" Width="1219" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent" Icon="/instagram_f_icon-icons.com_65485 (1).ico">
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}"
+      >
     <Window.Resources>
         <Style x:Key="ComboBoxTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
@@ -105,13 +105,17 @@
     <Grid Margin="0,0,10,0" >
         <Border Background="White" CornerRadius="10" MouseDown="Border_MouseDown_1" BorderBrush="White" Height="840" VerticalAlignment="Top" >
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="118*"/>
+                    <ColumnDefinition Width="285*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border x:Name="delbtn_border" 
                            
-                            CornerRadius="10,0,0,0" MouseDown="Border_MouseDown" MouseEnter="delbtn_border_MouseEnter" MouseLeave="delbtn_border_MouseLeave" Margin="1170,0,0,2" Cursor="Hand" RenderTransformOrigin="0.5,0.5"
+                            CornerRadius="10,0,0,0" MouseDown="Border_MouseDown" MouseEnter="delbtn_border_MouseEnter" MouseLeave="delbtn_border_MouseLeave" Margin="816,0,0,2" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Grid.Column="1"
                             >
                     <Border.RenderTransform>
                         <TransformGroup>
@@ -136,7 +140,10 @@
                     </TextBlock>
 
                 </Border>
-                <Grid Grid.Row="1">
+
+                <Image Grid.Row="1" Margin="266,99,55,673" Source="/Resources/user.png"/>
+                <Image Grid.Row="1" Margin="263,232,52,537" Source="/Resources/icons8-key-192.png"/>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="371*">
 
@@ -147,7 +154,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid>
 
-                        <TextBlock Text="Tính năng" FontSize="30" Margin="104,455,92,289" FontFamily="Bahnschrift" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock Text="Tính năng" FontSize="30" Margin="106,464,111,280" FontFamily="Bahnschrift" Foreground="Black" FontWeight="Bold"/>
                         <ComboBox Style="{DynamicResource RoundComboBox}" x:Name="cbb" Margin="34,516,22,215" FontSize="28" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" Foreground="Black" BorderBrush="Black" BorderThickness="2,2,2,2" IsReadOnly="True" >
                             <ComboBoxItem Content="Cào ảnh/Comment"/>
                             <ComboBoxItem Content="Thả Tim"/>
@@ -163,18 +170,20 @@
 
 
 
-                        <TextBlock Text="Password"  Margin="50,233,-22,487" FontSize="30" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        <TextBlock Text="Password"  Margin="40,233,90,487" FontSize="30" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontFamily="Bahnschrift"/>
 
-                        <TextBlock Text="Account"  Margin="50,98,-23,654" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Bahnschrift"/>
+                        <TextBlock Text="Account"  Margin="41,98,-14,654" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Bahnschrift"/>
                         <Border Background="White" Margin="34,54,898,708" CornerRadius="7"/>
 
 
                         <Border Background="White" Margin="34,209,893,542" CornerRadius="7">
-                            <PasswordBox x:Name="tb2" PasswordChar="*" Margin="10,64,-266,-66" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFD5D5D5" PasswordChanged="tb2_PasswordChanged_1"/>
+                            <PasswordBox x:Name="tb2" PasswordChar="*" Margin="6,64,-272,-66" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFD5D5D5" PasswordChanged="tb2_PasswordChanged_1"/>
                         </Border>
 
                         <TextBox x:Name="tb1" Margin="39,146,38,602" Background="#FFD5D5D5" RenderTransformOrigin="0.5,0.5" FontFamily="Bahnschrift" FontSize="30" VerticalContentAlignment="Center" BorderThickness="2,2,2,2" BorderBrush="Black" TextChanged="tb1_TextChanged"/>
-                        <TextBlock Text="Thông Tin Đăng Nhập"  Margin="20,12,7,740" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Bahnschrift"/>
+
+                        <TextBlock Text="Đăng Nhập"  Margin="87,13,104,739" FontSize="30" Foreground="Black" FontWeight="Bold" FontFamily="Bahnschrift"/>
+
                         <Border CornerRadius="0" BorderThickness="2,2,2,2.2" BorderBrush="Black" Margin="27,455,27,403" RenderTransformOrigin="0.5,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
@@ -191,7 +200,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Border CornerRadius="7" Margin="-2,12,27,39" BorderThickness="2,2,2,2" BorderBrush="Black">
-                            <ContentControl x:Name="View" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2,2,2,2" Margin="8,8,8,8"/>
+                            <ContentControl x:Name="View" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2,2,2,2" Margin="8,8,5,8"/>
                         </Border>
 
                     </Grid>

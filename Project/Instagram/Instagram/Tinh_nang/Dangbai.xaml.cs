@@ -46,44 +46,52 @@ namespace Instagram.Tinh_nang
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Uri image_Path;
-            Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Image";
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.bmp;*.jpg;*.png|JPG Files|*.jpg|PNG Files|*.png|JPEG Files|*.jpeg";
-            ofd.ShowDialog();
-           
-           
-            if (ofd.FileName != "")
+            if(dsuri.Count<=9)
             {
-               
-                Image img = new System.Windows.Controls.Image()
+                Uri image_Path;
+                Microsoft.Win32.OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Select Image";
+                ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.bmp;*.jpg;*.png|JPG Files|*.jpg|PNG Files|*.png|JPEG Files|*.jpeg";
+                ofd.ShowDialog();
+
+
+                if (ofd.FileName != "")
                 {
 
-                    ContextMenu = (ContextMenu)Resources["contextMenu"]
-                        
+                    Image img = new System.Windows.Controls.Image()
+                    {
 
-                };
-                Border border = new Border
-                {
-                    BorderBrush = Brushes.Black,   // Màu của đường viền
-                    BorderThickness = new Thickness(2),  // Độ dày của đường viền
-                    Child = img // Đặt Label làm con của Border
-                };
-                string tb_uri = ofd.FileName;
-                dsuri.Add(tb_uri);
-                image_Path = new Uri(tb_uri);
-                img.Source = new BitmapImage(image_Path);
-               img.Stretch = System.Windows.Media.Stretch.UniformToFill;
-                im.Children.Add(border);
-                truee += 1;
+                        ContextMenu = (ContextMenu)Resources["contextMenu"]
+
+
+                    };
+                    Border border = new Border
+                    {
+                        BorderBrush = Brushes.Black,   // Màu của đường viền
+                        BorderThickness = new Thickness(2),  // Độ dày của đường viền
+                        Child = img // Đặt Label làm con của Border
+                    };
+                    string tb_uri = ofd.FileName;
+                    dsuri.Add(tb_uri);
+                    image_Path = new Uri(tb_uri);
+                    img.Source = new BitmapImage(image_Path);
+                    img.Stretch = System.Windows.Media.Stretch.UniformToFill;
+                    im.Children.Add(border);
+                    truee += 1;
+                }
+                else { }
+
+
             }
-            else { }
-
+            else
+            {
+                MessageBox.Show("Thêm tối đa 10 ảnh", "Thông báo");
+            }
 
 
             // Thêm đối tượng TextBlock mới vào ScrollViewer
-            
-            
+
+
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -98,7 +106,7 @@ namespace Instagram.Tinh_nang
                 if(truee==0)
                 {
                     CD.Quit();
-                    MessageBox.Show("Vui lòng thêm ít nhất 1 ảnh!");
+                    MessageBox.Show("Vui lòng thêm ít nhất 1 ảnh!","Thông báo");
                 }
                 else
                 {
@@ -125,7 +133,7 @@ namespace Instagram.Tinh_nang
 
 
                         CD.FindElement(By.XPath("//*[@aria-label='Open media gallery']")).Click();
-                        for (int i = 1; i < 10; i++)
+                        for (int i = 1; i < dsuri.Count(); i++)
                         {
                             Thread.Sleep(TimeSpan.FromSeconds(1));
                             CD.FindElement(By.XPath("//*[@class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']")).Click();
@@ -154,7 +162,7 @@ namespace Instagram.Tinh_nang
                 catch(Exception ex)
                 {
                     CD.Quit();
-                    MessageBox.Show("Đăng bài thất bại");
+                    MessageBox.Show("Đăng bài thất bại","Thông báo");
                 }
 
                 }
@@ -174,9 +182,10 @@ namespace Instagram.Tinh_nang
         {
                 Image clickedItem = FindClickedItem(sender);
                 var parentBorder = VisualTreeHelper.GetParent(clickedItem) as Border;
-
-                im.Children.Remove(parentBorder);
-            
+            dsuri.RemoveAt(im.Children.IndexOf(parentBorder) );
+            im.Children.Remove(parentBorder);
+        
+          
         }
         private static Image FindClickedItem(object sender)
         {
