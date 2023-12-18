@@ -21,10 +21,9 @@
         </TextBlock>
         <!-- lựa chọn -->
         <Grid Margin="0,230,0,414">
-            <CheckBox  Margin="60,32,738,33" x:Name="timAll" Checked="timAll_Checked" Unchecked="timAll_Unchecked" />
-            <Label Content="Tim tất cả bài" FontSize="30" Margin="100,16,513,17"/>
-            <TextBox FontSize="30" x:Name="timNumber" Margin="690,22,88,21"/>
-            <Label Content="Chọn số lượng bài tim:" FontSize="30" Margin="365,17,133,16"/>
+            <RadioButton x:Name="rb_all" FontSize="29"  IsChecked="True" Content="Tim tất cả" GroupName="choosenum" Margin="125,22,528,21"/>
+            <RadioButton x:Name="rb_sl" FontSize="29" Content="Số lượng" GroupName="choosenum" Margin="454,22,203,21" Checked="rb_sl_Checked" Unchecked="rb_sl_Unchecked"/>
+            <TextBox FontSize="30" x:Name="timNumber" IsEnabled="False" Margin="620,22,158,21"/>
 
         </Grid>
 
