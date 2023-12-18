@@ -360,7 +360,7 @@ namespace Instagram.Tinh_nang
                 Thread.Sleep(300);
                 if (PostTimeFirst)
                 {
-                    CD.FindElement(By.XPath("/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]")).Click();
+                    CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x7r02ix.xf1ldfh.x131esax.xdajt7p.xxfnqb6.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe > div > div > div._a9-z > button._a9--._ap36._a9_1")).Click();
                     Thread.Sleep(300);
                 }
                 IWebElement newPostButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@aria-label='New post']")));
@@ -428,7 +428,7 @@ namespace Instagram.Tinh_nang
             }
             catch (Exception e)
             {
-                CD.Quit();
+                //CD.Quit();
                 MessageBox.Show("Đã đăng bài thất bại" + e.Message);
             }
                 
@@ -558,16 +558,19 @@ namespace Instagram.Tinh_nang
                 driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                 Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
-                Thread.Sleep(TimeSpan.FromSeconds(6));
-            
-                // Chọn ngẫu nhiên một bài viết
-                Random rand = new Random();
-                var post = posts[rand.Next(posts.Count)];
+                // var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
+                // Thread.Sleep(TimeSpan.FromSeconds(6));
+                //
+                // // Chọn ngẫu nhiên một bài viết
+                // Random rand = new Random();
+                // var post = posts[rand.Next(posts.Count)];
+                //
+                //
+                // // Click vào bài viết
+                // post.Click();
+                // Thread.Sleep(TimeSpan.FromSeconds(3));
                 
-                
-                // Click vào bài viết
-                post.Click();
+                driver.FindElement(By.ClassName("_aagw")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));
             
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));

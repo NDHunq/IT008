@@ -119,12 +119,12 @@
 
         </Button>
         <Border Margin="0,88,0,390" HorizontalAlignment="Center" Width="766" BorderBrush="Black" BorderThickness="2,2,2,2" CornerRadius="7,7,7,7"/>
-        <TextBox x:Name="UsernameCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="52,152,439,532" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
-        <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,353,-26,180" Foreground="#FF166AF3" FontSize="30"/>
-        <TextBox  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,401,26,89" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" Cursor="Hand"/>
+        <TextBox FontFamily="Bahnschrift" FontSize="30" x:Name="UsernameCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="52,152,439,532" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
+        <TextBlock Style="{DynamicResource txt_block}" Text="Comment" Margin="26,353,-26,180" Foreground="#FF166AF3" FontFamily="Bahnschrift" FontSize="30"/>
+        <TextBox FontFamily="Bahnschrift" FontSize="30"  AcceptsReturn="True" x:Name="Comment" Style="{DynamicResource ResourceKey=txt_box}" Margin="26,401,26,89" BorderBrush="Black" BorderThickness="2,2,2,2" Background="#FFCFCFCF" Cursor="Hand"/>
         <RadioButton Margin="51,121,689,558" Height="50" FontSize="40" Click="RadioButton_Click" Checked="RadioButton_Checked" Cursor="Hand" />
         <TextBlock Style="{DynamicResource txt_block}" Text="link bài viết" Margin="494,117,-495,562" Foreground="Black" FontSize="25"/>
-        <TextBox x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,152,51,532" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
+        <TextBox FontFamily="Bahnschrift" FontSize="30" x:Name="LinkCommented" Style="{DynamicResource ResourceKey=txt_box}" Margin="468,152,51,532" BorderBrush="Black" BorderThickness="2,2,2,2" Background="White" Cursor="Hand"/>
         <RadioButton Margin="467,125,247,554" Height="50" FontSize="40" Click="RadioButton_Click_1" Checked="RadioButton_Checked_1" />
         <TextBlock Style="{DynamicResource txt_block}" Text="chế độ:" Margin="55,248,581,431" Foreground="Black" FontSize="25" RenderTransformOrigin="0.579,0.72"/>
 
