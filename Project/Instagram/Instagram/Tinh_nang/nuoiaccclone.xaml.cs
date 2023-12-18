@@ -210,10 +210,14 @@ namespace Instagram.Tinh_nang
             
 
             // Thêm đối tượng TextBlock mới vào ScrollViewer
-            
-            Tinhnangnuoiclone tinhnang = a.getTinhNang();
-            listtinhnang.Add(tinhnang);
-            nv.Children.Add(border);
+            if (a.isAccept == true)
+            {
+                
+                Tinhnangnuoiclone tinhnang = a.getTinhNang();
+                listtinhnang.Add(tinhnang);
+                
+                nv.Children.Add(border);
+            }
           
            
 
@@ -515,31 +519,24 @@ namespace Instagram.Tinh_nang
                     driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                     Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                    // var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
-                    //
-                    // Thread.Sleep(TimeSpan.FromSeconds(5));
-                    //
-                    // // Chọn ngẫu nhiên một bài viết
-                    // Random rand = new Random();
-                    // var post = posts[rand.Next(posts.Count)];
-                    //
-                    //
-                    // // Click vào bài viết
-                    // post.Click();
-                    // Thread.Sleep(TimeSpan.FromSeconds(3));
-                    
-                    driver.FindElement(By.ClassName("_aagw")).Click();
+                    Random random = new Random();
+                    int index = random.Next(0, 10);
+                    driver.FindElements(By.ClassName("_aagw"))[index].Click();
                     Thread.Sleep(TimeSpan.FromSeconds(3));
-                
+                    
                     //Tym
                     IWebElement likeButton = driver.FindElement(By.CssSelector("span._aamw svg[aria-label='Like']"));
                     likeButton.Click();
                     Thread.Sleep(TimeSpan.FromSeconds(5));
+                    
+                    
+                    
+    
                 }
                 catch (Exception e)
                 {
                     // driver.Quit();
-                    MessageBox.Show("Đã tym thất bại " + e.Message);
+                    MessageBox.Show("Đã tym thất bại ");
                 }
                 
                 
@@ -558,19 +555,9 @@ namespace Instagram.Tinh_nang
                 driver.Navigate().GoToUrl("https://www.instagram.com/explore/");
                 Thread.Sleep(TimeSpan.FromSeconds(3));
 
-                // var posts = driver.FindElements(By.XPath("//a[@href]/div[1]/div[2]"));
-                // Thread.Sleep(TimeSpan.FromSeconds(6));
-                //
-                // // Chọn ngẫu nhiên một bài viết
-                // Random rand = new Random();
-                // var post = posts[rand.Next(posts.Count)];
-                //
-                //
-                // // Click vào bài viết
-                // post.Click();
-                // Thread.Sleep(TimeSpan.FromSeconds(3));
-                
-                driver.FindElement(By.ClassName("_aagw")).Click();
+                Random random = new Random();
+                int index = random.Next(0, 10);
+                driver.FindElements(By.ClassName("_aagw"))[index].Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));
             
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));
@@ -609,18 +596,9 @@ namespace Instagram.Tinh_nang
         
         private void ScrollTo(ChromeDriver driver)
         {
-            // IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            // js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-    
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-
-            Random rand = new Random();
-            // int x = rand.Next(0, 1000);
-            // int y = rand.Next(0, 1000);
-            int x = 100;
-            int y = 100;
-
-            js.ExecuteScript("window.scrollTo(" + x + ", " + y + ");");
+            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
+            
         }
         
 

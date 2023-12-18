@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -24,12 +25,15 @@ namespace Instagram.Tinh_nang.form
     {
         public string EnteredContent { get; private set; }
          public int truee=0;
-         private bool isAccept = false;
+         public bool isAccept = false;
         public laplich()
         {
             InitializeComponent();
             hd.SelectedIndex = 0;
+            
         }
+
+
         private void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             // Kiểm tra xem ký tự mới nhập vào có phải là số hay không

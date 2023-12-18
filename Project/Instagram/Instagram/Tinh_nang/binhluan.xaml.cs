@@ -173,7 +173,7 @@ namespace Instagram.Tinh_nang
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));
                 textarea.Click();
                 textarea = driver.FindElement(By.TagName("textarea"));
-                textarea.SendKeys(Comment.Text);
+                textarea.SendKeys(Comment.Text.ToString());
                 Thread.Sleep(TimeSpan.FromSeconds(3));
                 //Gửi cmt
                 Actions actions = new Actions(driver);
