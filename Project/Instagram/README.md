@@ -26,7 +26,7 @@ Github: [https://github.com/vutuanhai237/](https://github.com/vutuanhai237/)
 
 <h3>Video demo</h3>
 
-This is video demo [Youtube]()
+This is video demo [Youtube](https://youtu.be/aywQOSOnFmo?si=mWcD-GO_qT9nIpeb)
 
 <h3>Description</h3>
 
