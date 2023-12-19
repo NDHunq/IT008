@@ -51,7 +51,7 @@ namespace Instagram.Tinh_nang
         }
         private void Accept_Butt_Click(object sender, RoutedEventArgs e)
         {
-            if (User_Tbx.Text == "" && add_tbx.Text == "")
+            if ((User_Tbx.Text == "" && add_tbx.Text == "")||Account=="" ||Pass=="")
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
             else
             {

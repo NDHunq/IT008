@@ -65,9 +65,9 @@ namespace Instagram.Tinh_nang
         private void run_butt_Click(object sender, RoutedEventArgs e)
         {
             int loi = 0;
-            if (this.user_name.Text == "" || this.file_output_path.Text == "" || (Cao_Anh.IsChecked == true && SoAnhRadio.IsChecked == true && SoAnhTbx.Text == "") || (Cao_BL.IsChecked == true && SoCmtRadio.IsChecked == true && SoCmtTbx.Text == ""))
+            if (Account==""|| Pass==""||this.user_name.Text == "" || this.file_output_path.Text == "" || (Cao_Anh.IsChecked == true && SoAnhRadio.IsChecked == true && SoAnhTbx.Text == "") || (Cao_BL.IsChecked == true && SoCmtRadio.IsChecked == true && SoCmtTbx.Text == ""))
             {
-                MessageBox.Show("Bạn cần nhập đầy đủ thông tin!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo");
             }
             else
             {
