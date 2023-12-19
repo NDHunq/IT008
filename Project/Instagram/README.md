@@ -1,11 +1,10 @@
 ![UIT](https://img.shields.io/badge/from-UIT%20VNUHCM-blue?style=for-the-badge&link=https%3A%2F%2Fwww.uit.edu.vn%2F)
-
- <h2 align="center"> Instagram Automatic Application </h2>
-
 <p align="center">
   <img src="https://www.uit.edu.vn/sites/vi/files/banner_uit.png" alt="Alt text">
 </p>
 
+ <h2 align="center"> Instagram Automatic Application </h2>
+ <img src="https://github.com/NDHunq/IT008/blob/main/Project/Instagram/Instagram/Resources/icons8-setting-96.png?raw=true" width="250"  />
 
 <h3>Contributors</h3>
 
@@ -49,13 +48,8 @@ With automation, the app saves time, effort and optimizes the effectiveness of y
 
 <h3>How to use</h3>
 
-- Bước 1: Tải source từ repository về máy với lệnh (yêu cầu phải có Git):
-  <p>
-
-      git clone https://github.com/NDHunq/IT008.git
-    
-  </p>
-- Bước 2: Vào theo đường dẫn ./Project/Instagram/Instagram/bin/Debug/ sau đó chạy file Instagram.exe
+- Bước 1: Tải "Instagram.Automatic.Application.exe" ở mục releases của repository này
+- Bước 2: Chạy file installer vừa tải, cài xong sẽ thấy shortcut "Instagram Automatic Application" ở desktop, mở lên và chạy thôi!
 - Bước 3: Nhập thông tin Username và Password vào ô thông tin đã có sẵn, sau đó chọn 1 trong các tính năng từ Combo Box bên dưới
 - Bước 4:
    - 4.1 Cào ảnh/Comment: 
@@ -90,13 +84,8 @@ With automation, the app saves time, effort and optimizes the effectiveness of y
       - Lưu ý: Với những chức năng không sử dụng thì không cần nhập thông tin tương úng với tính năng đó
 
 ---
-- Step 1: Clone this repository into your local computer by using this command (git required):
-  <p>
-
-      git clone https://github.com/NDHunq/IT008.git
-    
-  </p>
-- Step 2: Go to the path ./Project/Instagram/Instagram/bin/Debug/, then run the Instagram.exe file
+- Step 1: Download "Instagram.Automatic.Application.exe" from Releases section of this Repository
+- Step 2: Run the installer file you just downloaded, after it finishes installing you will see the "Instagram Automatic Application" shortcut on your desktop, open it and run it!
 - Step 3: Enter the Username and Password information into the provided fields, then select one of the features from the Combo Box below
 - Step 4:
    - 4.1 Cào ảnh/Comment: 
