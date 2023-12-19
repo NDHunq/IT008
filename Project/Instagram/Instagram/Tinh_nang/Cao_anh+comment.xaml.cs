@@ -91,7 +91,6 @@ namespace Instagram.Tinh_nang
                         throw new Exception();
                     }
                     //Go to target 
-
                     try
                     {
                         string target_user = this.user_name.Text.Substring(0, 26);
@@ -106,7 +105,6 @@ namespace Instagram.Tinh_nang
                     {
                         CD.Navigate().GoToUrl("https://www.instagram.com/" + this.user_name.Text + "/");
                     }
-
                     Thread.Sleep(TimeSpan.FromSeconds(10));
                     loi = 2;
                     //Choosing first post        
@@ -294,7 +292,7 @@ namespace Instagram.Tinh_nang
             IWebElement nextImgButton = null;
             int ImageCount = 1;
             List<string> ListURLImg = new List<string>();
-
+            int IsOnly1=0;
             while (true)
             {
                 if (this.SoAnhRadio.IsChecked == true)
@@ -307,7 +305,17 @@ namespace Instagram.Tinh_nang
                 }
 
                 if (ImageCount == 1)
-                    nextImgButton = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl > div > div._aamn > div.x9f619.xjbqb8w.x78zum5.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x10l6tqk.x1ey2m1c.x13vifvy.x17qophe.xds687c.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.xdt5ytf.xqjyukv.x1qjc9v5.x1oa3qoh.x1nhvcw1 > div > button"));
+                {
+                    try
+                    {
+                        nextImgButton = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl > div > div._aamn > div.x9f619.xjbqb8w.x78zum5.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x10l6tqk.x1ey2m1c.x13vifvy.x17qophe.xds687c.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.xdt5ytf.xqjyukv.x1qjc9v5.x1oa3qoh.x1nhvcw1 > div > button"));
+                    }
+                    catch
+                    {
+                        IsOnly1 = 1;
+                        break;
+                    }
+                }
                 else
                 {
                     try
@@ -367,6 +375,41 @@ namespace Instagram.Tinh_nang
                 else
                     break;
             }
+            if(IsOnly1==1)
+            {
+                string imageUrl;
+                IWebElement imageElement ;
+                try
+                {
+                    imageElement = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl._aatm > div > div > div > div._aagv > img"));
+                }
+                catch
+                {
+                    try
+                    {
+                        imageElement = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl > div > div > div > div._aagv > img"));
+                    }
+                    catch
+                    {
+                        imageElement = CD.FindElement(By.CssSelector("body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._aatk._aatl > div > div > div > div._aagu._aa20._aato > div._aagv > img"));
+                    }
+                }
+                imageUrl = imageElement.GetAttribute("src");
+                FileDownloader downloader = new FileDownloader();
+                string fileName = System.IO.Path.GetFileName("image" + AnhDaCao + ".jpg");
+                string imagePath = System.IO.Path.Combine(saveFolderPath, fileName);
+                downloader.DownloadFile(imageUrl, imagePath);
+                AnhDaCao++;
+                if (this.SoAnhRadio.IsChecked == true)
+                {
+                    if (AnhDaCao > (int.Parse(this.SoAnhTbx.Text)) - 1)
+                    {
+                        stop = 1;
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
+
+            }    
         }
         public class FileDownloader
         {
