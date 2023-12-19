@@ -283,6 +283,12 @@ namespace Instagram.Tinh_nang
 
                     
                 }
+
+                if (listtinhnang[listtinhnang.Count - 1].hoanthanh)
+                {
+                    chromeDriver.Quit();
+                    t.Stop();
+                }
             }
             
             
@@ -348,6 +354,7 @@ namespace Instagram.Tinh_nang
             catch (Exception e)
             {
                 driver.Quit();  
+                t.Stop();
                 MessageBox.Show("Đăng nhập thất bại");
             }
            
