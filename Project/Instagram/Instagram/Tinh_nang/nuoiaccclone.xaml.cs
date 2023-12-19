@@ -286,6 +286,7 @@ namespace Instagram.Tinh_nang
 
                 if (listtinhnang[listtinhnang.Count - 1].hoanthanh)
                 {
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
                     chromeDriver.Quit();
                     t.Stop();
                 }
