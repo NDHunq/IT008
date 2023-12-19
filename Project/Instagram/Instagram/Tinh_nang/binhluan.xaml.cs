@@ -63,6 +63,7 @@ namespace Instagram.Tinh_nang
             }
             Thread.Sleep(TimeSpan.FromSeconds(5));
             chromeDriver.Quit();
+            MessageBox.Show("Comment thành công");
         }
 
         #region Login
