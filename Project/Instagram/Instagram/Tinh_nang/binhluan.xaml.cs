@@ -105,7 +105,7 @@ namespace Instagram.Tinh_nang
             {
             
                 driver.Navigate().GoToUrl("https://www.instagram.com/"+UsernameCommented.Text+"/");
-                Thread.Sleep(TimeSpan.FromSeconds(3));
+                Thread.Sleep(TimeSpan.FromSeconds(6));
             
                 // driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/div[2]/article/div/div/div/div[1]/a/div[1]/div[2]")).Click();
                 driver.FindElement(By.ClassName("_aagw")).Click();
@@ -165,7 +165,7 @@ namespace Instagram.Tinh_nang
             {
             
                 driver.Navigate().GoToUrl("https://www.instagram.com/" + UsernameCommented.Text + "/");
-                Thread.Sleep(TimeSpan.FromSeconds(3));
+                Thread.Sleep(TimeSpan.FromSeconds(6));
             
                 driver.FindElement(By.ClassName("_aagw")).Click();
                 Thread.Sleep(TimeSpan.FromSeconds(3));
@@ -197,7 +197,7 @@ namespace Instagram.Tinh_nang
             try
             {
                 driver.Navigate().GoToUrl(LinkCommented.Text);
-                Thread.Sleep(TimeSpan.FromSeconds(3));
+                Thread.Sleep(TimeSpan.FromSeconds(6));
             
                 //Điền cmt vào ô
                 IWebElement textarea = driver.FindElement(By.TagName("textarea"));

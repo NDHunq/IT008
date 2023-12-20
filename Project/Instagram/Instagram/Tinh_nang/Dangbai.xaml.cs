@@ -168,6 +168,8 @@ namespace Instagram.Tinh_nang
 
                         Thread.Sleep(TimeSpan.FromSeconds(3));
                         CD.Quit();
+                        MessageBox.Show("Hoàn Thành", "Thông báo");
+
                     }
                     catch (Exception ex)
                     {

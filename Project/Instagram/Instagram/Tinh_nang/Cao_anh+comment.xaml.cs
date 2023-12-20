@@ -181,7 +181,7 @@ namespace Instagram.Tinh_nang
                             }
                         }
                         CD.Quit();
-                        MessageBox.Show("Done!", "Thông báo");
+                        MessageBox.Show("Hoàn Thành!", "Thông báo");
                     }
                     //*****************************************************************************************
                     if (this.Cao_BL.IsChecked == true && this.Cao_Anh.IsChecked == false)
